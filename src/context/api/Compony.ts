@@ -1,15 +1,15 @@
 import { api } from "./index";
 
-export const ComponyApi = api.injectEndpoints({
+export const componyApi = api.injectEndpoints({
   endpoints: (build) => ({
     getCompony: build.query({
       query: (params) => ({
-        url: "/company/",
+        url: "/about-us/",
         params,
       }),
-      providesTags: ["Compony"],
+      providesTags: ["Company"],
     }),
   }),
 });
 
-export const { useGetComponyQuery } = ComponyApi;
+export const { useGetComponyQuery } = componyApi;
