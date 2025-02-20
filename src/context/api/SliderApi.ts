@@ -1,10 +1,10 @@
 import { api } from "./index";
 
-export const SliderApi = api.injectEndpoints({
+export const sliderApi = api.injectEndpoints({
   endpoints: (build) => ({
     getSlider: build.query({
       query: (params) => ({
-        url: "/slider/",
+        url: "/sliders/",
         params,
       }),
       providesTags: ["Slider"],
@@ -12,4 +12,4 @@ export const SliderApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetSliderQuery } = SliderApi;
+export const { useGetSliderQuery } = sliderApi;

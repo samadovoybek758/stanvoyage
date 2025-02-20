@@ -1,10 +1,10 @@
 import { api } from "./index";
 
-export const CategoryApi = api.injectEndpoints({
+export const categoryApi = api.injectEndpoints({
   endpoints: (build) => ({
     getCategory: build.query({
       query: (params) => ({
-        url: "/category/",
+        url: "/categories/",
         params,
       }),
       providesTags: ["Category"],
@@ -12,4 +12,4 @@ export const CategoryApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetCategoryQuery } = CategoryApi;
+export const { useGetCategoryQuery } = categoryApi;
