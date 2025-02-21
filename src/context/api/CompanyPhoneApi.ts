@@ -1,10 +1,10 @@
 import { api } from "./index";
 
-export const CompanyPhoneApi = api.injectEndpoints({
+export const companyPhoneApi = api.injectEndpoints({
   endpoints: (build) => ({
     getCompanyPhone: build.query({
       query: (params) => ({
-        url: "/companyphone/",
+        url: "/company-phones/",
         params,
       }),
       providesTags: ["CompanyPhone"],
@@ -12,4 +12,4 @@ export const CompanyPhoneApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetCompanyPhoneQuery } = CompanyPhoneApi;
+export const { useGetCompanyPhoneQuery } = companyPhoneApi;

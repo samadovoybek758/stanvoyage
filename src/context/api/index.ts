@@ -50,7 +50,7 @@ import {
 } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://safir.novacode.uz/api/",
+  baseUrl: "http://192.168.1.110:9000/api/",
   prepareHeaders: (headers) => {
     headers.set("Accept", "application/json");
     return headers;
@@ -72,17 +72,26 @@ export const api = createApi({
   reducerPath: "myApi",
   baseQuery: retry(baseQueryWithRetry, { maxRetries: 3 }),
   tagTypes: [
-    "CompanyImage",
     "Product",
     "Category",
     "Slider",
     "Contact",
     "News",
     "Company",
-    "CompanyAddress",
-    "CompanyEmail",
     "CompanyPhone",
-    "SubCategory",
+    "Vacansy",
+    "Partners",
+    "History",
+    "Articles",
+    "Certificates",
+    "Goals",
+    "Galery",
+    "Factories",
+    "MaterialTypes",
+    "Qualities",
+    "Socials",
+    "Aplication",
+    "Order",
   ],
   endpoints: () => ({}),
 });

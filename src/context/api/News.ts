@@ -14,20 +14,34 @@ export interface NewsParams {
 
 export const newsApi = api.injectEndpoints({
   endpoints: (build) => ({
+
     getNews: build.query<News[], NewsParams>({
       query: (params) => ({
-        url: "/news/",
+        url: "/news/?is_article=False",
         params,
       }),
       providesTags: ["News"],
     }),
-    getNewsById: build.query<News, string>({
-      query: (id) => ({
-        url: `/news/detail/${id}`,
+
+    
+    getArticles: build.query<News[], NewsParams>({
+      query: (params) => ({
+        url: "/news/?is_article=True",
+        params,
       }),
-      providesTags: ["News"],
-    }), 
+      providesTags: ["Articles"],
+    }),
+
+
+
+
+    // getNewsById: build.query<News, string>({
+    //   query: (id) => ({
+    //     url: `/news/detail/${id}`,
+    //   }),
+    //   providesTags: ["News"],
+    // }), 
   }),
 });
 
-export const { useGetNewsQuery, useGetNewsByIdQuery } = newsApi;
+export const { useGetNewsQuery , useGetArticlesQuery } = newsApi;
