@@ -1,10 +1,10 @@
-import NewsList from "./components/NewsList";
+import NewsScreen from "./components/NewsScreen";
 
 const News = () => {
   return (
-    <section>
-      <NewsList />
-    </section>
+    <>
+      <NewsScreen />
+    </>
   );
 };
 

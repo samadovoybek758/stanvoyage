@@ -1,16 +1,7 @@
 "use client";
-import { useGetNewsQuery } from "@/context/api/News";
 
 const Hero = () => {
-  const { data } = useGetNewsQuery({});
-  console.log(data);
-
-  return (
-    <div>
-      <h1>Hello</h1>
-      <ul></ul>
-    </div>
-  );
+  return <section className="container"></section>;
 };
 
 export default Hero;
