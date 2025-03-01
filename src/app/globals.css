@@ -8,3 +8,63 @@
   margin: 0 auto;
   padding: 0 15px;
 }
+
+body {
+  background-color: #f7f7f7;
+  font-family: "Inter", sans-serif;
+}
+.font-brigends-expanded {
+  font-family: "Brigends Expanded", sans-serif;
+  font-weight: 400; /* yoki 700 */
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 300 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Brigends Expanded";
+  src: url("../../public/fonts/brigends_expanded/Brigends\ Expanded.otf")
+    format("opentype");
+  font-weight: 300 800;
+  font-style: normal;
+}
+
+.thumb-slide {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.thumb-slide.swiper-slide-thumb-active {
+  opacity: 1;
+}
+.card-vacancies-img {
+  background-image: url("../../public/Images/vacancies-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.company-overview-bg {
+  background-image: url("../../public/Images/company-about-card-bg.png");
+  /* background-size: ; */
+  background-position: right;
+  background-repeat: no-repeat;
+}
+.shutter-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.shutter-effect {
+  clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
+  transition: all 0.7s ease-in-out;
+  opacity: 0.8;
+}
+
+.swiper-slide-active .shutter-effect {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  opacity: 1;
+}

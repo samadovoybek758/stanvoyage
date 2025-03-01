@@ -1,10 +1,22 @@
 import NewSectionList from "@/components/shared/NewSectionList";
 import React from "react";
+import Contact from "../../../../components/shared/contact/Contact";
+import Hero from "./Hero";
+import GallerySection from "./GallerySection";
+import HomeVacancies from "./HomeVacancies";
+import HomePartners from "./HomePartners";
+import CompanyOverview from "./CompanyOverview";
 
 const HomeScreen = () => {
   return (
     <>
+      <Hero />
+      <CompanyOverview />
       <NewSectionList />
+      <HomePartners />
+      <GallerySection />
+      <HomeVacancies />
+      <Contact />
     </>
   );
 };

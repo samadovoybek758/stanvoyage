@@ -1,9 +1,10 @@
 import React from 'react'
+import ProductsScreen from './components/ProductsScreen'
 
 const Products = () => {
   return (
     <>
-    
+      <ProductsScreen />
     </>
   )
 }

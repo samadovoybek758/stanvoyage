@@ -1,10 +1,58 @@
 {
-  "AboutPage": {
-    "title": "About page",
-    "about": "About page"
+  "header": {
+    "home": "Home",
+    "company": "Company",
+    "products": "Products",
+    "factories": "Factories",
+    "gallery": "Gallery",
+    "news": "News",
+    "vacancies": "Vacancies",
+    "order": "Order",
+    "contact": "Contact"
   },
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+  "order": {
+    "title": "Buyurtma",
+    "category": "Category",
+    "quality": "Quality",
+    "composition": "Composition",
+    "quantity": "Quantity",
+    "name": "Name",
+    "phone": "Phone",
+    "country": "Country",
+    "message": "Message",
+    "button": "So’rov yuborish",
+    "button-loading": "Yuklanmoqda...",
+    "error": "Buyurtma yaratishda xatolik yuz berdi",
+    "success": "Buyurtma muvaffaqiyatli yaratildi"
+  },
+  "contact": {
+    "contact": "Contact",
+    "title": "Send your message",
+    "contact-form": {
+      "full_name": "Ism Familya",
+      "phone": "Telefon raqam",
+      "country": "Mamlakat",
+      "message": "Izoh",
+      "button": "Yuborish",
+      "button-loading": "Yuklanmoqda...",
+      "error": "Xatolik yuz berdi",
+      "success": "Muvaffaqiyatli yuborildi"
+    },
+    "contact-footer": {
+      "phone": "Telefon",
+      "location": "Manzil",
+      "email": "Elektron manzil"
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "products": "Products",
+    "factories": "Factories",
+    "gallery": "Gallery",
+    "news": "News",
+    "vacancies": "Vacancies",
+    "location": "Address",
+    "phone": "Phone",
+    "email": "Email"
   }
 }

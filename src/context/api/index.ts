@@ -48,9 +48,10 @@ import {
   FetchArgs,
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
+import { baseUrl } from "../../../public/static/Index";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://192.168.1.110:9000/api/",
+  baseUrl: `${baseUrl}/api/`,
   prepareHeaders: (headers) => {
     headers.set("Accept", "application/json");
     return headers;
@@ -70,7 +71,7 @@ const baseQueryWithRetry: BaseQueryFn<
 
 export const api = createApi({
   reducerPath: "myApi",
-  baseQuery: retry(baseQueryWithRetry, { maxRetries: 3 }),
+  baseQuery: retry(baseQueryWithRetry, { maxRetries: 0 }),
   tagTypes: [
     "Product",
     "Category",

@@ -1,17 +1,36 @@
+"use client";
 import React from "react";
-import SectionTitle from "../ui/SectionTitle";
+import SectionTitle from "./SectionTitle";
 import CardNews from "../ui/cards/CardNews";
+import { useGetNewsQuery } from "@/context/api/News";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 const NewSectionList = () => {
+  const { data } = useGetNewsQuery({});
+
   return (
     <section className="mb-[120px]">
-      <div className="container ">
+      <div className="container">
         <SectionTitle title="Yangiliklar" buttonName="Barchasi" />
-        <ul className="grid grid-cols-3 gap-x-4 gap-y-[30px]">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <CardNews key={index} />
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={20}
+          slidesPerView={4}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 2 },
+            480: { slidesPerView: 1 },
+          }}
+        >
+          {data?.map((item, index) => (
+            <SwiperSlide key={index}>
+              <CardNews />
+            </SwiperSlide>
           ))}
-        </ul>
+        </Swiper>
       </div>
     </section>
   );

@@ -1,7 +1,86 @@
-import React from "react";
+"use client";
+import Image from "next/image";
+import React, { useRef } from "react";
+import { Autoplay, Navigation, EffectFade } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
+import play from "../../../../../public/Images/video-icon.svg";
+import left from "../../../../../public/Images/left-arrow.svg";
+import right from "../../../../../public/Images/right-arrow.svg";
+import { useGetSliderQuery } from "@/context/api/SliderApi";
+import { getContent, getTitle } from "@/hook/getLanguage";
+import { useLocale } from "next-intl";
+import { baseUrl } from "../../../../../public/static/Index";
+import type { Swiper as SwiperType } from "swiper";
+
+interface Slider {
+  uuid: string;
+  image: string;
+  title_uz: string;
+  title_ru: string;
+  title_en: string;
+  content_uz: string;
+  content_ru: string;
+  content_en: string;
+}
 
 const Hero = () => {
-  return <div>Hero</div>;
+  const { data } = useGetSliderQuery({});
+  const local = useLocale();
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  return (
+    <section className="max-h-[640px] w-full mb-[120px] relative">
+      <Swiper
+        modules={[Autoplay, Navigation, EffectFade]}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        effect="fade"
+        loop={true}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        className="h-[640px]"
+      >
+        {data?.map((item: Slider) => (
+          <SwiperSlide key={item.uuid}>
+            <div className="flex flex-col items-center pt-[128px] hero-slider h-[640px] relative before:bg-[#00000040] before:absolute before:inset-0 before:z-10">
+              <div className="absolute inset-0">
+                <Image
+                  src={`${baseUrl}${item.image}`}
+                  alt="hero"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative z-20 flex flex-col items-center h-full pb-7 ">
+                <h1 className="max-w-[1024px] font-normal text-5xl leading-[60px] mb-2 text-[#fff] text-center font-brigends-expanded line-clamp-4">
+                  {getTitle(item, local)}
+                </h1>
+                <p className="max-w-[760px] text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
+                  {getContent(item, local)}
+                </p>
+                <button className="border-[2px] border-[#fff] text-[#fff] px-9 rounded-[95px] mt-[24px] py-5 font-medium text-lg flex items-center gap-2.5">
+                  <Image src={play} alt="play" width={24} height={24} />
+                  Video ko’rish
+                </button>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="flex-1 flex items-end justify-center absolute bottom-7 left-1/2 -translate-x-1/2 z-20">
+        <div className="flex items-center gap-[13px] py-[12px] px-[17px] bg-[#FFFFFF33] backdrop-blur-[20px] rounded-[95px]">
+          <button onClick={() => swiperRef.current?.slidePrev()}>
+            <Image src={left} alt="left" width={24} height={24} />
+          </button>
+          <div className="w-[1px] h-[18px] bg-[#FFFFFF33]"></div>
+          <button onClick={() => swiperRef.current?.slideNext()}>
+            <Image src={right} alt="right" width={24} height={24} />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;
