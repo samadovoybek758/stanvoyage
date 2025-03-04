@@ -1,13 +1,11 @@
 import React from "react";
-import GalleryGrid from "./components/GalleryGrid";
-import VideoGallery from "./components/VideoGallery";
+import GalleryScreen from "./components/GalleryScreen";
 
 const Gallery = () => {
   return (
-    <section>
-      <GalleryGrid />
-      <VideoGallery />
-    </section>
+    <>
+      <GalleryScreen />
+    </>
   );
 };
 

@@ -1,6 +1,93 @@
 {
-  "HomePage": {
-    "title": "salom dunyo!",
-    "about": "Bosh sahifa"
+  "header": {
+    "home": "Bosh sahifa",
+    "company": "Kompaniya",
+    "products": "Mahsulotlar",
+    "factories": "Fabrikalar",
+    "gallery": "Galleriya",
+    "news": "Yangiliklar",
+    "vacancies": "Vakansiyalar",
+    "order": "Buyurtma",
+    "contact": "Bog‘lanish"
+  },
+  "hero": {
+    "watch-video": "Video ko’rish"
+  },
+  "product": {
+    "title": "Mahsulotlar",
+    "description": "Kompaniya tavsifi"
+  },
+  "news": {
+    "title": "Yangiliklar",
+    "all-button": "Barchasi",
+    "all-button-loading": "Yuklanmoqda..."
+  },
+  "gallery": {
+    "title": "Galleriya"
+  },
+  "certificates": {
+    "title": "Sertifikatlar"
+  },
+  "factories": {
+    "title": "Fabrikalar"
+  },
+  "partner": {
+    "title": "Hamkorlar"
+  },
+  "about": {
+    "title": "Kompaniya haqida"
+  },
+  "mission-and-values": {
+    "title": "Missiya va qadriyatlar"
+  },
+  "vacancy": {
+    "title": "Vakansiyalar",
+    "all-button": "Barchasi",
+    "all-button-loading": "Yuklanmoqda..."
+  },
+  "order": {
+    "title": "Buyurtma",
+    "category": "Kategoriya",
+    "quality": "Sifat",
+    "composition": "Tarkib",
+    "quantity": "Miqdor",
+    "name": "Ism",
+    "phone": "Telefon",
+    "country": "Mamlakat",
+    "message": "Xabar",
+    "button": "So‘rov yuborish",
+    "button-loading": "Yuklanmoqda...",
+    "error": "Buyurtma yaratishda xatolik yuz berdi",
+    "success": "Buyurtma muvaffaqiyatli yaratildi"
+  },
+  "contact": {
+    "contact": "Bog‘lanish",
+    "title": "Xabaringizni yuboring",
+    "contact-form": {
+      "full_name": "Ism Familiya",
+      "phone": "Telefon raqam",
+      "country": "Mamlakat",
+      "message": "Izoh",
+      "button": "Yuborish",
+      "button-loading": "Yuklanmoqda...",
+      "error": "Xatolik yuz berdi",
+      "success": "Muvaffaqiyatli yuborildi"
+    },
+    "contact-footer": {
+      "phone": "Telefon",
+      "location": "Manzil",
+      "email": "Elektron manzil"
+    }
+  },
+  "footer": {
+    "company": "Kompaniya",
+    "products": "Mahsulotlar",
+    "factories": "Fabrikalar",
+    "gallery": "Galleriya",
+    "news": "Yangiliklar",
+    "vacancies": "Vakansiyalar",
+    "location": "Manzil",
+    "phone": "Telefon",
+    "email": "Elektron manzil"
   }
 }

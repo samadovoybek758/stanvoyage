@@ -1,68 +1,86 @@
 "use client";
-import { useCreateAplicationMutation } from "@/context/api/Aplication";
-import { useGetCategoryQuery } from "@/context/api/CategoryApi";
-import { useGetCertificatesQuery } from "@/context/api/Certificates";
-import { useGetCompanyPhoneQuery } from "@/context/api/CompanyPhoneApi";
-import { useGetComponyQuery } from "@/context/api/Compony";
-import { useCreateContactMutation } from "@/context/api/ContactApi";
-import { useGetFactoriesQuery } from "@/context/api/Factories";
-import { useGetGaleryQuery } from "@/context/api/Galery";
-import { useGetGoalsQuery } from "@/context/api/Goals";
-import { useGetHistoryQuery } from "@/context/api/History";
-import { useGetMaterialTypesQuery } from "@/context/api/MaterialTypes";
-import { useGetArticlesQuery, useGetNewsQuery } from "@/context/api/News";
-import { useGetPartnersQuery } from "@/context/api/Partners";
-import { useGetProductByIdQuery, useGetProductsQuery } from "@/context/api/ProductApi";
-import { useGetQualitiesQuery } from "@/context/api/Qualities";
+import Image from "next/image";
+import React, { useRef } from "react";
+import { Autoplay, Navigation, EffectFade } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
+import play from "../../../../../public/Images/video-icon.svg";
+import left from "../../../../../public/Images/left-arrow.svg";
+import right from "../../../../../public/Images/right-arrow.svg";
 import { useGetSliderQuery } from "@/context/api/SliderApi";
-import { useGetSocialsQuery } from "@/context/api/Socials";
-import { useGetVacansyQuery } from "@/context/api/Vacancies";
+import { getContent, getTitle } from "@/hook/getLanguage";
+import { useLocale, useTranslations } from "next-intl";
+import { baseUrl } from "../../../../../public/static/Index";
+import type { Swiper as SwiperType } from "swiper";
+
+interface Slider {
+  uuid: string;
+  image: string;
+  title_uz: string;
+  title_ru: string;
+  title_en: string;
+  content_uz: string;
+  content_ru: string;
+  content_en: string;
+}
 
 const Hero = () => {
-  const [createApplication, { data, isLoading, isSuccess, isError }] = useCreateContactMutation();
-
-
-  const clickbutton = async () => {
-    try {
-      const data = {
-        full_name: 'John Doe',  
-        phone: +998911757064,
-        content : 'asdfasdfasd',
-      };
-
-      const response = await createApplication(data);  
-      console.log("created", response.data);  
-    } catch (error) {
-      console.error("err", error);  
-    }
-  };
-
+  const { data } = useGetSliderQuery({});
+  const local = useLocale();
+  const swiperRef = useRef<SwiperType | null>(null);
+  const t = useTranslations("hero");
   return (
-    <div>
-      <h1>Hello</h1>
-      <button className="bg-slate-500" onClick={clickbutton}>gooo</button>
-      <ul></ul>
-    </div>
+    <section className="max-h-[640px] w-full mb-[120px] relative">
+      <Swiper
+        modules={[Autoplay, Navigation, EffectFade]}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        effect="fade"
+        loop={true}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        className="h-[640px]"
+      >
+        {data?.map((item: Slider) => (
+          <SwiperSlide key={item.uuid}>
+            <div className="flex flex-col items-center pt-[128px] hero-slider h-[640px] relative before:bg-[#00000040] before:absolute before:inset-0 before:z-10">
+              <div className="absolute inset-0">
+                <Image
+                  src={`${baseUrl}${item.image}`}
+                  alt="hero"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative z-20 flex flex-col items-center h-full pb-7 ">
+                <h1 className="max-w-[1024px] font-normal text-5xl leading-[60px] mb-2 text-[#fff] text-center font-brigends-expanded line-clamp-4">
+                  {getTitle(item, local)}
+                </h1>
+                <p className="max-w-[760px] text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
+                  {getContent(item, local)}
+                </p>
+                <button className="border-[2px] border-[#fff] text-[#fff] px-9 rounded-lg mt-[24px] py-5 font-medium text-lg flex items-center gap-2.5">
+                  <Image src={play} alt="play" width={24} height={24} />
+                  {t("watch-video")}
+                </button>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="flex-1 flex items-end justify-center absolute bottom-7 left-1/2 -translate-x-1/2 z-20">
+        <div className="flex items-center gap-[13px] py-[12px] px-[17px] bg-[#FFFFFF33] backdrop-blur-[20px] rounded-lg">
+          <button onClick={() => swiperRef.current?.slidePrev()}>
+            <Image src={left} alt="left" width={24} height={24} />
+          </button>
+          <div className="w-[1px] h-[18px] bg-[#FFFFFF33]"></div>
+          <button onClick={() => swiperRef.current?.slideNext()}>
+            <Image src={right} alt="right" width={24} height={24} />
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 
 export default Hero;
-
-
-// "use client"
-// import React from 'react';
-// import  useCounter  from '@/hook/useCounter';
-
-// const CounterComponent = () => {
-//   const { count, increment, decrement } = useCounter(0);
-
-//   return (
-//     <div>
-//       <p>Count: {count}</p>
-//       <button onClick={increment}>Increment</button>
-//       <button onClick={decrement}>Decrement</button>
-//     </div>
-//   );
-// };
-
-// export default CounterComponent;

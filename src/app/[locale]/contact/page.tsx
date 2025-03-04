@@ -1,7 +1,11 @@
 import React from "react";
-
+import ContactScreen from "./components/ContactScreen";
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <>
+      <ContactScreen />
+    </>
+  );
 };
 
 export default Contact;
