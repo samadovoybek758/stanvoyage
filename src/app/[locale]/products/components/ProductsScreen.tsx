@@ -1,7 +1,7 @@
-import React from 'react'
-import AllHero from '@/components/shared/AllHero'
-import productsImg from '../../../../../public/Images/products-hero.jpg'
-import ProductList from './ProductList';
+import React from "react";
+import AllHero from "@/components/shared/AllHero";
+import productsImg from "../../../../../public/Images/products-hero.jpg";
+import ProductList from "./ProductList";
 const ProductsScreen = () => {
   return (
     <>
@@ -9,6 +9,6 @@ const ProductsScreen = () => {
       <ProductList />
     </>
   );
-}
+};
 
-export default ProductsScreen
+export default ProductsScreen;

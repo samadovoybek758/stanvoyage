@@ -3,6 +3,7 @@ import React from "react";
 import { baseUrl } from "../../../../public/static/Index";
 import { getDescription, getTitle } from "@/hook/getLanguage";
 import { useLocale } from "next-intl";
+import DOMPurify from "dompurify";
 
 interface Factory {
   uuid: string;
@@ -20,8 +21,8 @@ interface Factory {
 const CardFactories = ({ item }: { item: Factory }) => {
   const local = useLocale();
   return (
-    <div className="p-[20px] md:p-[30px] bg-white rounded-[25px] min-h-[602px]">
-      <div className="h-[280px] sm:h-[315px] overflow-hidden  rounded-[20px] mb-6">
+    <div className="p-[20px] md:p-[30px] bg-white rounded-lg min-h-[602px]">
+      <div className="h-[280px] sm:h-[315px] overflow-hidden  rounded-lg mb-6">
         <Image
           width={548}
           height={315}
@@ -37,9 +38,14 @@ const CardFactories = ({ item }: { item: Factory }) => {
           <h1 className="text-[#080808] text-[24px] font-semibold mb-2 md:text-[28px] ">
             {getTitle(item, local)}
           </h1>
-          <p className="text-[#080808] text-lg mb-5 line-clamp-4">
-            {getDescription(item, local)}
-          </p>
+          <p
+            className="text-[#080808] text-lg mb-5 line-clamp-4"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(
+                String(item ? getDescription(item, local) : "")
+              ),
+            }}
+          />
         </div>
 
         <div className="flex justify-between items-center">

@@ -35,7 +35,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => setPagination(Math.max(1, pagination - 1))}
           disabled={pagination === 1}
-          className={`w-10 h-10 rounded-md flex items-center justify-center transition-all duration-200 ${
+          className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
             pagination === 1
               ? "bg-gray-300 cursor-not-allowed"
               : "bg-blue-500 hover:bg-blue-600 text-white"
@@ -50,7 +50,7 @@ const Pagination: React.FC<PaginationProps> = ({
             <span className="px-2 text-gray-500">{page}</span>
           ) : (
             <button
-              className={`w-10 h-10 rounded-md flex items-center justify-center transition-all duration-200 ${
+              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
                 pagination === page
                   ? "bg-blue-700 text-white font-bold"
                   : "bg-gray-200 hover:bg-gray-300"
@@ -66,7 +66,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => setPagination(Math.min(count, pagination + 1))}
           disabled={pagination === count}
-          className={`w-10 h-10 rounded-md flex items-center justify-center transition-all duration-200 ${
+          className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
             pagination === count
               ? "bg-gray-300 cursor-not-allowed"
               : "bg-blue-500 hover:bg-blue-600 text-white"

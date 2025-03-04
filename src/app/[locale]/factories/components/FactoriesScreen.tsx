@@ -1,9 +1,9 @@
 "use client";
 import AllHero from "@/components/shared/AllHero";
-import React from "react";
 import factoriesImg from "../../../../../public/Images/factories-hero.jpg";
 import CardFactories from "@/components/ui/cards/CardFactories";
 import { useGetFactoriesQuery } from "@/context/api/Factories";
+import { useTranslations } from "next-intl";
 
 interface Factory {
   uuid: string;
@@ -19,11 +19,12 @@ interface Factory {
 }
 const FactoriesScreen = () => {
   const { data } = useGetFactoriesQuery({});
+  const t = useTranslations("Factories");
   console.log(data);
 
   return (
     <>
-      <AllHero image={factoriesImg} title="Fabrikalar" />
+      <AllHero image={factoriesImg} title={t("title")} />
       <div className="container">
         <div className="mb-[120px]">
           <div className="grid grid-cols-1 gap-[120px]">

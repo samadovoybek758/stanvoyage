@@ -30,7 +30,7 @@ const Textarea: React.FC<TextareaProps> = ({
         required={required}
         value={value}
         onChange={onChange}
-        className={`w-full bg-[#F7F7F7] font-normal text-base placeholder:text-[#9F9F9F] rounded-xl outline-none py-[18px] px-[20px] text-[#080808] max-h-[116px] min-h-[116px] resize-none ${
+        className={`w-full bg-[#F7F7F7] font-normal text-base placeholder:text-[#9F9F9F] rounded-lg outline-none py-[18px] px-[20px] text-[#080808] max-h-[116px] min-h-[116px] resize-none ${
           error ? "border-red-500" : "border-gray-300"
         } ${className}`}
         {...props}

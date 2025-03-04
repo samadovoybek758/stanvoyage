@@ -3,6 +3,7 @@ import CardVacancies from "@/components/ui/cards/CardVacancies";
 import SectionTitle from "@/components/shared/SectionTitle";
 import React from "react";
 import { useGetVacansyQuery } from "@/context/api/Vacancies";
+import { useTranslations } from "next-intl";
 
 interface Item {
   uuid: string;
@@ -15,10 +16,13 @@ interface Item {
 }
 const VacanciesList = () => {
   const { data: vacancies } = useGetVacansyQuery({});
+  const t = useTranslations("vacancy");
   return (
     <section className="mb-[139px]">
       <div className="container">
-        <SectionTitle title="Vakansiyalar" />
+        <SectionTitle
+          title={t("title")}
+        />
         <ul className="grid grid-cols-3 gap-x-4 gap-y-[25px]">
           {vacancies?.length > 0 &&
             vacancies?.map((item: Item) => (

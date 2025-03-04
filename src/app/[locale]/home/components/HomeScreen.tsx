@@ -6,12 +6,14 @@ import GallerySection from "./GallerySection";
 import HomeVacancies from "./HomeVacancies";
 import HomePartners from "./HomePartners";
 import CompanyOverview from "./CompanyOverview";
+import ProductCategories from "./ProductCategories";
 
 const HomeScreen = () => {
   return (
     <>
       <Hero />
       <CompanyOverview />
+      <ProductCategories />
       <NewSectionList />
       <HomePartners />
       <GallerySection />

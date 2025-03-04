@@ -59,7 +59,7 @@ const OrderModal = () => {
       <li>
         <button
           onClick={openModal}
-          className={`text-base font-normal text-[#080808] relative transition-all duration-300 ease-in-out `}
+          className={`text-base font-normal text-[#fff] relative transition-all duration-300 ease-in-out `}
         >
           {t("title")}
         </button>

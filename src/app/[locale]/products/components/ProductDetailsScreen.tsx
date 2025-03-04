@@ -1,7 +1,12 @@
 import React from "react";
+import ProductDetailHero from "./ProductDetailHero";
 
 const ProductDetailsScreen = () => {
-  return <div>eroductDetailsScrean</div>;
+  return (
+    <>
+      <ProductDetailHero />
+    </>
+  );
 };
 
 export default ProductDetailsScreen;

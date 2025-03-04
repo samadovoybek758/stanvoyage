@@ -10,8 +10,43 @@
     "order": "Order",
     "contact": "Contact"
   },
+  "hero": {
+    "watch-video": "Watch video"
+  },
+  "product": {
+    "title": "Products",
+    "description": "Company description"
+  },
+  "news": {
+    "title": "News",
+    "all-button": "All",
+    "all-button-loading": "Loading..."
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "certificates": {
+    "title": "Certificates"
+  },
+  "factories": {
+    "title": "Factories"
+  },
+  "partner": {
+    "title": "Partners"
+  },
+  "about": {
+    "title": "About the company"
+  },
+  "mission-and-values": {
+    "title": "Mission and values"
+  },
+  "vacancy": {
+    "title": "Vacancies",
+    "all-button": "All",
+    "all-button-loading": "Loading..."
+  },
   "order": {
-    "title": "Buyurtma",
+    "title": "Order",
     "category": "Category",
     "quality": "Quality",
     "composition": "Composition",
@@ -20,28 +55,28 @@
     "phone": "Phone",
     "country": "Country",
     "message": "Message",
-    "button": "So’rov yuborish",
-    "button-loading": "Yuklanmoqda...",
-    "error": "Buyurtma yaratishda xatolik yuz berdi",
-    "success": "Buyurtma muvaffaqiyatli yaratildi"
+    "button": "Send request",
+    "button-loading": "Loading...",
+    "error": "Error occurred while creating the order",
+    "success": "Order successfully created"
   },
   "contact": {
     "contact": "Contact",
     "title": "Send your message",
     "contact-form": {
-      "full_name": "Ism Familya",
-      "phone": "Telefon raqam",
-      "country": "Mamlakat",
-      "message": "Izoh",
-      "button": "Yuborish",
-      "button-loading": "Yuklanmoqda...",
-      "error": "Xatolik yuz berdi",
-      "success": "Muvaffaqiyatli yuborildi"
+      "full_name": "Full Name",
+      "phone": "Phone",
+      "country": "Country",
+      "message": "Comment",
+      "button": "Send",
+      "button-loading": "Loading...",
+      "error": "An error occurred",
+      "success": "Successfully sent"
     },
     "contact-footer": {
-      "phone": "Telefon",
-      "location": "Manzil",
-      "email": "Elektron manzil"
+      "phone": "Phone",
+      "location": "Address",
+      "email": "Email"
     }
   },
   "footer": {

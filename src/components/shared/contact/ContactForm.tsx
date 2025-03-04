@@ -39,7 +39,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
   };
 
   return (
-    <div className={`bg-[#FFFFFF] p-[30px] rounded-[25px] ${className}`}>
+    <div className={`bg-[#FFFFFF] p-[30px] rounded-lg ${className}`}>
       <h2 className="text-[#080808] text-[28px] leading-[42px] font-semibold mb-6 max-[282px] font-brigends-expanded">
         Arizangizni yuboring
       </h2>

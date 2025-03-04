@@ -29,7 +29,7 @@ const Footer = () => {
   return (
     <footer className="mb-4">
       <div className="container">
-        <div className="bg-[#FFFFFF] p-[30px] rounded-[25px] grid grid-cols-[1fr_385px]">
+        <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-[1fr_385px]">
           <div className="flex items-start flex-col justify-between gap-[71px] ">
             <Link href="/">
               <Image

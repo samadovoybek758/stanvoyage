@@ -18,7 +18,7 @@ function Partners() {
           {data?.map((item: { uuid: string; image: string }) => (
             <div
               key={item?.uuid}
-              className="py-[45px] pl-[49px] pr-11 bg-white rounded-[25px] flex items-center justify-center mx-4 h-[146px]"
+              className="py-[45px] pl-[49px] pr-11 bg-white rounded-lg flex items-center justify-center mx-4 h-[146px]"
             >
               <Image
                 width={200}
@@ -33,7 +33,7 @@ function Partners() {
           {data?.map((item: { uuid: string; image: string }) => (
             <div
               key={item?.uuid}
-              className="py-[45px] pl-[49px] pr-11 bg-white rounded-[25px] flex items-center justify-center mx-4 h-[146px]"
+              className="py-[45px] pl-[49px] pr-11 bg-white rounded-lg flex items-center justify-center mx-4 h-[146px]"
             >
               <Image
                 width={200}

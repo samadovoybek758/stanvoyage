@@ -8,6 +8,7 @@ import { Autoplay } from "swiper/modules";
 import { useGetCertificatesQuery } from "@/context/api/Certificates";
 import { baseUrl } from "../../../../../public/static/Index";
 import SectionTitle from "@/components/shared/SectionTitle";
+import { useTranslations } from "next-intl";
 
 interface Certificate {
   uuid: number;
@@ -16,11 +17,12 @@ interface Certificate {
 
 export default function Sertificate() {
   const { data } = useGetCertificatesQuery({});
+  const t = useTranslations("certificates");
   return (
     <section className="container">
       <div className="mb-[120px]">
         <div className="mb-12 mt-12">
-          <SectionTitle title="Sertifcatlar" />
+          <SectionTitle title={t("title")} />
           <Swiper
             slidesPerView={3}
             spaceBetween={16}
@@ -37,7 +39,7 @@ export default function Sertificate() {
           >
             {data?.map((item: Certificate) => (
               <SwiperSlide key={item.uuid}>
-                <div className="bg-white px-[58px]  py-6 rounded-[25px] h-[450px] overflow-hidden">
+                <div className="bg-white px-[58px]  py-6 rounded-lg h-[450px] overflow-hidden">
                   <Image
                     width={284}
                     height={400}

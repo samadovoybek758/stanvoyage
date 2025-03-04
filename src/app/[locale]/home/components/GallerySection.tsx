@@ -13,6 +13,7 @@ import Image from "next/image";
 import { useGetGaleryQuery } from "@/context/api/Galery";
 import { baseUrl } from "../../../../../public/static/Index";
 import SectionTitle from "@/components/shared/SectionTitle";
+import { useTranslations } from "next-intl";
 
 export default function Gallery() {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
@@ -32,11 +33,11 @@ export default function Gallery() {
   }, []);
 
   let mainSwiper: SwiperType | null = null;
-
+  const t = useTranslations("gallery");
   return (
     <section className="container">
       <div className="mb-32 gallery h-[828px] mx-auto py-7">
-        <SectionTitle title="Galareya" />
+        <SectionTitle title={t("title")} />
         {/* **Swiper Asosiy Karusel** */}
         <Swiper
           onSwiper={(swiper) => (mainSwiper = swiper)}
@@ -53,7 +54,7 @@ export default function Gallery() {
               <SwiperSlide key={item?.uuid}>
                 <div className="h-[580px] w-full overflow-hidden">
                   <Image
-                    className="w-full h-full object-cover rounded-[25px] cursor-pointer"
+                    className="w-full h-full object-cover rounded-lg cursor-pointer"
                     src={`${baseUrl}/${item?.file}`}
                     alt={"gallery image"}
                     width={1232}
@@ -66,12 +67,12 @@ export default function Gallery() {
 
         {/* **Navigatsiya tugmalari** */}
         <div className="mt-5 relative">
-          <button className="next w-[56px] h-[56px] cursor-pointer bg-[#E1E1E1] rounded-full flex justify-center items-center absolute right-0 top-1/2 -translate-y-1/2 z-10">
+          <button className="next w-[56px] h-[56px] cursor-pointer bg-[#E1E1E1] rounded-lg flex justify-center items-center absolute right-0 top-1/2 -translate-y-1/2 z-10">
             <Image width={24} height={24} alt="icon right" src={right} />
           </button>
 
           {/* **Swiper Thumbnails (kichik rasmchalar)** */}
-          <div className="max-w-[1060px] w-full mx-auto overflow-hidden px-10 flex justify-center items-center">
+          <div className="overflow-hidden px-[86px] flex justify-center items-center">
             <Swiper
               onSwiper={setThumbsSwiper}
               loop={true}
@@ -82,28 +83,30 @@ export default function Gallery() {
               modules={[FreeMode, Navigation, Thumbs]}
             >
               {data?.length > 0 &&
-                data.map((item: { uuid: string; file: string }, index: number) => (
-                  <SwiperSlide
-                    key={item?.uuid}
-                    className={`thumb-slide ${
-                      thumbsSwiper?.clickedIndex === index || index === 0
-                        ? "swiper-slide-thumb-active"
-                        : ""
-                    }`}
-                  >
-                    <Image
-                      className="w-full h-[165px] object-cover rounded-[25px] cursor-pointer transition-opacity"
-                      src={`${baseUrl}/${item?.file}`}
-                      alt={"gallery image"}
-                      width={253}
-                      height={165}
-                    />
-                  </SwiperSlide>
-                ))}
+                data.map(
+                  (item: { uuid: string; file: string }, index: number) => (
+                    <SwiperSlide
+                      key={item?.uuid}
+                      className={`thumb-slide ${
+                        thumbsSwiper?.clickedIndex === index || index === 0
+                          ? "swiper-slide-thumb-active"
+                          : ""
+                      }`}
+                    >
+                      <Image
+                        className="w-full h-[165px] object-cover rounded-lg cursor-pointer transition-opacity"
+                        src={`${baseUrl}/${item?.file}`}
+                        alt={"gallery image"}
+                        width={253}
+                        height={165}
+                      />
+                    </SwiperSlide>
+                  )
+                )}
             </Swiper>
           </div>
 
-          <button className="prev w-[56px] h-[56px] cursor-pointer bg-[#E1E1E1] flex justify-center items-center rounded-full p-2 absolute top-1/2 left-0 z-10 -translate-y-1/2">
+          <button className="prev w-[56px] h-[56px] cursor-pointer bg-[#E1E1E1] flex justify-center items-center rounded-lg p-2 absolute top-1/2 left-0 z-10 -translate-y-1/2">
             <Image width={24} height={24} alt="icon left" src={left} />
           </button>
         </div>

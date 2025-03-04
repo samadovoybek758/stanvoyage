@@ -7,7 +7,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 const ContactFooter = () => {
   const t = useTranslations("contact.contact-footer");
   return (
-    <div className="grid grid-cols-3 gap-5 bg-white rounded-[25px] p-[30px]">
+    <div className="grid grid-cols-3 gap-5 bg-white rounded-lg p-[30px]">
       <div>
         <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-base">
           <div>

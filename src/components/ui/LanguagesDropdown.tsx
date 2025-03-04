@@ -35,7 +35,7 @@ const LanguageDropdown = () => {
   return (
     <div className="w-full flex justify-end relative">
       <button
-        className="flex items-center flex-row gap-2 rounded-md transition-all hover:text-primary mb-0.1 text-[#080808] "
+        className="flex items-center flex-row gap-2 rounded-lg transition-all hover:text-primary mb-0.1 text-[#fff] "
         onClick={(e) => {
           setDropdown((p) => !p);
           e.stopPropagation();
@@ -56,7 +56,7 @@ const LanguageDropdown = () => {
         }`}
       >
         <ul
-          className="origin-top-right divide-y divide-gray-100 rounded-md border bg-white border-whiteLight shadow-lg ring-1 ring-black/5 focus:outline-none"
+          className="origin-top-right divide-y divide-gray-100 rounded-lg border bg-white border-whiteLight shadow-lg ring-1 ring-black/5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           onClick={(e) => e.stopPropagation()}

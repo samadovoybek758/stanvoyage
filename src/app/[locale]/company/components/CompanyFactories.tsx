@@ -8,6 +8,7 @@ import left from "../../../../../public/Images/gallary-left.svg";
 import right from "../../../../../public/Images/gallary-right.svg";
 import { useGetFactoriesQuery } from "@/context/api/Factories";
 import CardFactories from "@/components/ui/cards/CardFactories";
+import { useTranslations } from "next-intl";
 
 interface Factory {
   uuid: string;
@@ -25,7 +26,7 @@ interface Factory {
 
 function CompanyFactories() {
   const { data } = useGetFactoriesQuery({});
-
+  const t = useTranslations("factories");
   const swiperRef = useRef<SwiperCore | null>(null);
 
   const handlePrev = () => swiperRef.current?.slidePrev();
@@ -37,7 +38,7 @@ function CompanyFactories() {
         <div className="mb-12">
           <div className="flex justify-between items-center mb-6">
             <h1 className="font-normal text-4xl font-brigends-expanded text-[#080808]">
-              Fabrikalar
+              {t("title")}
             </h1>
 
             <div className="flex gap-3">

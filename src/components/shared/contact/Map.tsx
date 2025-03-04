@@ -2,10 +2,11 @@ import React from "react";
 
 const Map = ({ className }: { className?: string }) => {
   return (
-    <div className={`rounded-[25px] ${className}`}>
+    <div className={`rounded-lg ${className}`}>
       <iframe
-        src="https://yandex.uz/maps/geo/1508540006/?ll=72.565509%2C40.667535&z=14"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d531.3718061642583!2d72.57651338892656!3d40.65632422961893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bcf97a66cb83e5%3A0x9046b588f57b9623!2sSAMO%20textile%20Head%20Office!5e0!3m2!1sen!2s!4v1740998561311!5m2!1sen!2s"
         width="100%"
+        // height=""
         frameBorder="0"
         allowFullScreen
         style={{ border: 0 }}

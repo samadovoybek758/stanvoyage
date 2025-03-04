@@ -3,7 +3,7 @@ import newsImg from "../../../../public/Images/newx-bg.png";
 const CardNews = () => {
   return (
     <div>
-      <div className="h-[296px] bg-[#EEEEEE] mb-4 rounded-[25px] overflow-hidden">
+      <div className="h-[296px] bg-[#EEEEEE] mb-4 rounded-lg overflow-hidden">
         <Image
           width={296}
           height={320}

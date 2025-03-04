@@ -9,7 +9,13 @@ export const vacansyApi = api.injectEndpoints({
       }),
       providesTags: ["Vacansy"],
     }),
+    getVacansyById: build.query({
+      query: (id) => ({
+        url: `/vacancy/${id}`,
+      }),
+      providesTags: ["Vacansy"],
+    }),
   }),
 });
 
-export const { useGetVacansyQuery  } = vacansyApi;
+export const { useGetVacansyQuery, useGetVacansyByIdQuery } = vacansyApi;

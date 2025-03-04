@@ -11,7 +11,7 @@ import left from "../../../../../public/Images/left-arrow.svg";
 import right from "../../../../../public/Images/right-arrow.svg";
 import { useGetSliderQuery } from "@/context/api/SliderApi";
 import { getContent, getTitle } from "@/hook/getLanguage";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { baseUrl } from "../../../../../public/static/Index";
 import type { Swiper as SwiperType } from "swiper";
 
@@ -30,7 +30,7 @@ const Hero = () => {
   const { data } = useGetSliderQuery({});
   const local = useLocale();
   const swiperRef = useRef<SwiperType | null>(null);
-
+  const t = useTranslations("hero");
   return (
     <section className="max-h-[640px] w-full mb-[120px] relative">
       <Swiper
@@ -59,9 +59,9 @@ const Hero = () => {
                 <p className="max-w-[760px] text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
                   {getContent(item, local)}
                 </p>
-                <button className="border-[2px] border-[#fff] text-[#fff] px-9 rounded-[95px] mt-[24px] py-5 font-medium text-lg flex items-center gap-2.5">
+                <button className="border-[2px] border-[#fff] text-[#fff] px-9 rounded-lg mt-[24px] py-5 font-medium text-lg flex items-center gap-2.5">
                   <Image src={play} alt="play" width={24} height={24} />
-                  Video ko’rish
+                  {t("watch-video")}
                 </button>
               </div>
             </div>
@@ -69,7 +69,7 @@ const Hero = () => {
         ))}
       </Swiper>
       <div className="flex-1 flex items-end justify-center absolute bottom-7 left-1/2 -translate-x-1/2 z-20">
-        <div className="flex items-center gap-[13px] py-[12px] px-[17px] bg-[#FFFFFF33] backdrop-blur-[20px] rounded-[95px]">
+        <div className="flex items-center gap-[13px] py-[12px] px-[17px] bg-[#FFFFFF33] backdrop-blur-[20px] rounded-lg">
           <button onClick={() => swiperRef.current?.slidePrev()}>
             <Image src={left} alt="left" width={24} height={24} />
           </button>

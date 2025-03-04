@@ -26,7 +26,7 @@ const Select: React.FC<SelectProps> = ({
       {label && <label className="text-gray-700 font-medium">{label}</label>}
       <div className="relative w-full">
         <select
-          className={`w-full appearance-none bg-[#F7F7F7] font-normal text-base text-[#080808] placeholder:text-[#9F9F9F] rounded-xl outline-none py-[18px] px-[20px] cursor-pointer ${
+          className={`w-full appearance-none bg-[#F7F7F7] font-normal text-base text-[#080808] placeholder:text-[#9F9F9F] rounded-lg outline-none py-[18px] px-[20px] cursor-pointer ${
             error ? "border-red-500" : "border-gray-300"
           } ${className}`}
           {...props}

@@ -28,9 +28,9 @@ const CustomPhoneInput: React.FC<PhoneInputProps> = ({
         containerClass={classNames("w-full", className)}
         placeholder="Telefon raqamingizni kiriting"
         inputClass={classNames(
-          "!w-full !bg-[#F7F7F7] !font-normal !text-base placeholder:!text-[#9F9F9F] !rounded-xl !outline-none !py-[18px] !px-[20px] !text-[#080808]"
+          "!w-full !bg-[#F7F7F7] !font-normal !text-base placeholder:!text-[#9F9F9F] !rounded-lg !outline-none !py-[18px] !px-[20px] !text-[#080808]"
         )}
-        buttonClass="bg-gray-200 rounded-md"
+        buttonClass="bg-gray-200 rounded-lg"
       />
       {error && <span className="text-red-500 text-sm">{error}</span>}
     </div>
