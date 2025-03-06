@@ -27,8 +27,10 @@ const CardNews = ({ item }: { item: CardNewsProps }) => {
           className="w-full h-full object-cover"
         />
       </div>
-      <span className="font-normal text-base text-black mb-2">{item.date}</span>
-      <h3 className="font-normal line-clamp-2 text-lg text-black max-w-[387px]">
+      <span className="font-normal text-sm sm:text-base text-black mb-[6px] sm:mb-2">
+        {item.date}
+      </span>
+      <h3 className="font-normal line-clamp-2 text-base sm:text-lg text-black max-w-[387px]">
         {getTitle(item, locale)}
       </h3>
     </Link>
