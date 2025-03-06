@@ -11,11 +11,11 @@ import ProductCategories from "./ProductCategories";
 const HomeScreen = () => {
   return (
     <>
-      <Hero />
+      {/* <Hero />
       <CompanyOverview />
       <ProductCategories />
       <NewSectionList />
-      <HomePartners />
+      <HomePartners /> */}
       <GallerySection />
       <HomeVacancies />
       <Contact />

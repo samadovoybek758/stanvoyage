@@ -33,8 +33,10 @@ const HomeVacancies = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             1024: { slidesPerView: 3 },
-            768: { slidesPerView: 2 },
-            480: { slidesPerView: 1 },
+            768: { slidesPerView: 2.5},
+            600: {slidesPerView: 2},
+            490: {slidesPerView: 1.3},
+            300: { slidesPerView: 1 },
           }}
         >
           {data?.slice(0, 6)?.map((item: Item) => (
