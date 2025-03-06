@@ -1,11 +1,7 @@
 import NewsDetailScreen from "../components/NewsDetailScreen";
 
 const NewsDetail = () => {
-  return (
-    <section>
-      <NewsDetailScreen />
-    </section>
-  );
+  return <NewsDetailScreen />;
 };
 
 export default NewsDetail;

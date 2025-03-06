@@ -17,6 +17,9 @@
     "title": "Products",
     "description": "Company description"
   },
+  "performance-efficiency": {
+    "title": "Performance efficiency"
+  },
   "news": {
     "title": "News",
     "all-button": "All",
@@ -35,7 +38,8 @@
     "title": "Partners"
   },
   "about": {
-    "title": "About the company"
+    "title": "About the company",
+    "button": "Company overview"
   },
   "mission-and-values": {
     "title": "Mission and values"

@@ -1,11 +1,11 @@
-import ProductDetailsScreen from "../components/ProductDetailsScreen";
+import CategoryDetailsScreen from "../components/CategoryDetailsScreen";
 
-const ProductDetail = () => {
+const CategoryDetail = () => {
   return (
     <>
-      <ProductDetailsScreen />
+      <CategoryDetailsScreen />
     </>
   );
 };
 
-export default ProductDetail;
+export default CategoryDetail;

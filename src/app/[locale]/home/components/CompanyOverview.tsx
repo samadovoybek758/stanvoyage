@@ -5,13 +5,16 @@ import companyIcon from "../../../../../public/Images/company-icon.svg";
 import Button from "@/components/ui/Button";
 import DOMPurify from "dompurify";
 import { getDescriptionShort, getTitle } from "@/hook/getLanguage";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { baseUrl } from "../../../../../public/static/Index";
 import ImageLoading from "@/components/ui/ImageLoading";
 import Loading from "@/components/ui/Loading";
+import { useRouter } from "next/navigation";
 
 const CompanyOverview = () => {
   const { data: item, isLoading, isFetching } = useGetComponyQuery({});
+  const navigation = useRouter();
+  const t = useTranslations("about");
   const locale = useLocale();
   const cleanDescription = (htmlString: string) => {
     const parts = htmlString.split("<br><br>");
@@ -58,8 +61,8 @@ const CompanyOverview = () => {
                 <Button
                   className="px-11"
                   type="button"
-                  text="Batafsil ma’lumot"
-                  onClick={() => {}}
+                  text={t("button")}
+                  onClick={() => navigation.push(`/${locale}/company`)}
                 />
               </div>
             </div>

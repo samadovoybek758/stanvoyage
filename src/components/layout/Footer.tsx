@@ -29,7 +29,7 @@ const Footer = () => {
   return (
     <footer className="mb-4">
       <div className="container">
-        <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-[1fr_385px]">
+        <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-[1fr_auto]">
           <div className="flex items-start flex-col justify-between gap-[71px] ">
             <Link href="/">
               <Image
@@ -73,7 +73,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-start justify-between max-w-[385px]">
+          <div className="flex items-start justify-between w-full max-w-[385px]">
             <ul className="flex flex-col gap-[18px]">
               {footerNavigations.map((item) => (
                 <li key={item.name}>

@@ -121,7 +121,6 @@ const VacanciesDetailScreen = () => {
                 onChange={handleChange}
               />
               <Textarea
-                required
                 placeholder="Xabaringizni qoldiring"
                 name="content"
                 value={formData.content}

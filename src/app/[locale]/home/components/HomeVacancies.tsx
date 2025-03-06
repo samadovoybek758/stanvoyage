@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-
+import { useTranslations } from "next-intl";
 interface Item {
   uuid: string;
   title_ru: string;
@@ -20,11 +20,11 @@ interface Item {
 
 const HomeVacancies = () => {
   const { data } = useGetVacansyQuery({});
-
+  const t = useTranslations("vacancy");
   return (
     <section className="mb-[120px]">
       <div className="container">
-        <SectionTitle title="Vakansiyalar" buttonName="Barchasi" />
+        <SectionTitle title={t("title")} buttonName={t("all-button")} />
         <Swiper
           modules={[Autoplay]}
           spaceBetween={20}

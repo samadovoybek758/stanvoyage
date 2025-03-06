@@ -17,6 +17,9 @@
     "title": "Mahsulotlar",
     "description": "Kompaniya tavsifi"
   },
+  "performance-efficiency": {
+    "title": "Ishlash samaradorligi"
+  },
   "news": {
     "title": "Yangiliklar",
     "all-button": "Barchasi",
@@ -35,7 +38,8 @@
     "title": "Hamkorlar"
   },
   "about": {
-    "title": "Kompaniya haqida"
+    "title": "Kompaniya haqida",
+    "button": "Kompaniya haqida"
   },
   "mission-and-values": {
     "title": "Missiya va qadriyatlar"

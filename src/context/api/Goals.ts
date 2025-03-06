@@ -4,7 +4,7 @@ export const goalsApi = api.injectEndpoints({
   endpoints: (build) => ({
     getGoals: build.query({
       query: (params) => ({
-        url: "/goals/",
+        url: "goals/",
         params,
       }),
       providesTags: ["Goals"],

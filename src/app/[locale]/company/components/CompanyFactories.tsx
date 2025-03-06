@@ -35,7 +35,7 @@ function CompanyFactories() {
   return (
     <section className="mb-[120px]">
       <div className="container">
-        <div className="mb-12">
+        <div>
           <div className="flex justify-between items-center mb-6">
             <h1 className="font-normal text-4xl font-brigends-expanded text-[#080808]">
               {t("title")}
@@ -65,7 +65,6 @@ function CompanyFactories() {
               640: { slidesPerView: 1 },
               892: { slidesPerView: 2 },
             }}
-            className="!pb-10"
             loop
           >
             <div className="grid md:grid-cols-2 grid-cols-1 gap-4">

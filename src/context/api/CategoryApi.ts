@@ -9,7 +9,13 @@ export const categoryApi = api.injectEndpoints({
       }),
       providesTags: ["Category"],
     }),
+    getCategoryById: build.query({
+      query: (id) => ({
+        url: `/category/${id}/`,
+      }),
+      providesTags: ["Category"],
+    }),
   }),
 });
 
-export const { useGetCategoryQuery } = categoryApi;
+export const { useGetCategoryQuery, useGetCategoryByIdQuery } = categoryApi;

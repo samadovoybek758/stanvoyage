@@ -10,7 +10,7 @@ import play from "../../../../../public/Images/video-icon.svg";
 import left from "../../../../../public/Images/left-arrow.svg";
 import right from "../../../../../public/Images/right-arrow.svg";
 import { useGetSliderQuery } from "@/context/api/SliderApi";
-import { getContent, getTitle } from "@/hook/getLanguage";
+import { getDescription, getTitle } from "@/hook/getLanguage";
 import { useLocale, useTranslations } from "next-intl";
 import { baseUrl } from "../../../../../public/static/Index";
 import type { Swiper as SwiperType } from "swiper";
@@ -21,9 +21,9 @@ interface Slider {
   title_uz: string;
   title_ru: string;
   title_en: string;
-  content_uz: string;
-  content_ru: string;
-  content_en: string;
+  description_uz: string;
+  description_ru: string;
+  description_en: string;
 }
 
 const Hero = () => {
@@ -57,7 +57,7 @@ const Hero = () => {
                   {getTitle(item, local)}
                 </h1>
                 <p className="max-w-[760px] text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
-                  {getContent(item, local)}
+                  {getDescription(item, local)}
                 </p>
                 <button className="border-[2px] border-[#fff] text-[#fff] px-9 rounded-lg mt-[24px] py-5 font-medium text-lg flex items-center gap-2.5">
                   <Image src={play} alt="play" width={24} height={24} />

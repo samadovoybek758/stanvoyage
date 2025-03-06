@@ -51,7 +51,7 @@ import {
 import { baseUrl } from "../../../public/static/Index";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${baseUrl}/api/`,
+  baseUrl: `${baseUrl}api/`,
   prepareHeaders: (headers) => {
     headers.set("Accept", "application/json");
     return headers;

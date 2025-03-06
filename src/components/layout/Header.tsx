@@ -5,14 +5,15 @@ import React from "react";
 import logo from "../../../public/Images/white-max-logo.svg";
 import { navigations } from "../../../public/static/Index";
 import { useLocale, useTranslations } from "next-intl";
-// import { useSelectedLayoutSegment } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 import LanguageDropdown from "../ui/LanguagesDropdown";
 import search from "../../../public/Images/search.svg";
 import OrderModal from "../ui/OrderModal";
+import { HiOutlineMenu } from "react-icons/hi";
 const Header = () => {
   const t = useTranslations("header");
-  // const segment = useSelectedLayoutSegment();
-  // const homePage = segment === null ? "/" : "";
+  const segment = useSelectedLayoutSegment();
+  const homePage = segment === null ? "/" : "";
   const locale = useLocale();
 
   return (
@@ -30,11 +31,16 @@ const Header = () => {
               />
             </Link>
           </div>
-          <ul className="flex items-center gap-[26px]">
+          <ul className="hidden xl:flex items-center gap-[26px]">
             {navigations?.map((item) => (
               <li key={item.name} className="relative">
                 <Link
                   className={`text-base font-normal text-[#fff] relative transition-all duration-300 ease-in-out
+                     ${
+                       homePage === item.href || "/" + segment === item.href
+                         ? "before:content-[''] before:absolute  before:top-[32px] before:left-1/2 before:-translate-x-1/2 before:w-[6px] before:h-[6px] before:bg-[#fff] before:rounded-full before:transition-all before:duration-300 before:ease-in-out"
+                         : "before:content-[''] before:absolute  before:top-[32px] before:left-1/2 before:-translate-x-1/2 before:w-[0px] before:h-[6px] before:bg-[#fff] before:rounded-full before:transition-all before:duration-300 before:ease-in-out"
+                     }
                       `}
                   href={`/${locale}${item.href}`}
                 >
@@ -52,13 +58,18 @@ const Header = () => {
               height={24}
               className="w-6 h-6 cursor-pointer"
             />
-            <LanguageDropdown />
+            <div className="hidden xl:block">
+              <LanguageDropdown />
+            </div>
             <Link
-              className="text-[#F37325] py-[12.5px] px-[25px] font-semibold text-sm bg-[#fff] rounded-lg"
+              className="hidden xl:block text-[#F37325] py-[12.5px] px-[25px] font-semibold text-sm bg-[#fff] rounded-lg"
               href={`/${locale}/contact`}
             >
               {t("contact")}
             </Link>
+            <button className="xl:hidden">
+              <HiOutlineMenu className="text-white text-2xl" />
+            </button>
           </div>
         </nav>
       </div>
@@ -67,17 +78,3 @@ const Header = () => {
 };
 
 export default Header;
-{
-  /* <Link
-                  className={`text-base font-normal text-[#fff] relative transition-all duration-300 ease-in-out
-                     ${
-                    homePage === item.href || "/" + segment === item.href
-                      ? "before:content-[''] before:absolute  before:top-[32px] before:left-1/2 before:-translate-x-1/2 before:w-[6px] before:h-[6px] before:bg-[#fff] before:rounded-full before:transition-all before:duration-300 before:ease-in-out"
-                      : "before:content-[''] before:absolute  before:top-[32px] before:left-1/2 before:-translate-x-1/2 before:w-[0px] before:h-[6px] before:bg-[#fff] before:rounded-full before:transition-all before:duration-300 before:ease-in-out"
-                  }
-                      `}
-                  href={`/${locale}${item.href}`}
-                >
-                  {t(item.name)}
-                </Link> */
-}

@@ -1,8 +1,23 @@
 import Image from "next/image";
 import newsImg from "../../../../public/Images/newx-bg.png";
-const CardNews = () => {
+import Link from "next/link";
+import { useLocale } from "next-intl";
+import { getTitle } from "@/hook/getLanguage";
+
+interface CardNewsProps {
+  uuid: string;
+  title_uz: string;
+  title_ru: string;
+  title_en: string;
+  date: string;
+}
+
+const CardNews = ({ item }: { item: CardNewsProps }) => {
+  const locale = useLocale();
+  console.log(item);
+
   return (
-    <div>
+    <Link href={`/${locale}/news/${item.uuid}`}>
       <div className="h-[296px] bg-[#EEEEEE] mb-4 rounded-lg overflow-hidden">
         <Image
           width={296}
@@ -12,11 +27,11 @@ const CardNews = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <span className="font-normal text-base text-black mb-2"> 14/02/2025</span>
+      <span className="font-normal text-base text-black mb-2">{item.date}</span>
       <h3 className="font-normal line-clamp-2 text-lg text-black max-w-[387px]">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        {getTitle(item, locale)}
       </h3>
-    </div>
+    </Link>
   );
 };
 

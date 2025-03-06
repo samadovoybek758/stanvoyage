@@ -6,14 +6,24 @@ import { useGetNewsQuery } from "@/context/api/News";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { useTranslations } from "next-intl";
+
+interface Item {
+  uuid: string;
+  title_ru: string;
+  title_en: string;
+  title_uz: string;
+}
 
 const NewSectionList = () => {
   const { data } = useGetNewsQuery({});
+  const t = useTranslations("news");
+  console.log(data);
 
   return (
     <section className="mb-[120px]">
       <div className="container">
-        <SectionTitle title="Yangiliklar" buttonName="Barchasi" />
+        <SectionTitle title={t("title")} buttonName={t("all-button")} />
         <Swiper
           modules={[Autoplay]}
           spaceBetween={20}
@@ -25,9 +35,9 @@ const NewSectionList = () => {
             480: { slidesPerView: 1 },
           }}
         >
-          {data?.map((item, index) => (
-            <SwiperSlide key={index}>
-              <CardNews />
+          {data?.map((item: Item) => (
+            <SwiperSlide key={item.uuid}>
+              <CardNews item={item} />
             </SwiperSlide>
           ))}
         </Swiper>

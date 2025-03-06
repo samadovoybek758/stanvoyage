@@ -19,7 +19,7 @@ interface Factory {
 }
 const FactoriesScreen = () => {
   const { data } = useGetFactoriesQuery({});
-  const t = useTranslations("Factories");
+  const t = useTranslations("factories");
   console.log(data);
 
   return (

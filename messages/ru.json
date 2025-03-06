@@ -17,6 +17,9 @@
     "title": "Продукты",
     "description": "Описание компании"
   },
+  "performance-efficiency": {
+    "title": "Эффективность работы"
+  },
   "news": {
     "title": "Новости",
     "all-button": "Все",
@@ -35,7 +38,8 @@
     "title": "Партнёры"
   },
   "about": {
-    "title": "О компании"
+    "title": "О компании",
+    "button": "Обзор компании"
   },
   "mission-and-values": {
     "title": "Миссия и ценности"
