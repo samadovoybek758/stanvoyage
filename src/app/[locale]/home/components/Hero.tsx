@@ -6,12 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-// import play from "../../../../../public/Images/video-icon.svg";
+import play from "../../../../../public/Images/video-icon.svg";
 import left from "../../../../../public/Images/left-arrow.svg";
 import right from "../../../../../public/Images/right-arrow.svg";
 import { useGetSliderQuery } from "@/context/api/SliderApi";
 import { getDescription, getTitle } from "@/hook/getLanguage";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { baseUrl } from "../../../../../public/static/Index";
 import type { Swiper as SwiperType } from "swiper";
 
@@ -30,9 +30,9 @@ const Hero = () => {
   const { data } = useGetSliderQuery({});
   const local = useLocale();
   const swiperRef = useRef<SwiperType | null>(null);
-  // const t = useTranslations("hero");
+  const t = useTranslations("hero");
   return (
-    <section className="max-h-[640px] w-full mb-[120px] relative">
+    <section className="max-h-[640px] w-full mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] relative">
       <Swiper
         modules={[Autoplay, Navigation, EffectFade]}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
@@ -52,17 +52,17 @@ const Hero = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="relative z-20 flex flex-col items-center h-full pb-7 ">
-                <h1 className="max-w-[1024px] font-normal text-4xl md:text-5xl md:leading-[60px] mb-2 text-[#fff] text-center font-brigends-expanded line-clamp-3">
+              <div className="relative z-20 flex flex-col items-center h-full pb-7 px-[15px]">
+                <h1 className="max-w-[1024px] font-normal text-4xl lg:text-5xl md:leading-[60px] mb-3 text-[#fff] text-center font-brigends-expanded line-clamp-4 md:line-clamp-3">
                   {getTitle(item, local)}
                 </h1>
-                <p className="max-w-[760px] text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
+                <p className="max-w-[760px] text-base md:text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
                   {getDescription(item, local)}
                 </p>
-                {/* <button className="border-[2px] border-[#fff] text-[#fff] px-9 rounded-lg mt-[24px] py-5 font-medium text-lg flex items-center gap-2.5">
+                <button className="border-[2px] border-[#fff] text-[#fff] px-8 lg:px-9 rounded-lg mt-[24px] py-3 md:py-5 font-medium text-sm md:text-lg flex items-center gap-2.5">
                   <Image src={play} alt="play" width={24} height={24} />
                   {t("watch-video")}
-                </button> */}
+                </button>
               </div>
             </div>
           </SwiperSlide>
