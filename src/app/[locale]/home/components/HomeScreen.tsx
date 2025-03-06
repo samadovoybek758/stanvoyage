@@ -12,13 +12,13 @@ const HomeScreen = () => {
   return (
     <>
       {/* <Hero />
-      <CompanyOverview />
+      <CompanyOverview /> */}
       <ProductCategories />
       <NewSectionList />
-      <HomePartners /> */}
+      {/* <HomePartners />
       <GallerySection />
       <HomeVacancies />
-      <Contact />
+      <Contact /> */}
     </>
   );
 };

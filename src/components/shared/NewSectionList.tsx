@@ -21,8 +21,10 @@ const NewSectionList = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             1024: { slidesPerView: 4 },
-            768: { slidesPerView: 2 },
-            480: { slidesPerView: 1 },
+            768: { slidesPerView: 3 },
+            600: {slidesPerView: 2},
+            480: { slidesPerView: 1.5 },
+            200: {slidesPerView: 1}
           }}
         >
           {data?.map((item, index) => (
