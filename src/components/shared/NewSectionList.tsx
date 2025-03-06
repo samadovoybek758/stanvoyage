@@ -73,10 +73,10 @@ const NewSectionList = () => {
         </Swiper>
 
         <div className="sm:hidden  flex justify-center mt-5 gap-4">
-          <button className="prev w-[56px] h-[56px] cursor-pointer bg-[#E1E1E1] flex justify-center items-center rounded-full p-2 ">
+          <button className="prev w-[56px] h-[56px] cursor-pointer bg-[#E1E1E1] flex justify-center items-center rounded-lg p-2">
             <Image width={24} height={24} alt="icon left" src={left} />
           </button>
-          <button className="next w-[56px] h-[56px] cursor-pointer bg-[#E1E1E1] rounded-full flex justify-center items-center">
+          <button className="next w-[56px] h-[56px] cursor-pointer bg-[#E1E1E1] rounded-lg flex justify-center items-center">
             <Image width={24} height={24} alt="icon right" src={right} />
           </button>
         </div>
