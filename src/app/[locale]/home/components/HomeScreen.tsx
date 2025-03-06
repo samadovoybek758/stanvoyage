@@ -15,10 +15,10 @@ const HomeScreen = () => {
       <CompanyOverview /> */}
       <ProductCategories />
       <NewSectionList />
-      {/* <HomePartners />
+      <HomePartners />
       <GallerySection />
       <HomeVacancies />
-      <Contact /> */}
+      <Contact />
     </>
   );
 };

@@ -40,7 +40,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
 
   return (
     <div className={`bg-[#FFFFFF] p-5 sm:p-[30px] rounded-lg ${className}`}>
-      <h2 className="text-[#080808] text-xl sm:text-[28px] leading-[42px] font-semibold mb-6 max-w-[282px] font-brigends-expanded">
+      <h2 className="text-[#080808]  sm:text-[28px] leading-[42px] mb-5 md:mb-6 max-w-[282px] font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-[28px] ssm:leading-[39.2px] font-brigends-expanded">
         Arizangizni yuboring
       </h2>
       <form onSubmit={handleContact}>
@@ -52,6 +52,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             required
             value={form.full_name}
             onChange={handleChange}
+            className="py-[14.5px] sm:py-[18px]"
           />
           <Input
             type="text"
@@ -60,6 +61,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             required
             value={form.phone}
             onChange={handleChange}
+            className="py-[14.5px] sm:py-[18px]"
           />
           <Input
             type="text"
@@ -68,19 +70,21 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             required
             value={form.country}
             onChange={handleChange}
+            className="py-[14.5px] sm:py-[18px]"
           />
           <Textarea
             name="message"
             placeholder={t("message")}
             value={form.message}
             onChange={handleChange}
+            className="py-[14.5px] sm:py-[18px]"
           />
         </div>
         <Button
           text={isLoading ? t("button-loading") : t("button")}
           disabled={isLoading}
           type="submit"
-          className="w-full sm:rounded-lg rounded-[95px] py-4 sm:py-5"
+          className="w-full sm:rounded-lg rounded-[95px] py-4  sm:py-5"
         />
       </form>
     </div>
