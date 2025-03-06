@@ -24,7 +24,7 @@ const CardProduct = ({ item, subId = "" }: { item: Props; subId?: string }) => {
           : `/${local}/products/${item.uuid}`
       }
     >
-      <div className="h-[320px] w-full relative bg-white rounded-lg mb-3 p-[40px]">
+      <div className="h-[230px] md:h-[320px] w-full relative bg-white rounded-lg mb-3 p-5 md:p-[40px]">
         <div className="w-full h-full rounded-lg overflow-hidden flex items-center justify-center">
           <Image
             src={baseUrl + item.image}
@@ -37,7 +37,7 @@ const CardProduct = ({ item, subId = "" }: { item: Props; subId?: string }) => {
         </div>
       </div>
       <div className="flex items-center gap-x-2">
-        <h3 className="text-xl font-normal text-[#080808] max-w-[400px] line-clamp-1">
+        <h3 className="text-base md:text-xl font-normal text-[#080808] max-w-[400px] line-clamp-1">
           {getTitle(item, local)}
         </h3>
         <Image src={arrowRight} alt="product" />
