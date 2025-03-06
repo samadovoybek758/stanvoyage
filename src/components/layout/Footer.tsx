@@ -29,8 +29,8 @@ const Footer = () => {
   return (
     <footer className="mb-4">
       <div className="container">
-        <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-[1fr_auto]">
-          <div className="flex items-start flex-col justify-between gap-[71px] ">
+        <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-1 gap-10 lg:grid-cols-[1fr_304px]">
+          <div className="flex items-start flex-col justify-between gap-[30px] md:gap-[71px] ">
             <Link href="/">
               <Image
                 src={logo}
@@ -40,7 +40,7 @@ const Footer = () => {
                 height={56}
               />
             </Link>
-            <div className="grid grid-cols-3 gap-5 w-full">
+            <div className="grid grid-cols-1 ssm:grid-cols-2 gap-5 w-full md:grid-cols-[1fr_1fr_1fr]">
               <div>
                 <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-base">
                   {t("phone")}
@@ -56,7 +56,7 @@ const Footer = () => {
                   {t("location")}
                 </h3>
                 <div>
-                  <p className="text-base font-normal text-[#000] max-w-[180px] line-clamp-2">
+                  <p className="text-base font-normal text-[#000] max-w-full line-clamp-2">
                     {"Toshkent shahridagi, Amir Temur ko'chasi, 45-uy."}
                   </p>
                 </div>
@@ -73,7 +73,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-start justify-between w-full max-w-[385px]">
+          <div className="flex items-start justify-between">
             <ul className="flex flex-col gap-[18px]">
               {footerNavigations.map((item) => (
                 <li key={item.name}>
