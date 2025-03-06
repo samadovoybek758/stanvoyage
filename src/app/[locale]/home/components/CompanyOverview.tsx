@@ -22,7 +22,7 @@ const CompanyOverview = () => {
   };
 
   return (
-    <section className="mb-[120px]">
+    <section className="mb-[80px] md:mb-28 lg:mb-[120px]">
       <div className="container">
         <div className="flex items-center gap-x-10 lg:flex-row flex-col gap-5 md:gap-10 company-overview-bg xl:pl-10 xl:py-10 p-5 sm:p-8  xl:pr-[70px] rounded-lg bg-white">
           <div className="flex-1 w-full">

@@ -19,16 +19,26 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
 }) => {
   const local = useLocale();
   return (
-    <div className={`mb-6 flex items-center justify-between ${className}`}>
-      <h2 className="font-normal text-4xl font-brigends-expanded">{title}</h2>
+    <div
+      className={`mb-3 md:mb-4 lg:mb-6 flex items-center justify-between ${className}`}
+    >
+      <h2 className="font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-2xl md:text-3xl lg:text-4xl font-brigends-expanded">
+        {title}
+      </h2>
       {buttonName ? (
         <Link
           href={`${local}/${href}`}
-          className=" font-medium text-lg text-black flex items-center gap-[6px]"
+          className=" font-medium text-sm ssm:text-base md:text-lg text-black flex items-center gap-[6px]"
           onClick={onClick}
         >
           {buttonName}
-          <Image src={arrowRight} alt="arrow-right" width={24} height={24} />
+          <Image
+            src={arrowRight}
+            alt="arrow-right"
+            width={24}
+            height={24}
+            className="w-4 h-4 md:w-6 md:h-6"
+          />
         </Link>
       ) : null}
     </div>
