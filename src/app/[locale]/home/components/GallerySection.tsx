@@ -36,7 +36,7 @@ export default function Gallery() {
   const t = useTranslations("gallery");
   return (
     <section className="container">
-      <div className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] gallery h-[780px] md:h-[828px] mx-auto">
+      <div className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] gallery h-[480px] sm:h-[580px] md:h-[728px] lg:h-[828px] mx-auto">
         <SectionTitle title={t("title")} />
         {/* **Swiper Asosiy Karusel** */}
         <Swiper
@@ -52,7 +52,7 @@ export default function Gallery() {
           {data?.length > 0 &&
             data.map((item: { uuid: string; file: string }) => (
               <SwiperSlide key={item?.uuid}>
-                <div className=" h-[480px] lg:h-[580px] w-full overflow-hidden">
+                <div className=" h-[260px] sm:h-[320px] md:h-[480px] lg:h-[580px] w-full overflow-hidden">
                   <Image
                     className="w-full h-full object-cover rounded-lg cursor-pointer"
                     src={`${baseUrl}/${item?.file}`}
@@ -94,7 +94,7 @@ export default function Gallery() {
                 400: {
                   slidesPerView: 3,
                 },
-                320: {
+                0: {
                   slidesPerView: 2.4,
                 },
               }}
