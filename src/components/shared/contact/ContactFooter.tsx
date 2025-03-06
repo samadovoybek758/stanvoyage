@@ -16,31 +16,31 @@ const ContactFooter = () => {
           {t("phone")}
         </h3>
         <div>
-          <p className="sm:text-base lg:text-lg font-normal text-[#000]">+998 (71) 231 86 01</p>
+          <p className="text-sm lg:text-lg font-normal text-[#000]">+998 (71) 231 86 01</p>
         </div>
       </div>
       <div>
-        <h3 className="flex items-center gap-[6px] text-[#9F9F9F] sm:text-sm lg:text-base">
+        <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-sm lg:text-base">
           <div>
             <GrLocation />
           </div>
           {t("location")}
         </h3>
         <div>
-          <p className="text-lg font-normal text-[#000] max-w-[220px] line-clamp-2">
+          <p className="lg:text-lg text-sm font-normal text-[#000] max-w-[220px] line-clamp-2">
             {"Toshkent shahridagi, Amir Temur ko'chasi, 45-uy."}
           </p>
         </div>
       </div>
       <div>
-        <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-base">
+        <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-sm lg:text-base">
           <div>
             <MdOutlineMailOutline />
           </div>
           {t("email")}
         </h3>
         <div>
-          <p className="text-lg font-normal text-[#000] max-w-[220px] line-clamp-1">
+          <p className="text-sm lg:text-lg font-normal text-[#000] max-w-[220px] line-clamp-1">
             info@samo.uz
           </p>
         </div>

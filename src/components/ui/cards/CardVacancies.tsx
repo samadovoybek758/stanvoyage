@@ -19,13 +19,13 @@ interface Item {
 const CardVacancies = ({ item }: { item: Item }) => {
   const locale = useLocale();
   return (
-    <div className="p-6 bg-[#FFFFFF] card-vacancies-img rounded-lg h-[328px] flex flex-col justify-between">
-      <div className="mb-9">
+    <div className="p-6 bg-[#FFFFFF] card-vacancies-img rounded-[25px] sm:rounded-lg h-[280px] md:h-[328px] flex flex-col justify-between">
+      <div className="mb-5 sm:mb-9">
         <Link
           href={`/${locale}/vacancies/${item.uuid}`}
-          className="flex items-center gap-[5px] mb-4"
+          className="flex items-center gap-[5px] mb-2 sm:mb-4"
         >
-          <h3 className="font-medium text-2xl text-black max-w-[250px] line-clamp-1">
+          <h3 className="font-medium text-lg sm:text-2xl text-black max-w-[250px] line-clamp-1">
             {getTitle(item, locale)}
           </h3>
           <Image
@@ -36,7 +36,7 @@ const CardVacancies = ({ item }: { item: Item }) => {
           />
         </Link>
         <span
-          className="font-normal text-base text-black line-clamp-6"
+          className="font-normal text-xs sm:text-base text-black line-clamp-6"
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(
               String(item ? getDescription(item, locale) : "")
@@ -46,7 +46,7 @@ const CardVacancies = ({ item }: { item: Item }) => {
       </div>
       <Link
         href={`/${locale}/vacancies/${item.uuid}`}
-        className="py-[13px] w-full max-w-[158px] flex items-center justify-center rounded-lg border border-[#F37325] font-normal text-base text-[#F37325]"
+        className="py-[10.5px] sm:py-[13px] w-full max-w-[158px] flex items-center justify-center rounded-[95px] sm:rounded-lg border border-[#F37325] font-normal text-sm sm:text-base text-[#F37325]"
       >
         Ariza topshirish
       </Link>
