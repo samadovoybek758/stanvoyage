@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`text-[#FFFFFF] py-5 font-semibold text-lg bg-[#F37325] rounded-lg ${className}`}
+      className={`text-[#FFFFFF] py-4 md:py-5 font-medium text-base md:text-lg bg-[#F37325] rounded-lg ${className}`}
       onClick={onClick}
       disabled={disabled}
       type={type}

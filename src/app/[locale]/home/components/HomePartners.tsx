@@ -13,12 +13,12 @@ function Partners() {
       <div className="">
         <SectionTitle title="Hamkorlar" />
       </div>
-      <div className="mb-32 flex flex-col gap-10">
+      <div className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] flex flex-col gap-2 md:gap-5 lg:gap-10">
         <Marquee speed={25} pauseOnHover={false} direction="left">
           {data?.map((item: { uuid: string; image: string }) => (
             <div
               key={item?.uuid}
-              className="py-[45px] pl-[49px] pr-11 bg-white rounded-lg flex items-center justify-center mx-4 h-[146px]"
+              className="py-7 md:py-9 lg:py-[45px] px-6 md:px-8 lg:pl-[49px] lg:pr-11 bg-white rounded-lg flex items-center justify-center mx-1 sm:mx-2 md:mx-3 lg:mx-4 h-[90px] md:h-[120px] lg:h-[146px]"
             >
               <Image
                 width={200}
@@ -33,7 +33,7 @@ function Partners() {
           {data?.map((item: { uuid: string; image: string }) => (
             <div
               key={item?.uuid}
-              className="py-[45px] pl-[49px] pr-11 bg-white rounded-lg flex items-center justify-center mx-4 h-[146px]"
+              className="py-7 md:py-9 lg:py-[45px] px-6 md:px-8 lg:pl-[49px] lg:pr-11 bg-white rounded-lg flex items-center justify-center mx-1 sm:mx-2 md:mx-3 lg:mx-4 h-[90px] md:h-[120px] lg:h-[146px]"
             >
               <Image
                 width={200}
