@@ -6,8 +6,8 @@ import Map from "./Map";
 const Contact = () => {
   return (
     <section className="mb-[120px]">
-      <div className="container grid grid-cols-1 md:grid-cols-[504px_auto] gap-4">
-        <ContactForm />
+      <div className="container grid grid-cols-1 md:grid-cols-[404px_auto] lg:grid-cols-[504px_auto] gap-4">
+        <ContactForm  />
         <div className="flex flex-col gap-4">
           <Map className="flex-1" />
           <ContactFooter />

@@ -39,8 +39,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
   };
 
   return (
-    <div className={`bg-[#FFFFFF] p-[30px] rounded-lg ${className}`}>
-      <h2 className="text-[#080808] text-[28px] leading-[42px] font-semibold mb-6 max-[282px] font-brigends-expanded">
+    <div className={`bg-[#FFFFFF] p-5 sm:p-[30px] rounded-lg ${className}`}>
+      <h2 className="text-[#080808] text-xl sm:text-[28px] leading-[42px] font-semibold mb-6 max-w-[282px] font-brigends-expanded">
         Arizangizni yuboring
       </h2>
       <form onSubmit={handleContact}>
@@ -80,7 +80,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
           text={isLoading ? t("button-loading") : t("button")}
           disabled={isLoading}
           type="submit"
-          className="w-full"
+          className="w-full sm:rounded-lg rounded-[95px] py-4 sm:py-5"
         />
       </form>
     </div>
