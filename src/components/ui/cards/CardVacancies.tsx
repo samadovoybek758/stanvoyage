@@ -36,7 +36,7 @@ const CardVacancies = ({ item }: { item: Item }) => {
           />
         </Link>
         <span
-          className="font-normal text-xs sm:text-base text-black line-clamp-6"
+          className="font-normal text-xs md:text-base text-black line-clamp-6"
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(
               String(item ? getDescription(item, locale) : "")
