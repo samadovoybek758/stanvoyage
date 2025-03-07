@@ -18,7 +18,7 @@ function CompanyHistory() {
     <section className="mb-[120px]">
       <div className="container">
         <div className="md:grid md:grid-cols-2 gap-4 flex flex-col-reverse">
-          <div className="flex-1 bg-white rounded-lg p-16 overflow-hidden">
+          <div className="flex-1 bg-white rounded-lg p-6 md:p-16 overflow-hidden">
             <Image
               width={480}
               height={512}
@@ -28,7 +28,7 @@ function CompanyHistory() {
             />
           </div>
 
-          <div className="flex-1 p-10 bg-white rounded-lg ">
+          <div className="flex-1 pt-6 px-5 pb-5  md:p-10 bg-white rounded-lg ">
             <Image
               width={64}
               height={64}
@@ -37,7 +37,7 @@ function CompanyHistory() {
               className="mb-[30px] md:mb-[60px]"
             />
 
-            <h2 className="font-normal text-[32px] leading-[44.8px] text-[#080808] font-brigends-expanded mb-5">
+            <h2 className="font-normal text-[24px] sm:text-[32px] leading-[44.8px] text-[#080808] font-brigends-expanded mb-5">
               {isLoading || isFetching ? (
                 <>
                   <Loading className="w-full h-10" />
@@ -51,7 +51,7 @@ function CompanyHistory() {
             </h2>
 
             <div
-              className="text-[#080808] font-normal text-lg mb-8"
+              className="text-[#080808] font-normal text-sm sm:text-lg mb-8"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(
                   String(item ? getDescription(item, locale) : "")

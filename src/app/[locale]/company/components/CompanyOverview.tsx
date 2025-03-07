@@ -23,10 +23,10 @@ function CompanyOverview() {
               height={64}
               alt="icon"
               src={icon}
-              className="mb-[30px] md:mb-[60px]"
+              className="mb-[50px] md:mb-[60px]"
             />
 
-            <h2 className="font-normal text-[32px] leading-[44.8px] text-[#080808] font-brigends-expanded mb-5">
+            <h2 className="font-normal text-[24px] md:text-[32px] leading-[44.8px] text-[#080808] font-brigends-expanded mb-3">
               {isLoading || isFetching ? (
                 <Loading className="w-full h-10" />
               ) : item ? (
@@ -37,7 +37,7 @@ function CompanyOverview() {
             </h2>
 
             <div
-              className="text-[#080808] font-normal text-lg mb-8"
+              className="text-[#080808] font-normal text-sm md:text-lg mb-8"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(
                   String(item ? getDescription(item, locale) : "")
@@ -45,7 +45,7 @@ function CompanyOverview() {
               }}
             />
           </div>
-          <div className="flex-1 bg-white rounded-lg px-12 py-[80px] overflow-hidden">
+          <div className="flex-1 bg-white rounded-lg px-12 py-[80px] overflow-hidden max-h-[512px] max-w-[480]">
             <Image
               width={480}
               height={512}
