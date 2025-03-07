@@ -9,11 +9,11 @@ const GalleryTopBox = () => {
   const { data, isLoading, isFetching } = useGetGaleryQuery({});
   console.log(data);
   return (
-    <section className="mb-[120px]">
-      <div className="container grid grid-cols-2 gap-4">
+    <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
+      <div className="container grid grid-cols-1 md:grid-cols-2 gap-4">
         {isLoading || isFetching
           ? Array.from({ length: 2 }).map((_, index) => (
-              <div className="bg-[#FFFFFF] rounded-lg p-10" key={index}>
+              <div className="bg-[#FFFFFF] rounded-lg p-5 md:p-10" key={index}>
                 <div className="w-full h-[500px] overflow-hidden rounded-lg">
                   <ImageLoading />
                 </div>
@@ -21,7 +21,10 @@ const GalleryTopBox = () => {
             ))
           : data?.length > 0 &&
             data?.slice(0, 2)?.map((item: { uuid: string; file: string }) => (
-              <div className="bg-[#FFFFFF] rounded-lg p-10" key={item?.uuid}>
+              <div
+                className="bg-[#FFFFFF] rounded-lg p-5 md:p-10"
+                key={item?.uuid}
+              >
                 <div className="w-full h-[500px] overflow-hidden rounded-lg">
                   <Image
                     className="w-full h-full object-cover cursor-pointer"

@@ -18,7 +18,7 @@ const CardNews = ({ item }: { item: CardNewsProps }) => {
 
   return (
     <Link href={`/${locale}/news/${item.uuid}`}>
-      <div className="h-[296px] bg-[#EEEEEE] mb-4 rounded-lg overflow-hidden">
+      <div className="h-[230px] md:h-[296px] bg-[#EEEEEE] mb-4 rounded-lg overflow-hidden">
         <Image
           width={296}
           height={320}

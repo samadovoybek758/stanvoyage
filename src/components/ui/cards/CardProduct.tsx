@@ -24,7 +24,7 @@ const CardProduct = ({ item, subId = "" }: { item: Props; subId?: string }) => {
           : `/${local}/products/${item.uuid}`
       }
     >
-      <div className="h-[230px] md:h-[320px] w-full relative bg-white rounded-lg mb-3 p-5 md:p-[40px]">
+      <div className="h-[230px] md:h-[320px] w-full relative bg-white rounded-lg mb-3 p-5 sm:p-8 lg:p-[40px]">
         <div className="w-full h-full rounded-lg overflow-hidden flex items-center justify-center">
           <Image
             src={baseUrl + item.image}

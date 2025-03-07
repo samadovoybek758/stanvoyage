@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import SectionTitle from "./SectionTitle";
 import CardNews from "../ui/cards/CardNews";
 import { useGetNewsQuery } from "@/context/api/News";
@@ -28,19 +28,23 @@ const NewSectionList = () => {
   const t = useTranslations("news");
   console.log(data);
 
+  const mainSwiper = useRef<SwiperType | null>(null);
+
   useEffect(() => {
     if (typeof document !== "undefined") {
       const nextButton = document.querySelector(".next") as HTMLElement;
       const prevButton = document.querySelector(".prev") as HTMLElement;
 
-      if (nextButton && prevButton) {
-        nextButton.addEventListener("click", () => mainSwiper?.slideNext());
-        prevButton.addEventListener("click", () => mainSwiper?.slidePrev());
+      if (nextButton && prevButton && mainSwiper.current) {
+        nextButton.addEventListener("click", () =>
+          mainSwiper.current?.slideNext()
+        );
+        prevButton.addEventListener("click", () =>
+          mainSwiper.current?.slidePrev()
+        );
       }
     }
-  }, []);
-
-  let mainSwiper: SwiperType | null = null;
+  }, [mainSwiper]);
 
   return (
     <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
@@ -49,7 +53,7 @@ const NewSectionList = () => {
         <Swiper
           modules={[Autoplay]}
           spaceBetween={9}
-          onSwiper={(swiper) => (mainSwiper = swiper)}
+          onSwiper={(swiper) => (mainSwiper.current = swiper)}
           navigation={{
             nextEl: ".next",
             prevEl: ".prev",

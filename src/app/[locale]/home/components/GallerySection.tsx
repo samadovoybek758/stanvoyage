@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
 import "swiper/css";
@@ -14,25 +14,34 @@ import { useGetGaleryQuery } from "@/context/api/Galery";
 import { baseUrl } from "../../../../../public/static/Index";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { useTranslations } from "next-intl";
+import ImageLoading from "@/components/ui/ImageLoading";
 
 export default function Gallery() {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-  const { data } = useGetGaleryQuery({});
-
+  const { data, isLoading, isFetching } = useGetGaleryQuery({});
+  const mainSwiperRef = useRef<SwiperType | null>(null);
   // Swiper navigatsiya tugmalarini yuklagandan keyin ulash
   useEffect(() => {
     if (typeof document !== "undefined") {
       const nextButton = document.querySelector(".next") as HTMLElement;
       const prevButton = document.querySelector(".prev") as HTMLElement;
 
+      const handleNextClick = () => mainSwiperRef.current?.slideNext();
+      const handlePrevClick = () => mainSwiperRef.current?.slidePrev();
+
       if (nextButton && prevButton) {
-        nextButton.addEventListener("click", () => mainSwiper?.slideNext());
-        prevButton.addEventListener("click", () => mainSwiper?.slidePrev());
+        nextButton.addEventListener("click", handleNextClick);
+        prevButton.addEventListener("click", handlePrevClick);
       }
+
+      return () => {
+        if (nextButton && prevButton) {
+          nextButton.removeEventListener("click", handleNextClick);
+          prevButton.removeEventListener("click", handlePrevClick);
+        }
+      };
     }
   }, []);
-
-  let mainSwiper: SwiperType | null = null;
   const t = useTranslations("gallery");
   return (
     <section className="container">
@@ -40,7 +49,7 @@ export default function Gallery() {
         <SectionTitle title={t("title")} />
         {/* **Swiper Asosiy Karusel** */}
         <Swiper
-          onSwiper={(swiper) => (mainSwiper = swiper)}
+          onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
           loop={true}
           navigation={{
             nextEl: ".next",
@@ -49,7 +58,12 @@ export default function Gallery() {
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
         >
-          {data?.length > 0 &&
+          {isLoading || isFetching ? (
+            <div className="h-[260px] sm:h-[320px] md:h-[480px] lg:h-[580px] w-full overflow-hidden">
+              <ImageLoading />
+            </div>
+          ) : (
+            data?.length > 0 &&
             data.map((item: { uuid: string; file: string }) => (
               <SwiperSlide key={item?.uuid}>
                 <div className=" h-[260px] sm:h-[320px] md:h-[480px] lg:h-[580px] w-full overflow-hidden">
@@ -62,7 +76,8 @@ export default function Gallery() {
                   />
                 </div>
               </SwiperSlide>
-            ))}
+            ))
+          )}
         </Swiper>
 
         {/* **Navigatsiya tugmalari** */}
@@ -102,34 +117,42 @@ export default function Gallery() {
               watchSlidesProgress={true}
               modules={[FreeMode, Navigation, Thumbs]}
             >
-              {data?.length > 0 &&
-                data.map(
-                  (item: { uuid: string; file: string }, index: number) => (
-                    <SwiperSlide
-                      key={item?.uuid}
-                      className={`thumb-slide ${
-                        thumbsSwiper?.clickedIndex === index || index === 0
-                          ? "swiper-slide-thumb-active"
-                          : ""
-                      }`}
-                    >
-                      <Image
-                        className="w-full h-[90px] sm:h-[120px] md:h-[165px] object-cover rounded-lg cursor-pointer transition-opacity"
-                        src={`${baseUrl}/${item?.file}`}
-                        alt={"gallery image"}
-                        width={253}
-                        height={165}
-                      />
+              {isLoading || isFetching
+                ? Array.from({ length: 4 }).map((_, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="w-full h-[60px] sm:h-[100px] md:h-[165px] overflow-hidden rounded-lg">
+                        <ImageLoading />
+                      </div>
                     </SwiperSlide>
-                  )
-                )}
+                  ))
+                : data?.length > 0 &&
+                  data.map(
+                    (item: { uuid: string; file: string }, index: number) => (
+                      <SwiperSlide
+                        key={item?.uuid}
+                        className={`thumb-slide ${
+                          thumbsSwiper?.clickedIndex === index || index === 0
+                            ? "swiper-slide-thumb-active"
+                            : ""
+                        }`}
+                      >
+                        <Image
+                          className="w-full h-[90px] sm:h-[120px] md:h-[165px] object-cover rounded-lg cursor-pointer transition-opacity"
+                          src={`${baseUrl}/${item?.file}`}
+                          alt={"gallery image"}
+                          width={253}
+                          height={165}
+                        />
+                      </SwiperSlide>
+                    )
+                  )}
             </Swiper>
           </div>
           <button className="prev hidden w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] md:flex justify-center items-center rounded-lg p-2 absolute top-1/2 left-0 z-10 -translate-y-1/2">
             <Image width={24} height={24} alt="icon left" src={left} />
           </button>
         </div>
-        <div className="flex md:hidden items-center gap-x-2 w-full justify-center mt-4">
+        <div className="flex md:hidden items-center gap-x-3 w-full justify-center mt-4">
           <button className="prev w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] flex justify-center items-center rounded-lg p-2 ">
             <Image width={24} height={24} alt="icon left" src={left} />
           </button>

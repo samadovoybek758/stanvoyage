@@ -29,9 +29,10 @@ const Select: React.FC<SelectProps> = ({
           className={`w-full appearance-none bg-[#F7F7F7] font-normal text-base text-[#080808] placeholder:text-[#9F9F9F] rounded-lg outline-none py-[18px] px-[20px] cursor-pointer ${
             error ? "border-red-500" : "border-gray-300"
           } ${className}`}
+          defaultValue="" // defaultValue qo'shildi
           {...props}
         >
-          <option disabled selected>
+          <option value="" disabled>
             {placeholder}
           </option>
           {options.map((option) => (
@@ -44,6 +45,7 @@ const Select: React.FC<SelectProps> = ({
             </option>
           ))}
         </select>
+
         {/* O'ng tomondagi arrow icon */}
         <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
           <svg

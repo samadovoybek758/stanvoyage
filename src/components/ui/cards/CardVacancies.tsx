@@ -19,7 +19,7 @@ interface Item {
 const CardVacancies = ({ item }: { item: Item }) => {
   const locale = useLocale();
   return (
-    <div className="p-6 bg-[#FFFFFF] card-vacancies-img rounded-[25px] sm:rounded-lg h-[280px] md:h-[328px] flex flex-col justify-between">
+    <div className="p-6 bg-[#FFFFFF] card-vacancies-img rounded-lg sm:rounded-lg h-[280px] md:h-[328px] flex flex-col justify-between">
       <div className="mb-5 sm:mb-9">
         <Link
           href={`/${locale}/vacancies/${item.uuid}`}

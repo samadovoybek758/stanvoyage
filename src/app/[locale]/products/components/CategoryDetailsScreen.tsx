@@ -31,7 +31,7 @@ interface CategoryDetailItem {
 }
 const CategoryDetailsScreen = () => {
   const { id } = useParams();
-  const { data } = useGetCategoryByIdQuery(id as string);
+  const { data, isLoading, isFetching } = useGetCategoryByIdQuery(id as string);
   return (
     <>
       <ProductDetailHero
@@ -40,7 +40,12 @@ const CategoryDetailsScreen = () => {
       <PerformanceEfficiency />
       <ProductDetailOrder />
       {data?.products?.length > 0 && (
-        <ProductList data={data?.products} subId={id as string} />
+        <ProductList
+          data={data?.products}
+          subId={id as string}
+          isLoading={isLoading}
+          isFetching={isFetching}
+        />
       )}
     </>
   );

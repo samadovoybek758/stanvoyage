@@ -6,11 +6,11 @@ import { useTranslations } from "next-intl";
 import { useGetCategoryQuery } from "@/context/api/CategoryApi";
 const ProductsScreen = () => {
   const t = useTranslations("product");
-  const { data } = useGetCategoryQuery({});
+  const { data, isLoading, isFetching } = useGetCategoryQuery({});
   return (
     <>
       <AllHero title={t("title")} image={productsImg} />
-      <ProductList data={data} />
+      <ProductList data={data} isLoading={isLoading} isFetching={isFetching} />
     </>
   );
 };

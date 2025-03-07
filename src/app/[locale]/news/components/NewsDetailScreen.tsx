@@ -13,6 +13,7 @@ import { baseUrl } from "../../../../../public/static/Index";
 import arrowLeft from "../../../../../public/Images/vacancies-left-arow.svg";
 import ShareButton from "@/components/shared/ShareButton";
 import NewSectionList from "@/components/shared/NewSectionList";
+import ImageLoading from "@/components/ui/ImageLoading";
 
 interface NewsDetailItem {
   uuid: string;
@@ -28,7 +29,7 @@ interface NewsDetailItem {
 }
 function NewsDetail() {
   const { id } = useParams();
-  const { data } = useGetNewsByIdQuery(id as string);
+  const { data, isLoading, isFetching } = useGetNewsByIdQuery(id as string);
   const item = data as unknown as NewsDetailItem;
   const locale = useLocale();
   const imagesArray = Array.isArray(item?.images) ? item?.images : [];
@@ -53,26 +54,27 @@ function NewsDetail() {
                   disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
-                spaceBetween={15}
                 className=""
                 loop={true}
               >
-                <div className=" ">
-                  {itemImages.length > 0 &&
-                    itemImages.map((item, index) => (
-                      <SwiperSlide key={index}>
-                        <div className="max-h-[400px] md:max-h-[580px]">
+                {itemImages.length > 0 &&
+                  itemImages.map((item, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="h-[400px] w-full md:h-[500px]">
+                        {isLoading || isFetching ? (
+                          <ImageLoading className="w-full h-full" />
+                        ) : (
                           <Image
                             width={1200}
                             height={600}
                             alt="img"
                             src={baseUrl + item}
-                            className="object-cover rounded-lg h-[400px]  w-full md:h-[500px]"
+                            className="object-cover rounded-lg w-full h-full"
                           />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                </div>
+                        )}
+                      </div>
+                    </SwiperSlide>
+                  ))}
               </Swiper>
             </div>
 

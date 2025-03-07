@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
+// import PhoneInput from "@/components/ui/PhoneInput";
 import Textarea from "@/components/ui/Textarea";
 import { useCreateContactMutation } from "@/context/api/ContactApi";
 import { useTranslations } from "next-intl";
@@ -54,15 +55,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             onChange={handleChange}
             className="py-[14.5px] sm:py-[18px]"
           />
-          <Input
-            type="text"
-            name="phone"
-            placeholder={t("phone")}
+          {/* <PhoneInput
+            label="Telefon raqamingiz"
+            placeholder="+998 (__) ___-__-__"
+            mask="+998 (99) 999-99-99"
             required
-            value={form.phone}
-            onChange={handleChange}
-            className="py-[14.5px] sm:py-[18px]"
-          />
+          /> */}
           <Input
             type="text"
             name="country"

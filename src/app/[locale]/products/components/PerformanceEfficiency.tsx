@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
-import { getTitle } from "@/hook/getLanguage";
 function PerformanceEfficiency() {
   interface TypeData {
     // img: string,
