@@ -1,4 +1,5 @@
-import { useTranslations } from "next-intl";
+import { useGetComponyQuery } from "@/context/api/Compony";
+import { useLocale, useTranslations } from "next-intl";
 import React from "react";
 import { FiPhone } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
@@ -6,6 +7,11 @@ import { MdOutlineMailOutline } from "react-icons/md";
 
 const ContactFooter = () => {
   const t = useTranslations("contact.contact-footer");
+  const { data } = useGetComponyQuery({})
+
+  
+  
+  
   return (
     <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 bg-white rounded-lg p-[30px]">
       <div>
@@ -16,7 +22,7 @@ const ContactFooter = () => {
           {t("phone")}
         </h3>
         <div>
-          <p className="text-sm lg:text-lg font-normal text-[#000]">+998 (71) 231 86 01</p>
+          <p className="text-sm lg:text-lg font-normal text-[#000]">{data?.phone}</p>
         </div>
       </div>
       <div>
@@ -28,7 +34,7 @@ const ContactFooter = () => {
         </h3>
         <div>
           <p className="lg:text-lg text-sm font-normal text-[#000] max-w-[220px] line-clamp-2">
-            {"Toshkent shahridagi, Amir Temur ko'chasi, 45-uy."}
+            {data?.address_uz}
           </p>
         </div>
       </div>
@@ -41,7 +47,7 @@ const ContactFooter = () => {
         </h3>
         <div>
           <p className="text-sm lg:text-lg font-normal text-[#000] max-w-[220px] line-clamp-1">
-            info@samo.uz
+            {data?.email}
           </p>
         </div>
       </div>

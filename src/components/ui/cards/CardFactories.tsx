@@ -21,8 +21,8 @@ interface Factory {
 const CardFactories = ({ item }: { item: Factory }) => {
   const local = useLocale();
   return (
-    <div className="p-4 md:p-[30px] bg-white flex-col flex rounded-lg min-h-[602px]">
-      <div className="h-[280px]  sm:h-[315px] overflow-hidden  rounded-lg mb-6">
+    <div className="p-4 md:p-[30px] bg-white flex-col flex rounded-lg min-h-[345px] sm:min-h-[602px]">
+      <div className="h-[315px]  sm:h-[315px] overflow-hidden  rounded-lg mb-4 sm:mb-6">
         <Image
           width={548}
           height={315}
@@ -39,7 +39,7 @@ const CardFactories = ({ item }: { item: Factory }) => {
             {getTitle(item, local)}
           </h1>
           <p 
-            className="text-[#080808] text-base sm:text-lg mb-5 line-clamp-4"
+            className="text-[#080808] text-base sm:text-lg mb-5 line-clamp-4 sm:line-clamp-5"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
                 String(item ? getDescription(item, local) : "")

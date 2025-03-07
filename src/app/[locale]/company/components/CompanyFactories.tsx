@@ -33,7 +33,7 @@ function CompanyFactories() {
   const handleNext = () => swiperRef.current?.slideNext();
 
   return (
-    <section className="mb-[120px]">
+    <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
       <div className="container">
         <div>
           <div className="flex justify-between items-center mb-6">
@@ -62,8 +62,10 @@ function CompanyFactories() {
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             spaceBetween={15}
             breakpoints={{
-              640: { slidesPerView: 1 },
+              550: { slidesPerView: 1 },
               892: { slidesPerView: 2 },
+              700: {slidesPerView: 1.5},
+              600: {slidesPerView: 1.2}
             }}
             loop
           >
