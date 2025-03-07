@@ -27,7 +27,7 @@ const FactoriesScreen = () => {
       <AllHero image={factoriesImg} title={t("title")} />
       <div className="container">
         <div className="mb-[120px]">
-          <div className="grid grid-cols-1 gap-[120px]">
+          <div className="grid grid-cols-1 gap-20 sm:gap-[120px]">
             {data?.length > 0 &&
               data?.map((item: Factory) => (
                 <CardFactories key={item.uuid} item={item} />

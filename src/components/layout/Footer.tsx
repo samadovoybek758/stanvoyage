@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -7,6 +8,8 @@ import facebook from "../../../public/Images/facebook.svg";
 import youtube from "../../../public/Images/youtube.svg";
 import Image from "next/image";
 import logo from "../../../public/Images/max-logo.svg";
+import { useGetComponyQuery } from "@/context/api/Compony";
+import { useGetCompanyPhoneQuery } from "@/context/api/CompanyPhoneApi";
 const socialMedia = [
   {
     name: "Instagram",
@@ -24,8 +27,52 @@ const socialMedia = [
     icon: youtube,
   },
 ];
+
+
+
+
+
 const Footer = () => {
+
   const t = useTranslations("footer");
+
+const { data: companyData } = useGetComponyQuery({});
+const { data: companyPhoneData } = useGetCompanyPhoneQuery({});
+
+
+
+const phones: number[] = []; 
+const emails: string[] = []
+
+for (const key in companyPhoneData) {
+  if (companyPhoneData[key] && key.includes("phone")) {
+    phones.push(companyPhoneData[key]); 
+  }
+}
+
+for (const key in companyData) {
+  if (companyData[key] && key.includes("phone")) {
+    phones.push(companyData[key]); 
+  }
+}
+for (const key in companyData) {
+  if (companyData[key] && key.includes("email")) {
+    emails.push(companyData[key]); 
+  }
+}
+for (const key in companyData) {
+  if (companyData[key] && key.includes("email")) {
+    emails.push(companyPhoneData[key]); 
+  }
+}
+
+
+
+
+  
+  
+  
+
   return (
     <footer className="mb-4">
       <div className="container">
@@ -46,9 +93,15 @@ const Footer = () => {
                   {t("phone")}
                 </h3>
                 <div>
-                  <p className="text-base font-normal text-[#000]">
-                    +998 (71) 231 86 01
-                  </p>
+                 
+                    {
+                      phones.length > 0 && phones.map((item,index) =>(
+                        <p key={index} className="text-base font-normal text-[#000]">
+                          {item}
+                        </p>
+                      ))
+                    }
+                  
                 </div>
               </div>
               <div>
@@ -57,7 +110,7 @@ const Footer = () => {
                 </h3>
                 <div>
                   <p className="text-base font-normal text-[#000] max-w-full line-clamp-2">
-                    {"Toshkent shahridagi, Amir Temur ko'chasi, 45-uy."}
+                    {companyData?.address_uz}
                   </p>
                 </div>
               </div>
@@ -66,9 +119,14 @@ const Footer = () => {
                   {t("email")}
                 </h3>
                 <div>
-                  <p className="text-base font-normal text-[#000] max-w-[180px] line-clamp-1">
-                    info@samo.uz
+                  {
+                    emails.length > 0 && emails.map((item,index) =>(
+                      <p key={index} className="text-base font-normal text-[#000] max-w-[180px] line-clamp-1">
+                   {item}
                   </p>
+                    ))
+                  }
+                  
                 </div>
               </div>
             </div>
