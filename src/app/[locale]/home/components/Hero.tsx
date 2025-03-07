@@ -43,7 +43,7 @@ const Hero = () => {
       >
         {data?.map((item: Slider) => (
           <SwiperSlide key={item.uuid}>
-            <div className="flex flex-col items-center pt-[128px] hero-slider h-[640px] relative before:bg-[#00000040] before:absolute before:inset-0 before:z-10">
+            <div className="flex flex-col items-center pt-[110px] md:pt-[128px] hero-slider h-[640px] relative before:bg-[#00000040] before:absolute before:inset-0 before:z-10">
               <div className="absolute inset-0">
                 <Image
                   src={`${baseUrl}${item.image}`}
@@ -53,7 +53,7 @@ const Hero = () => {
                 />
               </div>
               <div className="relative z-20 flex flex-col items-center h-full pb-7 px-[15px]">
-                <h1 className="max-w-[1024px] font-normal text-4xl lg:text-5xl md:leading-[60px] mb-3 text-[#fff] text-center font-brigends-expanded line-clamp-4 md:line-clamp-3">
+                <h1 className="max-w-[1024px] font-normal text-3xl ssm:text-4xl lg:text-5xl md:leading-[60px] mb-3 text-[#fff] text-center font-brigends-expanded line-clamp-4 md:line-clamp-3">
                   {getTitle(item, local)}
                 </h1>
                 <p className="max-w-[760px] text-base md:text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
