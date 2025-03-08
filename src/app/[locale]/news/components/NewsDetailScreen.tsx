@@ -37,7 +37,7 @@ function NewsDetail() {
   const router = useRouter();
   return (
     <>
-      <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[100px]">
+      <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[136px]">
         <div className="container">
           <div>
             <button
