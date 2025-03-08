@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import CompanyHistory from "./CompanyHistory";
 import CompanyOverview from "./CompanyOverview";
 import CompanyMission from "./CompanyMission";
+import CompanyStatistics from "./CompanyStatistics";
 
 const CompanyScreen = () => {
   const t = useTranslations("about");
@@ -19,6 +20,7 @@ const CompanyScreen = () => {
       <CompanyOverview/>
       <CompanyHistory/>
       <CompanyMission/>
+      <CompanyStatistics/>
       <Sertificate />
       <CompanyFactories />  
     </>

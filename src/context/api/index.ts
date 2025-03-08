@@ -85,7 +85,7 @@ export const api = createApi({
     "History",
     "Articles",
     "Certificates",
-    "Goals",
+    "OurMission",
     "Galery",
     "Factories",
     "MaterialTypes",
@@ -93,6 +93,7 @@ export const api = createApi({
     "Socials",
     "Aplication",
     "Order",
+    "Statistics",
   ],
   endpoints: () => ({}),
 });
