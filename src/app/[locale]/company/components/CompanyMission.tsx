@@ -3,14 +3,15 @@ import React from 'react';
 import { useLocale, useTranslations } from "next-intl";
 import { getDescription, getTitle } from "@/hook/getLanguage";
 import DOMPurify from "dompurify";
-import { useGetOurMissionQuery } from '@/context/api/OurMission';
+import { useGetOurMissionQuery } from '@/context/api/Goals';
 import SectionTitle from '@/components/shared/SectionTitle';
+import Loading from '@/components/ui/Loading';
 
 function Mission() {
 
   const locale = useLocale();
   const t = useTranslations("mission-and-values");
-  const { data } = useGetOurMissionQuery({});
+  const { data, isLoading, isFetching } = useGetOurMissionQuery({});
 
 
   interface TypeData {
@@ -38,7 +39,15 @@ function Mission() {
           {data?.length > 0 && data?.map((item:TypeData,index:number) => (
             <div key={index} className='md:pt-[30px] w-full  sm:max-h-[531px] md:pb-9  lg:pr-[84px] lg:pl-[30px] py-5 pl-4 pr-[18px]  bg-white rounded-lg'>
               <h1 className='text-[#080808] text-xl md:text-[28px] mb-[20px] md:mb-[50px] lg:mb-[95px] w-full font-semibold md:max-w-[174px]'>
-               { getTitle(item, locale)}
+              {isLoading || isFetching ? (
+                <>
+                  <Loading className="w-full h-10" />
+                </>
+              ) : item ? (
+                getTitle(item, locale)
+              ) : (
+                ""
+              )}
              </h1>
               <div
                 className="text-[#080808] font-normal text-sm sm:text-lg mb-8"

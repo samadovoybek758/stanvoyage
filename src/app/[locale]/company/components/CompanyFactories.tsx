@@ -25,7 +25,7 @@ interface Factory {
 }
 
 function CompanyFactories() {
-  const { data } = useGetFactoriesQuery({});
+  const { data, isLoading, isFetching  } = useGetFactoriesQuery({});
   const t = useTranslations("factories");
   const swiperRef = useRef<SwiperCore | null>(null);
 

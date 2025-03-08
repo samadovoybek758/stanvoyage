@@ -44,11 +44,11 @@ const ProductDetailOrder = () => {
   return (
     <section className="mb-[120px]">
       <div className="container">
-        <div className="bg-white p-[30px] rounded-lg w-full flex justify-between items-start gap-14">
+        <div className="bg-white p-4 md:p-[30px] rounded-lg w-full lg:flex-row flex-col flex justify-between items-start gap-14">
           <SmallSectionTitle title={t("title")} />
           <form onSubmit={handleContact} className="flex-1 w-full">
             <div className="mb-6">
-              <div className="grid grid-cols-3 gap-x-4 gap-y-5 mb-4">
+              <div className="grid sm:grid-cols-2 grid-cols-1  md:grid-cols-3 gap-x-4 gap-y-5 mb-4">
                 <Select
                   name="category"
                   onChange={handleChange}
@@ -78,9 +78,10 @@ const ProductDetailOrder = () => {
                     { value: "clothing", label: "Clothing" },
                     { value: "furniture", label: "Furniture" },
                   ]}
+                  
                 />
               </div>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-5 mb-4">
+              <div className="grid  md:grid-cols-2 gap-x-4 gap-y-5 mb-4">
                 <Input
                   type="number"
                   name="quantity"

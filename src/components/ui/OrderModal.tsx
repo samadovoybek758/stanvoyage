@@ -93,11 +93,11 @@ const OrderModal = () => {
               className="max-w-[1262px] w-full px-[15px]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-white p-[30px] rounded-lg shadow-xl w-full flex justify-between items-start gap-14">
+              <div className="bg-white p-[30px] rounded-lg shadow-xl w-full flex lg:flex-row flex-col justify-between items-start gap-14">
                 <SmallSectionTitle title={t("title")} />
                 <form onSubmit={handleContact} className="flex-1 w-full">
                   <div className="mb-6">
-                    <div className="grid grid-cols-3 gap-x-4 gap-y-5 mb-4">
+                    <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-5 mb-4">
                       <Select
                         name="category"
                         onChange={handleChange}
@@ -129,7 +129,7 @@ const OrderModal = () => {
                         ]}
                       />
                     </div>
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-5 mb-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-5 mb-4">
                       <Input
                         type="number"
                         name="quantity"

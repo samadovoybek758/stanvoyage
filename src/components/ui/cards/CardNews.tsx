@@ -14,7 +14,6 @@ interface CardNewsProps {
 
 const CardNews = ({ item }: { item: CardNewsProps }) => {
   const locale = useLocale();
-  console.log(item);
 
   return (
     <Link href={`/${locale}/news/${item.uuid}`}>
