@@ -14,6 +14,7 @@ import arrowLeft from "../../../../../public/Images/vacancies-left-arow.svg";
 import ShareButton from "@/components/shared/ShareButton";
 import NewSectionList from "@/components/shared/NewSectionList";
 import ImageLoading from "@/components/ui/ImageLoading";
+import Loading from "@/components/ui/Loading";
 
 interface NewsDetailItem {
   uuid: string;
@@ -79,7 +80,16 @@ function NewsDetail() {
             </div>
 
             <h1 className="mb-5 text-[#080808] text-lg sm:text-[28px] font-brigends-expanded max-w-[700px]">
-              {item ? getTitle(item, locale) : ""}
+            {isLoading || isFetching ? (
+                <>
+                  <Loading className="w-full h-10" />
+                  <Loading className="w-full h-10" />
+                </>
+              ) : item ? (
+                getTitle(item, locale)
+              ) : (
+                ""
+              )}
             </h1>
 
             <div className="mb-[30px] flex gap-11 items-center">

@@ -29,7 +29,7 @@ function PerformanceEfficiency() {
   const t = useTranslations("performance-efficiency");
 //   const locale = useLocale();
   return (
-    <section className="mb-[120px]">
+    <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
       <div className="container">
         <SectionTitle title={t("title")} />
 

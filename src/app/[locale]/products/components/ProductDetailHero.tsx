@@ -20,15 +20,15 @@ function ProductDetailHero({ data }: { data: CategoryDetailItem }) {
   const item = data as unknown as CategoryDetailItem;
   console.log(item);
   return (
-    <section className="my-[120px]">
+    <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[136px] ">
       <div className="container">
-        <div className="flex gap-4 md:flex-row flex-col">
+        <div className="flex gap-4 lg:flex-row flex-col">
           <div className="md:py-10 md:pb-[30px] md:pl-10 flex-1 bg-white rounded-lg pt-6 pl-[20px] pb-[20px] pr-[22px]">
-            <h2 className="text-[#080808] text-[28px] mb-6 max-w-[452px] font-brigends-expanded">
+            <h2 className="text-[#080808] text-xl  sm:text-[28px] mb-6 max-w-[452px] font-brigends-expanded">
               {item ? getTitle(item, locale) : ""}
             </h2>
             <div
-              className="text-lg text-[#080808] font-normal"
+              className="text-sm sm:text-lg text-[#080808] font-normal"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(
                   String(item ? getDescription(item, locale) : "")
@@ -37,7 +37,7 @@ function ProductDetailHero({ data }: { data: CategoryDetailItem }) {
             />
           </div>
 
-          <div className="flex-1 py-[53px] px-[46.5px] bg-white rounded-lg h-[520px] ">
+          <div className="flex-1 md:py-[53px] md:px-[46.5px] p-5 bg-white rounded-lg h-[360px] md:h-[500px] ">
             <Image
               width={515}
               height={412}
