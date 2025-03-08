@@ -39,7 +39,7 @@ const Search = ({
           <div className="fixed top-4 left-0 right-0 z-[99999]">
             <div className="container relative">
               <motion.div
-                className="flex items-center bg-[#F37325] py-[14px] rounded-xl relative"
+                className="flex items-center bg-[#F37325] py-[14px]  h-[73px] rounded-xl relative"
                 initial={{ width: "50px" }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -59,7 +59,7 @@ const Search = ({
                     <button className="flex items-center justify-center absolute right-0">
                       <Image
                         src={search}
-                        alt="search"   
+                        alt="search"
                         width={24}
                         height={24}
                         className="w-6 h-6 cursor-pointer"

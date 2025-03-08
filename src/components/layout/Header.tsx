@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header className="fixed top-4 left-0 right-0 z-50">
       <div className="container relative">
-        <nav className="flex items-center justify-between bg-[#F37325] px-3 py-[14px] rounded-lg">
+        <nav className="flex items-center justify-between bg-[#F37325] px-3 py-[14px] rounded-xl">
           <div>
             <Link href="/">
               <Image

@@ -65,9 +65,8 @@ const Footer = () => {
               <Image
                 src={logo}
                 alt="logo"
-                width={210}
                 quality={100}
-                height={56}
+                className="w-[180px]  sm:w-[210px]"
               />
             </Link>
             <div className="grid grid-cols-1 ssm:grid-cols-2 gap-5 w-full md:grid-cols-[1fr_1fr_1fr]">

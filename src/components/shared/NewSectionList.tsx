@@ -14,6 +14,7 @@ import Image from "next/image";
 import right from "../../../public/Images/gallary-right.svg";
 import left from "../../../public/Images/gallary-left.svg";
 import { useTranslations } from "next-intl";
+import NewsItemLoading from "../ui/cards/NewsItemLoading";
 
 interface Item {
   uuid: string;
@@ -24,7 +25,7 @@ interface Item {
 }
 
 const NewSectionList = () => {
-  const { data } = useGetNewsQuery({});
+  const { data, isLoading, isFetching } = useGetNewsQuery({});
   const t = useTranslations("news");
   console.log(data);
 
@@ -69,11 +70,17 @@ const NewSectionList = () => {
             200: { slidesPerView: 1 },
           }}
         >
-          {data?.map((item: Item) => (
-            <SwiperSlide key={item.uuid}>
-              <CardNews item={item} />
-            </SwiperSlide>
-          ))}
+          {isLoading || isFetching
+            ? Array.from({ length: 8 }).map((_, index) => (
+                <SwiperSlide key={index}>
+                  <NewsItemLoading />
+                </SwiperSlide>
+              ))
+            : data?.map((item: Item) => (
+                <SwiperSlide key={item.uuid}>
+                  <CardNews item={item} />
+                </SwiperSlide>
+              ))}
         </Swiper>
 
         <div className="sm:hidden  flex justify-center mt-5 gap-4">
