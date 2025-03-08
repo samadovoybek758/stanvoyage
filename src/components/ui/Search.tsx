@@ -1,10 +1,13 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import search from "../../../public/Images/search.svg";
 import { X } from "lucide-react";
-
+import { useLocale } from "next-intl";
+import { useGetSearchProductQuery } from "@/context/api/SearchApi";
+import Link from "next/link";
+import searchArrow from "../../../public/Images/search-arrow.svg";
 const Search = ({
   isOpen,
   onClose,
@@ -12,7 +15,25 @@ const Search = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
-  // ESC tugmasi bosilganda Search yopilishi uchun event qo‘shamiz
+  const locale = useLocale();
+  const [query, setQuery] = useState("");
+  const { data, isLoading, isFetching } = useGetSearchProductQuery({
+    locale: locale,
+  });
+
+  const resultMasivi = useMemo(() => {
+    if (!data) return [];
+    return data.filter((item: { name: string }) =>
+      item.name.toLowerCase().includes(query.toLowerCase())
+    );
+  }, [query, data]);
+
+  const highlightText = (text: string) => {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, "gi");
+    return text.replace(regex, `<b>$1</b>`);
+  };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -27,13 +48,12 @@ const Search = ({
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Overlay - fon qorayishi */}
           <motion.div
             className="fixed inset-0 bg-[#0000004d] z-[99998]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose} // Overlay bosilganda yopiladi
+            onClick={onClose}
           />
 
           <div className="fixed top-4 left-0 right-0 z-[99999]">
@@ -53,6 +73,8 @@ const Search = ({
                   <div className="flex items-center justify-between relative w-full ">
                     <input
                       type="text"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
                       className="w-full h-full py-2.5 bg-transparent border-b border-[#fff] text-white placeholder:text-white text-lg outline-none"
                       placeholder="Izlash"
                     />
@@ -89,8 +111,45 @@ const Search = ({
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ul className="mx-auto w-full max-w-[1001px] px-[15px]">
-                    <li>Natijalar...</li>
+                  <ul className="mx-auto w-full max-w-[1001px] px-[15px] max-h-[300px] overflow-y-auto">
+                    {isLoading || isFetching ? (
+                      <li>Yuklanmoqda...</li>
+                    ) : resultMasivi.length > 0 ? (
+                      resultMasivi.map(
+                        (item: {
+                          uuid: string;
+                          name: string;
+                          category: string;
+                        }) => (
+                          <li key={item.uuid}>
+                            <Link
+                              href={`/${locale}/products/${item.category}/${item.uuid}/`}
+                              onClick={onClose}
+                              className="py-3 text-lg text-[#000000] font-normal border-b border-[#999999] w-full flex justify-between items-center"
+                            >
+                              {/* Matnni bold qilish */}
+                              <span
+                                className="line-clamp-1"
+                                dangerouslySetInnerHTML={{
+                                  __html: highlightText(item.name),
+                                }}
+                              />
+
+                              {/* Rasm */}
+                              <Image
+                                src={searchArrow}
+                                alt="search-arrow"
+                                width={24}
+                                height={24}
+                                className="w-6 h-6 cursor-pointer"
+                              />
+                            </Link>
+                          </li>
+                        )
+                      )
+                    ) : (
+                      <li>Hech narsa topilmadi</li>
+                    )}
                   </ul>
                 </motion.div>
               </motion.div>
