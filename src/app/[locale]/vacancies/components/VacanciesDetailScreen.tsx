@@ -70,7 +70,7 @@ const VacanciesDetailScreen = () => {
   };
 
   return (
-    <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[100px] lg:mt-[120px]">
+    <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[136px] ">
       <div className="container flex md:flex-row flex-col  justify-between gap-10">
         <div className="max-w-[638px]">
           <button
