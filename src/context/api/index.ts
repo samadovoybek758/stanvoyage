@@ -94,6 +94,7 @@ export const api = createApi({
     "Aplication",
     "Order",
     "Statistics",
+    "Search",
   ],
   endpoints: () => ({}),
 });
