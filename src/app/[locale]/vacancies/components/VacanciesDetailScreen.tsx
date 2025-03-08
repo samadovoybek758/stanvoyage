@@ -70,8 +70,8 @@ const VacanciesDetailScreen = () => {
   };
 
   return (
-    <section className="mb-[120px] mt-[136px]">
-      <div className="container flex justify-between gap-10">
+    <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[100px] lg:mt-[120px]">
+      <div className="container flex md:flex-row flex-col  justify-between gap-10">
         <div className="max-w-[638px]">
           <button
             onClick={() => router.back()}
@@ -85,7 +85,7 @@ const VacanciesDetailScreen = () => {
             className="mb-[30px]"
           />
           <div
-            className="text-[#000] text-[18px] leading-[29px] font-normal"
+            className="text-[#000] text-base sm:text-[18px] leading-[29px] font-normal"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
                 String(item ? getDescription(item, locale) : "")
@@ -93,7 +93,8 @@ const VacanciesDetailScreen = () => {
             }}
           />
         </div>
-        <div className="w-full max-w-[504px] rounded-lg bg-[#fff] p-[30px]">
+
+        <div className="w-full md:max-w-[504px] rounded-lg bg-[#fff] py-[18px] px-4 sm:p-[30px]">
           <div className="mb-6 max-w-[282px]">
             <SmallSectionTitle title="Arizangizni yuboring" />
           </div>
