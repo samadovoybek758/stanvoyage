@@ -37,7 +37,7 @@ function NewsDetail() {
   const router = useRouter();
   return (
     <>
-      <section className="mb-[120px] pt-[137px]">
+      <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[100px]">
         <div className="container">
           <div>
             <button
@@ -60,7 +60,7 @@ function NewsDetail() {
                 {itemImages.length > 0 &&
                   itemImages.map((item, index) => (
                     <SwiperSlide key={index}>
-                      <div className="h-[400px] w-full md:h-[500px]">
+                      <div className="h-[320px] w-full md:h-[500px]">
                         {isLoading || isFetching ? (
                           <ImageLoading className="w-full h-full" />
                         ) : (
@@ -83,12 +83,12 @@ function NewsDetail() {
             </h1>
 
             <div className="mb-[30px] flex gap-11 items-center">
-              <span className=" text-[18px]">{item ? item.date : ""}</span>
+              <span className="text-base sm:text-[18px]">{item ? item.date : ""}</span>
               <ShareButton productId={id as string} />
             </div>
 
             <div
-              className="text-[#080808] font-normal text-lg mb-8"
+              className="text-[#080808] font-normal text-base sm:text-lg mb-8"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(
                   String(item ? getDescription(item, locale) : "")
