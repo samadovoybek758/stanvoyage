@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -28,50 +28,33 @@ const socialMedia = [
   },
 ];
 
-
-
-
-
 const Footer = () => {
-
   const t = useTranslations("footer");
 
-const { data: companyData } = useGetComponyQuery({});
-const { data: companyPhoneData } = useGetCompanyPhoneQuery({});
+  const { data: companyData } = useGetComponyQuery({});
+  const { data: companyPhoneData } = useGetCompanyPhoneQuery({});
 
+  const phones: number[] = [];
+  const emails: string[] = [];
 
-
-const phones: number[] = []; 
-const emails: string[] = []
-
-for (const key in companyPhoneData) {
-  if (companyPhoneData[key] && key.includes("phone")) {
-    phones.push(companyPhoneData[key]); 
+  if (companyPhoneData) {
+    for (const key in companyPhoneData) {
+      if (companyPhoneData[key] && key.includes("phone")) {
+        phones.push(companyPhoneData[key] as number);
+      }
+    }
   }
-}
 
-for (const key in companyData) {
-  if (companyData[key] && key.includes("phone")) {
-    phones.push(companyData[key]); 
+  if (companyData) {
+    for (const key in companyData) {
+      if (companyData[key] && key.includes("phone")) {
+        phones.push(companyData[key] as number);
+      }
+      if (companyData[key] && key.includes("email")) {
+        emails.push(companyData[key] as string);
+      }
+    }
   }
-}
-for (const key in companyData) {
-  if (companyData[key] && key.includes("email")) {
-    emails.push(companyData[key]); 
-  }
-}
-for (const key in companyData) {
-  if (companyData[key] && key.includes("email")) {
-    emails.push(companyPhoneData[key]); 
-  }
-}
-
-
-
-
-  
-  
-  
 
   return (
     <footer className="mb-4">
@@ -93,15 +76,15 @@ for (const key in companyData) {
                   {t("phone")}
                 </h3>
                 <div>
-                 
-                    {
-                      phones.length > 0 && phones.map((item,index) =>(
-                        <p key={index} className="text-base font-normal text-[#000]">
-                          {item}
-                        </p>
-                      ))
-                    }
-                  
+                  {phones.length > 0 &&
+                    phones.map((item, index) => (
+                      <p
+                        key={index}
+                        className="text-base font-normal text-[#000]"
+                      >
+                        {item}
+                      </p>
+                    ))}
                 </div>
               </div>
               <div>
@@ -119,14 +102,15 @@ for (const key in companyData) {
                   {t("email")}
                 </h3>
                 <div>
-                  {
-                    emails.length > 0 && emails.map((item,index) =>(
-                      <p key={index} className="text-base font-normal text-[#000] max-w-[180px] line-clamp-1">
-                   {item}
-                  </p>
-                    ))
-                  }
-                  
+                  {emails.length > 0 &&
+                    emails.map((item, index) => (
+                      <p
+                        key={index}
+                        className="text-base font-normal text-[#000] max-w-[180px] line-clamp-1"
+                      >
+                        {item}
+                      </p>
+                    ))}
                 </div>
               </div>
             </div>
