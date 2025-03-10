@@ -12,7 +12,7 @@ const SearchScreen = () => {
     query: id,
   });
   return (
-    <section>
+    <section className="mt-16 sm:mt-20 md:mt-28 lg:mt-[120px]">
       <ProductList data={data} isLoading={isLoading} isFetching={isFetching} />
     </section>
   );

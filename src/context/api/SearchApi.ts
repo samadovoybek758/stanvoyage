@@ -4,7 +4,7 @@ export const searchApi = api.injectEndpoints({
   endpoints: (build) => ({
     getSearch: build.query({
       query: (params) => ({
-        url: `search/?locale=${params.locale}&query=${params.query}`,
+        url: `search/`,
         params,
       }),
       providesTags: ["Search"],

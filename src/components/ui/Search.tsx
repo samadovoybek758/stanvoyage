@@ -8,6 +8,7 @@ import { useLocale } from "next-intl";
 import { useGetSearchProductQuery } from "@/context/api/SearchApi";
 import Link from "next/link";
 import searchArrow from "../../../public/Images/search-arrow.svg";
+import { useRouter } from "next/navigation";
 const Search = ({
   isOpen,
   onClose,
@@ -15,6 +16,7 @@ const Search = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const router = useRouter();
   const locale = useLocale();
   const [query, setQuery] = useState("");
   const { data, isLoading, isFetching } = useGetSearchProductQuery({
@@ -27,7 +29,17 @@ const Search = ({
       item.name.toLowerCase().includes(query.toLowerCase())
     );
   }, [query, data]);
+  const handleSearchClick = () => {
+    if (query.trim()) {
+      router.push(`/${locale}/search/${query}/`);
+    }
+  };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearchClick();
+    }
+  };
   const highlightText = (text: string) => {
     if (!query) return text;
     const regex = new RegExp(`(${query})`, "gi");
@@ -73,6 +85,7 @@ const Search = ({
                   <div className="flex items-center justify-between relative w-full ">
                     <input
                       type="text"
+                      onKeyDown={handleKeyDown}
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       className="w-full h-full py-2.5 bg-transparent border-b border-[#fff] text-white placeholder:text-white text-lg outline-none"
