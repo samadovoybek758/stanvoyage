@@ -95,6 +95,7 @@ export const api = createApi({
     "Order",
     "Statistics",
     "Search",
+    "Performances",
   ],
   endpoints: () => ({}),
 });

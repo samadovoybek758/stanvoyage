@@ -3,7 +3,7 @@ import CardNews from "@/components/ui/cards/CardNews";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { useTranslations } from "next-intl";
 import { useGetNewsQuery } from "@/context/api/News";
-import NewsItemLoading from "../../../../components/ui/cards/NewsItemLoading";
+import NewsItemLoading from "../../../../components/ui/itemLoader/NewsItemLoading";
 
 interface NewsListType {
   uuid: string;

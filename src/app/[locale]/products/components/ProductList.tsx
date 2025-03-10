@@ -1,7 +1,7 @@
 "use client";
 import SectionTitle from "@/components/shared/SectionTitle";
 import CardProduct from "@/components/ui/cards/CardProduct";
-import ProductItemLoader from "@/components/ui/cards/ProductItemLoader";
+import ProductItemLoader from "@/components/ui/itemLoader/ProductItemLoader";
 import { useTranslations } from "next-intl";
 import React from "react";
 

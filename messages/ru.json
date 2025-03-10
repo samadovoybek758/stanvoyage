@@ -44,6 +44,9 @@
   "mission-and-values": {
     "title": "Миссия и ценности"
   },
+  "statistics": {
+    "title": "Статистика"
+  },
   "vacancy": {
     "title": "Вакансии",
     "all-button": "Все",

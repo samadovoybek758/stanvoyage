@@ -2,6 +2,7 @@
 import { Swiper as SwiperCore } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/autoplay";
 import React, { useRef } from "react";
 import Image from "next/image";
 import left from "../../../../../public/Images/gallary-left.svg";
@@ -9,6 +10,8 @@ import right from "../../../../../public/Images/gallary-right.svg";
 import { useGetFactoriesQuery } from "@/context/api/Factories";
 import CardFactories from "@/components/ui/cards/CardFactories";
 import { useTranslations } from "next-intl";
+import FactoriesItemLoader from "@/components/ui/itemLoader/FactoriesItemLoader";
+import { Autoplay } from "swiper/modules";
 
 interface Factory {
   uuid: string;
@@ -25,12 +28,9 @@ interface Factory {
 }
 
 function CompanyFactories() {
-  const { data, isLoading, isFetching  } = useGetFactoriesQuery({});
+  const { data, isLoading, isFetching } = useGetFactoriesQuery({});
   const t = useTranslations("factories");
   const swiperRef = useRef<SwiperCore | null>(null);
-
-  const handlePrev = () => swiperRef.current?.slidePrev();
-  const handleNext = () => swiperRef.current?.slideNext();
 
   return (
     <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
@@ -43,57 +43,63 @@ function CompanyFactories() {
 
             <div className="hidden gap-3 sm:flex">
               <button
-                onClick={handlePrev}
+                onClick={() => swiperRef.current?.slidePrev()}
                 className="w-[56px] h-[56px] bg-[#E1E1E1] rounded-lg flex justify-center items-center"
               >
                 <Image width={24} height={24} alt="left icon" src={left} />
               </button>
 
               <button
-                onClick={handleNext}
+                onClick={() => swiperRef.current?.slideNext()}
                 className="w-[56px] h-[56px] bg-[#E1E1E1] rounded-lg flex justify-center items-center"
               >
-                <Image width={24} height={24} alt="left icon" src={right} />
+                <Image width={24} height={24} alt="right icon" src={right} />
               </button>
             </div>
           </div>
 
           <Swiper
+            modules={[Autoplay]}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop={true}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             spaceBetween={15}
             breakpoints={{
               550: { slidesPerView: 1 },
               892: { slidesPerView: 2 },
-              700: {slidesPerView: 1.5},
-              600: {slidesPerView: 1.2}
+              700: { slidesPerView: 1.5 },
+              600: { slidesPerView: 1.2 },
             }}
-            loop
           >
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-              {data?.length > 0 &&
+            {isLoading || isFetching
+              ? Array.from({ length: 4 }).map((_, index) => (
+                  <SwiperSlide key={index}>
+                    <FactoriesItemLoader />
+                  </SwiperSlide>
+                ))
+              : data?.length > 0 &&
                 data?.map((item: Factory) => (
                   <SwiperSlide key={item.uuid}>
                     <CardFactories item={item} />
                   </SwiperSlide>
                 ))}
-            </div>
           </Swiper>
 
-          <div className="flex gap-3 justify-center mt-4 sm:hidden ">
-              <button
-                onClick={handlePrev}
-                className="w-[56px] h-[56px] bg-[#E1E1E1] rounded-lg flex justify-center items-center"
-              >
-                <Image width={24} height={24} alt="left icon" src={left} />
-              </button>
+          <div className="flex gap-3 justify-center mt-4 sm:hidden">
+            <button
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="w-[56px] h-[56px] bg-[#E1E1E1] rounded-lg flex justify-center items-center"
+            >
+              <Image width={24} height={24} alt="left icon" src={left} />
+            </button>
 
-              <button
-                onClick={handleNext}
-                className="w-[56px] h-[56px] bg-[#E1E1E1] rounded-lg flex justify-center items-center"
-              >
-                <Image width={24} height={24} alt="left icon" src={right} />
-              </button>
-            </div>
+            <button
+              onClick={() => swiperRef.current?.slideNext()}
+              className="w-[56px] h-[56px] bg-[#E1E1E1] rounded-lg flex justify-center items-center"
+            >
+              <Image width={24} height={24} alt="right icon" src={right} />
+            </button>
+          </div>
         </div>
       </div>
     </section>

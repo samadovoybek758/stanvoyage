@@ -4,7 +4,7 @@
     "company": "Kompaniya",
     "products": "Mahsulotlar",
     "factories": "Fabrikalar",
-    "gallery": "Galleriya",
+    "gallery": "Galareya",
     "news": "Yangiliklar",
     "vacancies": "Vakansiyalar",
     "order": "Buyurtma",
@@ -43,6 +43,9 @@
   },
   "mission-and-values": {
     "title": "Missiya va qadriyatlar"
+  },
+  "statistics": {
+    "title": "Statistikalar"
   },
   "vacancy": {
     "title": "Vakansiyalar",
@@ -87,7 +90,7 @@
     "company": "Kompaniya",
     "products": "Mahsulotlar",
     "factories": "Fabrikalar",
-    "gallery": "Galleriya",
+    "gallery": "Galareya",
     "news": "Yangiliklar",
     "vacancies": "Vakansiyalar",
     "location": "Manzil",

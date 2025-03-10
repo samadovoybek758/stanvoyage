@@ -24,7 +24,7 @@ const HomeVacancies = () => {
   return (
     <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
       <div className="container">
-        <SectionTitle title={t("title")} buttonName={t("all-button")} />
+        <SectionTitle title={t("title")} buttonName={t("all-button")} href="vacancies" />
         <Swiper
           modules={[Autoplay]}
           spaceBetween={9}
@@ -32,17 +32,11 @@ const HomeVacancies = () => {
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
-            1024: { slidesPerView: 3,
-              spaceBetween: 20
-             },
-            810: { slidesPerView: 2.5,
-              spaceBetween: 20
-            },
-            660: {slidesPerView: 2,
-              spaceBetween: 15
-            },
-            480: {slidesPerView: 1.5},
-            0: {slidesPerView: 1.3},
+            1024: { slidesPerView: 3, spaceBetween: 20 },
+            810: { slidesPerView: 2.5, spaceBetween: 20 },
+            660: { slidesPerView: 2, spaceBetween: 15 },
+            480: { slidesPerView: 1.5 },
+            0: { slidesPerView: 1.3 },
           }}
         >
           {data?.slice(0, 6)?.map((item: Item) => (

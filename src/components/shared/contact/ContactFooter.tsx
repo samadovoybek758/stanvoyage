@@ -1,5 +1,5 @@
 import { useGetComponyQuery } from "@/context/api/Compony";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import React from "react";
 import { FiPhone } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
@@ -7,11 +7,8 @@ import { MdOutlineMailOutline } from "react-icons/md";
 
 const ContactFooter = () => {
   const t = useTranslations("contact.contact-footer");
-  const { data } = useGetComponyQuery({})
+  const { data } = useGetComponyQuery({});
 
-  
-  
-  
   return (
     <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 bg-white rounded-lg p-[30px]">
       <div>
@@ -22,7 +19,12 @@ const ContactFooter = () => {
           {t("phone")}
         </h3>
         <div>
-          <p className="text-sm lg:text-lg font-normal text-[#000]">{data?.phone}</p>
+          <a
+            href={`tel:${data?.phone}`}
+            className="text-sm lg:text-lg font-normal text-[#000]"
+          >
+            {data?.phone}
+          </a>
         </div>
       </div>
       <div>
@@ -46,9 +48,12 @@ const ContactFooter = () => {
           {t("email")}
         </h3>
         <div>
-          <p className="text-sm lg:text-lg font-normal text-[#000] max-w-[220px] line-clamp-1">
+          <a
+            href={`mailto:${data?.email}`}
+            className="text-sm lg:text-lg font-normal text-[#000] max-w-[220px] line-clamp-1"
+          >
             {data?.email}
-          </p>
+          </a>
         </div>
       </div>
     </div>

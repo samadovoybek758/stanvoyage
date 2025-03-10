@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import "swiper/css";
 import { Swiper as SwiperCore } from "swiper";
@@ -15,25 +15,50 @@ import { useTranslations } from "next-intl";
 import left from "../../../../../public/Images/gallary-left.svg";
 import right from "../../../../../public/Images/gallary-right.svg";
 import ImageLoading from "@/components/ui/ImageLoading";
+import CompanyImageModal from "./CompanyImageModal";
 
 interface Certificate {
   uuid: number;
   image: string;
 }
 
-
-
-
-
 export default function Sertificate() {
   const { data, isLoading, isFetching } = useGetCertificatesQuery({});
   const t = useTranslations("certificates");
-
 
   const swiperRef = useRef<SwiperCore | null>(null);
 
   const handlePrev = () => swiperRef.current?.slidePrev();
   const handleNext = () => swiperRef.current?.slideNext();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [position, setPosition] = useState<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  }>({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+  });
+
+  const handleOpenModal = (
+    index: number,
+    event: React.MouseEvent<HTMLDivElement>
+  ) => {
+    const target = event.currentTarget.getBoundingClientRect();
+    setPosition({
+      x: target.left,
+      y: target.top,
+      width: target.width,
+      height: target.height,
+    });
+    setSelectedImage(baseUrl + data[index].image);
+    setIsModalOpen(true);
+  };
 
   return (
     <section className="container">
@@ -57,14 +82,17 @@ export default function Sertificate() {
               950: { slidesPerView: 3 },
               700: { slidesPerView: 2.5 },
               600: { slidesPerView: 2 },
-              450: { slidesPerView: 1.5 }
+              450: { slidesPerView: 1.5 },
             }}
             modules={[Autoplay]}
             className=""
           >
-            {data?.map((item: Certificate) => (
+            {data?.map((item: Certificate, index: number) => (
               <SwiperSlide key={item.uuid}>
-                <div className="bg-white px-[30px] lg:px-[58px]  py-6 rounded-lg h-[400px] sm:h-[450px] overflow-hidden">
+                <div
+                  onClick={(e) => handleOpenModal(index, e)}
+                  className="bg-white px-[30px] lg:px-[58px]  py-6 rounded-lg h-[400px] sm:h-[450px] overflow-hidden cursor-pointer"
+                >
                   {isLoading || isFetching ? (
                     <ImageLoading className="w-full h-full object-cover rounded-lg" />
                   ) : (
@@ -96,7 +124,14 @@ export default function Sertificate() {
               <Image width={24} height={24} alt="left icon" src={right} />
             </button>
           </div>
-
+          {selectedImage && (
+            <CompanyImageModal
+              image={selectedImage}
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+              position={position}
+            />
+          )}
         </div>
       </div>
     </section>

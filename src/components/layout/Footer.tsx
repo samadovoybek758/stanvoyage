@@ -10,29 +10,17 @@ import Image from "next/image";
 import logo from "../../../public/Images/max-logo.svg";
 import { useGetComponyQuery } from "@/context/api/Compony";
 import { useGetCompanyPhoneQuery } from "@/context/api/CompanyPhoneApi";
-const socialMedia = [
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/samo/",
-    icon: instagram,
-  },
-  {
-    name: "Facebook",
-    href: "https://www.facebook.com/samo/",
-    icon: facebook,
-  },
-  {
-    name: "Youtube",
-    href: "https://www.youtube.com/samo",
-    icon: youtube,
-  },
-];
-
+import { useGetSocialsQuery } from "@/context/api/Socials";
+import { LiaTelegram } from "react-icons/lia";
+import { MdWhatsapp } from "react-icons/md";
+import { SlSocialLinkedin } from "react-icons/sl";
 const Footer = () => {
   const t = useTranslations("footer");
 
   const { data: companyData } = useGetComponyQuery({});
   const { data: companyPhoneData } = useGetCompanyPhoneQuery({});
+  const { data: socials } = useGetSocialsQuery({});
+  console.log(socials);
 
   const phones: number[] = [];
   const emails: string[] = [];
@@ -77,12 +65,13 @@ const Footer = () => {
                 <div>
                   {phones.length > 0 &&
                     phones.map((item, index) => (
-                      <p
+                      <a
+                        href={`tel:${item}`}
                         key={index}
                         className="text-base font-normal text-[#000]"
                       >
                         {item}
-                      </p>
+                      </a>
                     ))}
                 </div>
               </div>
@@ -103,12 +92,13 @@ const Footer = () => {
                 <div>
                   {emails.length > 0 &&
                     emails.map((item, index) => (
-                      <p
+                      <a
+                        href={`mailto:${item}`}
                         key={index}
                         className="text-base font-normal text-[#000] max-w-[180px] line-clamp-1"
                       >
                         {item}
-                      </p>
+                      </a>
                     ))}
                 </div>
               </div>
@@ -128,10 +118,10 @@ const Footer = () => {
               ))}
             </ul>
             <ul className="flex flex-col gap-[18px]">
-              {socialMedia.map((item) => (
-                <li key={item.name}>
+              {socials?.instagram ? (
+                <li>
                   <a
-                    href={item.href}
+                    href={socials?.instagram}
                     target="_blank"
                     className="text-[#000000] text-base font-normal flex items-center gap-2"
                   >
@@ -140,14 +130,96 @@ const Footer = () => {
                         width={16}
                         height={16}
                         quality={100}
-                        src={item.icon}
-                        alt={item.name}
+                        src={instagram}
+                        alt={socials?.instagram}
                       />
                     </div>
-                    <span>{item.name}</span>
+                    <span>Instagram</span>
                   </a>
                 </li>
-              ))}
+              ) : null}
+              {socials?.telegram ? (
+                <li>
+                  <a
+                    href={socials?.telegram}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <LiaTelegram />
+                    </div>
+                    <span>Telegram</span>
+                  </a>
+                </li>
+              ) : null}
+              {socials?.facebook ? (
+                <li>
+                  <a
+                    href={socials?.facebook}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <Image
+                        width={16}
+                        height={16}
+                        quality={100}
+                        src={facebook}
+                        alt={socials?.facebook}
+                      />
+                    </div>
+                    <span>Facebook</span>
+                  </a>
+                </li>
+              ) : null}
+              {socials?.youtube ? (
+                <li>
+                  <a
+                    href={socials?.youtube}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <Image
+                        width={16}
+                        height={16}
+                        quality={100}
+                        src={youtube}
+                        alt={socials?.youtube}
+                      />
+                    </div>
+                    <span>Youtube</span>
+                  </a>
+                </li>
+              ) : null}
+              {socials?.linkedin ? (
+                <li>
+                  <a
+                    href={socials?.linkedin}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <SlSocialLinkedin />
+                    </div>
+                    <span>Linkedin</span>
+                  </a>
+                </li>
+              ) : null}
+              {socials?.whatsapp ? (
+                <li>
+                  <a
+                    href={socials?.whatsapp}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <MdWhatsapp />
+                    </div>
+                    <span>Whatsapp</span>
+                  </a>
+                </li>
+              ) : null}
             </ul>
           </div>
         </div>

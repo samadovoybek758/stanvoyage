@@ -53,7 +53,7 @@ export default function GallerySwiper() {
               modules={[FreeMode, Navigation, Thumbs]}
             >
               {isLoading || isFetching ? (
-                <div className="h-[228px] sm:h-[240px] md:h-[400px] lg:h-[500px] w-full overflow-hidden">
+                <div className="h-[228px] sm:h-[240px] md:h-[450px] lg:h-[500px] w-full overflow-hidden">
                   <ImageLoading />
                 </div>
               ) : (
@@ -95,10 +95,10 @@ export default function GallerySwiper() {
                     slidesPerView: 4,
                   },
                   640: {
-                    slidesPerView: 3.8,
+                    slidesPerView: 4,
                   },
                   540: {
-                    slidesPerView: 3.4,
+                    slidesPerView: 3.8,
                   },
                   480: {
                     slidesPerView: 3.2,
@@ -114,7 +114,7 @@ export default function GallerySwiper() {
                 {isLoading || isFetching
                   ? Array.from({ length: 4 }).map((_, index) => (
                       <SwiperSlide key={index}>
-                        <div className="w-full h-[60px] sm:h-[100px] md:h-[165px] overflow-hidden rounded-lg">
+                        <div className="w-full h-[80px] md:h-[100px] lg:h-[165px] overflow-hidden rounded-lg">
                           <ImageLoading />
                         </div>
                       </SwiperSlide>
@@ -131,7 +131,7 @@ export default function GallerySwiper() {
                           }`}
                         >
                           <Image
-                            className="w-full h-[80px] sm:h-[110px] md:h-[165px] object-cover rounded-lg cursor-pointer transition-opacity"
+                            className="w-full h-[80px] md:h-[100px] lg:h-[165px] object-cover rounded-lg cursor-pointer transition-opacity"
                             src={`${baseUrl}/${item?.file}`}
                             alt={"gallery image"}
                             width={253}

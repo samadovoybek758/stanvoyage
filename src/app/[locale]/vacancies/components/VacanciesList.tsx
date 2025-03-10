@@ -4,7 +4,7 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import React from "react";
 import { useGetVacansyQuery } from "@/context/api/Vacancies";
 import { useTranslations } from "next-intl";
-import VacanciesItemLoading from "@/components/ui/cards/VacanciesItemLoading";
+import VacanciesItemLoading from "@/components/ui/itemLoader/VacanciesItemLoading";
 interface Item {
   uuid: string;
   title_ru: string;

@@ -27,7 +27,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       </h2>
       {buttonName ? (
         <Link
-          href={`${local}/${href}`}
+          href={`/${local}/${href}`}
           className=" font-medium text-sm ssm:text-base md:text-lg text-black flex items-center gap-[6px]"
           onClick={onClick}
         >

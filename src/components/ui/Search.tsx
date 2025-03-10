@@ -36,8 +36,10 @@ const Search = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && resultMasivi.length < 0) {
       handleSearchClick();
+      onClose();
+      setQuery("");
     }
   };
   const highlightText = (text: string) => {
@@ -49,6 +51,7 @@ const Search = ({
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        setQuery("");
         onClose();
       }
     };
@@ -117,54 +120,58 @@ const Search = ({
                     <X className="w-6 h-6 text-white" />
                   </motion.div>
                 </motion.button>
-                <motion.div
-                  className="absolute bg-[#FFFFFF] w-full py-[23px] rounded-xl top-[calc(100%+8px)] shadow-md"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ul className="mx-auto w-full max-w-[1001px] px-[15px] max-h-[300px] overflow-y-auto">
-                    {isLoading || isFetching ? (
-                      <li>Yuklanmoqda...</li>
-                    ) : resultMasivi.length > 0 ? (
-                      resultMasivi.map(
-                        (item: {
-                          uuid: string;
-                          name: string;
-                          category: string;
-                        }) => (
-                          <li key={item.uuid}>
-                            <Link
-                              href={`/${locale}/products/${item.category}/${item.uuid}/`}
-                              onClick={onClose}
-                              className="py-3 text-lg text-[#000000] font-normal border-b border-[#999999] w-full flex justify-between items-center"
-                            >
-                              {/* Matnni bold qilish */}
-                              <span
-                                className="line-clamp-1"
-                                dangerouslySetInnerHTML={{
-                                  __html: highlightText(item.name),
-                                }}
-                              />
+                {query ? (
+                  <motion.div
+                    className="absolute bg-[#FFFFFF] w-full py-[23px] rounded-xl top-[calc(100%+8px)] shadow-md"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ul className="mx-auto w-full max-w-[1001px] px-[15px] max-h-[300px] overflow-y-auto">
+                      {isLoading || isFetching ? (
+                        <li>Yuklanmoqda...</li>
+                      ) : resultMasivi.length > 0 ? (
+                        resultMasivi.map(
+                          (item: {
+                            uuid: string;
+                            name: string;
+                            category: string;
+                          }) => (
+                            <li key={item.uuid}>
+                              <Link
+                                href={`/${locale}/products/${item.category}/${item.uuid}/`}
+                                onClick={onClose}
+                                className="py-3 text-lg text-[#000000] font-normal border-b border-[#999999] w-full flex justify-between items-center"
+                              >
+                                {/* Matnni bold qilish */}
+                                <span
+                                  className="line-clamp-1"
+                                  dangerouslySetInnerHTML={{
+                                    __html: highlightText(item.name),
+                                  }}
+                                />
 
-                              {/* Rasm */}
-                              <Image
-                                src={searchArrow}
-                                alt="search-arrow"
-                                width={24}
-                                height={24}
-                                className="w-6 h-6 cursor-pointer"
-                              />
-                            </Link>
-                          </li>
+                                {/* Rasm */}
+                                <Image
+                                  src={searchArrow}
+                                  alt="search-arrow"
+                                  width={24}
+                                  height={24}
+                                  className="w-6 h-6 cursor-pointer"
+                                />
+                              </Link>
+                            </li>
+                          )
                         )
-                      )
-                    ) : (
-                      <li>Hech narsa topilmadi</li>
-                    )}
-                  </ul>
-                </motion.div>
+                      ) : (
+                        <li>Hech narsa topilmadi</li>
+                      )}
+                    </ul>
+                  </motion.div>
+                ) : (
+                  <></>
+                )}
               </motion.div>
             </div>
           </div>

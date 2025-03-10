@@ -14,6 +14,7 @@ import { getDescription, getTitle } from "@/hook/getLanguage";
 import { useLocale, useTranslations } from "next-intl";
 import { baseUrl } from "../../../../../public/static/Index";
 import type { Swiper as SwiperType } from "swiper";
+import { useRouter } from "next/navigation";
 
 interface Slider {
   uuid: string;
@@ -31,11 +32,15 @@ const Hero = () => {
   const local = useLocale();
   const swiperRef = useRef<SwiperType | null>(null);
   const t = useTranslations("hero");
+  const rout = useRouter();
+  const handelRout = () => {
+    rout.push(`/${local}/company/`);
+  };
   return (
     <section className="max-h-[640px] w-full mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] relative">
       <Swiper
         modules={[Autoplay, Navigation, EffectFade]}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
         effect="fade"
         loop={true}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -59,7 +64,10 @@ const Hero = () => {
                 <p className="max-w-[760px] text-base md:text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
                   {getDescription(item, local)}
                 </p>
-                <button className="border-[2px] border-[#fff] text-[#fff] px-8 lg:px-9 rounded-lg mt-[24px] py-3 md:py-5 font-medium text-sm md:text-lg flex items-center gap-2.5">
+                <button
+                  onClick={handelRout}
+                  className="border-[2px] border-[#fff] text-[#fff] px-8 lg:px-9 rounded-lg mt-[24px] py-3 md:py-5 font-medium text-sm md:text-lg flex items-center gap-2.5"
+                >
                   <Image src={play} alt="play" width={24} height={24} />
                   {t("watch-video")}
                 </button>
