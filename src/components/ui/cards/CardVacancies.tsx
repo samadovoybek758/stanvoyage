@@ -46,7 +46,7 @@ const CardVacancies = ({ item }: { item: Item }) => {
       </div>
       <Link
         href={`/${locale}/vacancies/${item.uuid}`}
-        className="py-[10.5px] sm:py-[13px] w-full max-w-[158px] flex items-center justify-center rounded-lg border border-[#F37325] font-normal text-sm sm:text-base text-[#F37325]"
+        className="py-[10.5px] sm:py-[13px] w-full max-w-[158px] flex items-center justify-center rounded-lg border border-[#F37325] hover:bg-[#F37325] transition-all duration-300 hover:text-white font-normal text-sm sm:text-base text-[#F37325]"
       >
         Ariza topshirish
       </Link>

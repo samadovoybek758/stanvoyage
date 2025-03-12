@@ -67,7 +67,7 @@ const Hero = () => {
                 </p>
                 <Link
                   href={`/${local}/company/#company-video`}
-                  className="border-[2px] border-[#fff] text-[#fff] px-8 lg:px-9 rounded-lg mt-[24px] py-3 md:py-5 font-medium text-sm md:text-lg flex items-center gap-2.5"
+                  className="border-[2px] border-[#fff] opacity-1 hover:opacity-[0.8] transition-all duration-300 text-[#fff] px-8 lg:px-9 rounded-lg mt-[24px] py-3 md:py-5 font-medium text-sm md:text-lg flex items-center gap-2.5"
                 >
                   <Image src={play} alt="play" width={24} height={24} />
                   {t("watch-video")}

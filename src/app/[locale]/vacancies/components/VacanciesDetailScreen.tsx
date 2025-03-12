@@ -26,7 +26,7 @@ const VacanciesDetailScreen = () => {
     phone: "",
     experience: "",
     content: "",
-    file: null as File | null,
+    resume: null as File | null,
   });
 
   const handleChange = (
@@ -48,8 +48,8 @@ const VacanciesDetailScreen = () => {
     formDataToSend.append("experience", formData.experience);
     formDataToSend.append("content", formData.content);
     formDataToSend.append("vacancy", id as string);
-    if (formData.file) {
-      formDataToSend.append("file", formData.file);
+    if (formData.resume) {
+      formDataToSend.append("resume", formData.resume);
     }
 
     try {
@@ -61,7 +61,7 @@ const VacanciesDetailScreen = () => {
         phone: "",
         experience: "",
         content: "",
-        file: null,
+        resume: null,
       });
     } catch (error) {
       toast.error("Arizangiz yuborishda xatolik yuz berdi");
@@ -140,9 +140,9 @@ const VacanciesDetailScreen = () => {
                 <Image src={pdfIcon} alt="pdf" width={24} height={24} />
                 <p className="text-[#3B3B3B] font-medium">Rezyume yuklash</p>
               </div>
-              {formData.file && (
+              {formData.resume && (
                 <div className="flex items-center gap-2 p-1 text-[#3B3B3B] font-normal">
-                  {formData.file.name}
+                  {formData.resume.name}
                 </div>
               )}
             </label>

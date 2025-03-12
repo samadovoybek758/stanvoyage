@@ -112,14 +112,14 @@ export default function Sertificate() {
           <div className="flex gap-3 justify-center mt-4 sm:hidden ">
             <button
               onClick={handlePrev}
-              className="w-[56px] h-[56px] bg-[#E1E1E1] rounded-lg flex justify-center items-center"
+              className="w-[56px] h-[56px] hover:bg-[#c7c6c6] transition-all duration-300 bg-[#E1E1E1] rounded-lg flex justify-center items-center"
             >
               <Image width={24} height={24} alt="left icon" src={left} />
             </button>
 
             <button
               onClick={handleNext}
-              className="w-[56px] h-[56px] bg-[#E1E1E1] rounded-lg flex justify-center items-center"
+              className="w-[56px] h-[56px] hover:bg-[#c7c6c6] transition-all duration-300 bg-[#E1E1E1] rounded-lg flex justify-center items-center"
             >
               <Image width={24} height={24} alt="left icon" src={right} />
             </button>

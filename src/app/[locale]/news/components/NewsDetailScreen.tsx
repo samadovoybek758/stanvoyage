@@ -38,7 +38,7 @@ function NewsDetail() {
   const router = useRouter();
   return (
     <>
-      <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[136px]">
+      <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]  mt-24 md:mt-28 lg:mt-[137px]">
         <div className="container">
           <div>
             <button
@@ -80,7 +80,7 @@ function NewsDetail() {
             </div>
 
             <h1 className="mb-5 text-[#080808] text-lg sm:text-[28px] font-brigends-expanded max-w-[700px]">
-            {isLoading || isFetching ? (
+              {isLoading || isFetching ? (
                 <>
                   <Loading className="w-full h-10" />
                   <Loading className="w-full h-10" />
@@ -93,7 +93,9 @@ function NewsDetail() {
             </h1>
 
             <div className="mb-[30px] flex gap-11 items-center">
-              <span className="text-base sm:text-[18px]">{item ? item.date : ""}</span>
+              <span className="text-base sm:text-[18px]">
+                {item ? item.date : ""}
+              </span>
               <ShareButton productId={id as string} />
             </div>
 

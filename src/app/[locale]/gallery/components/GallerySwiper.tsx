@@ -77,7 +77,7 @@ export default function GallerySwiper() {
 
           {/* **Navigatsiya tugmalari** */}
           <div className="mt-5 relative">
-            <button className="next hidden w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] rounded-lg md:flex justify-center items-center absolute right-0 top-1/2 -translate-y-1/2 z-10">
+            <button className="next hidden w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] hover:bg-[#c7c6c6] transition-all duration-300 cursor-pointer bg-[#E1E1E1] rounded-lg md:flex justify-center items-center absolute right-0 top-1/2 -translate-y-1/2 z-10">
               <Image width={24} height={24} alt="icon right" src={right} />
             </button>
 
@@ -143,15 +143,15 @@ export default function GallerySwiper() {
               </Swiper>
             </div>
 
-            <button className="prev hidden w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] md:flex justify-center items-center rounded-lg p-2 absolute top-1/2 left-0 z-10 -translate-y-1/2">
+            <button className="prev hidden w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] hover:bg-[#c7c6c6] transition-all duration-300 md:flex justify-center items-center rounded-lg p-2 absolute top-1/2 left-0 z-10 -translate-y-1/2">
               <Image width={24} height={24} alt="icon left" src={left} />
             </button>
           </div>
           <div className="flex md:hidden items-center gap-x-3 w-full justify-center mt-4">
-            <button className="prev w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] flex justify-center items-center rounded-lg p-2 ">
+            <button className="prev w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] hover:bg-[#c7c6c6] transition-all duration-300 flex justify-center items-center rounded-lg p-2 ">
               <Image width={24} height={24} alt="icon left" src={left} />
             </button>
-            <button className="next w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] rounded-lg flex justify-center items-center ">
+            <button className="next w-[50px] h-[50px] lg:w-[56px] lg:h-[56px] cursor-pointer bg-[#E1E1E1] hover:bg-[#c7c6c6] transition-all duration-300 rounded-lg flex justify-center items-center ">
               <Image width={24} height={24} alt="icon right" src={right} />
             </button>
           </div>

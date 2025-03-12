@@ -82,7 +82,7 @@ const Header = () => {
               <LanguageDropdown />
             </div>
             <Link
-              className="hidden xl:block text-[#F37325] py-[12.5px] px-[25px] font-semibold text-sm bg-[#fff] rounded-lg"
+              className="hidden xl:block text-[#F37325] py-[12.5px] px-[25px] font-semibold text-sm hover:bg-[#ececec] transition-all duration-300 bg-[#fff] rounded-lg"
               href={`/${locale}/contact`}
             >
               {t("contact")}
