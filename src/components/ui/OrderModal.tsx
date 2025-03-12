@@ -20,6 +20,7 @@ import { getTitle } from "@/hook/getLanguage";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/context";
 import { closeModal } from "@/context/slice/OpenOrderModal";
+import { X } from "lucide-react";
 
 interface OrderForm {
   full_name: string;
@@ -183,7 +184,7 @@ const OrderModal = () => {
 
   const gridClass = `grid gap-x-4 gap-y-5 mb-4 ${
     selects.length === 1
-      ? "grid-cols-1"
+      ? "grid-cols-1" 
       : selects.length === 2
       ? "grid-cols-2"
       : selects.length === 3
@@ -223,10 +224,22 @@ const OrderModal = () => {
               className="max-w-[1262px] w-full px-[15px]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-white p-[30px] rounded-lg shadow-xl w-full flex lg:flex-row flex-col justify-between items-start gap-14">
-                <SmallSectionTitle title={t("title")} />
+              <div className="bg-white p-[30px] rounded-lg shadow-xl w-full flex lg:flex-row flex-col justify-between items-start gap-8 lg:gap-14">
+                <SmallSectionTitle
+                  title={t("title")}
+                  className="hidden lg:flex"
+                />
+                <div className="lg:hidden flex items-center justify-between w-full">
+                  <SmallSectionTitle title={t("title")} />
+                  <button
+                    onClick={close}
+                    className="lg:hidden flex items-center justify-center text-xs"
+                  >
+                    <X />
+                  </button>
+                </div>
                 <form onSubmit={handleContact} className="flex-1 w-full">
-                  <div className="mb-6">
+                  <div className="mb-6 overflow-y-auto max-h-[450px] ssm:max-h-[500px] sm:max-h-[588px]">
                     <div className={gridClass}>
                       {selects.map((select) => (
                         <Select
