@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { api } from "./api/index";
+import orderModalReducer from "./slice/OpenOrderModal";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
+      orderModal: orderModalReducer,
       [api.reducerPath]: api.reducer,
     },
     middleware: (getDefaultMiddleware) =>

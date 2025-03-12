@@ -4,6 +4,8 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import { useTranslations } from "next-intl";
 import { useGetNewsQuery } from "@/context/api/News";
 import NewsItemLoading from "../../../../components/ui/itemLoader/NewsItemLoading";
+import Pagination from "@/components/ui/Pagination";
+import { useState } from "react";
 
 interface NewsListType {
   uuid: string;
@@ -15,8 +17,16 @@ interface NewsListType {
 
 const NewsList = () => {
   const t = useTranslations("news");
-  const { data, isLoading, isFetching } = useGetNewsQuery({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const { data, isLoading, isFetching } = useGetNewsQuery({
+    page: currentPage,
+  });
   console.log(data);
+  const handlePageChange = (selectedPage: number) => {
+    setCurrentPage(selectedPage + 1);
+  };
+
+  console.log(currentPage);
 
   return (
     <section className="mb-[120px]">
@@ -27,10 +37,16 @@ const NewsList = () => {
             ? Array.from({ length: 4 }).map((_, index) => (
                 <NewsItemLoading key={index} />
               ))
-            : data?.map((item: NewsListType) => (
+            : data?.items?.map((item: NewsListType) => (
                 <CardNews key={item?.uuid} item={item} />
               ))}
         </ul>
+        {data?.total_pages > 1 && (
+          <Pagination
+            pageCount={data?.total_pages}
+            onPageChange={handlePageChange}
+          />
+        )}
       </div>
     </section>
   );

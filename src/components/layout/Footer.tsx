@@ -14,32 +14,41 @@ import { useGetSocialsQuery } from "@/context/api/Socials";
 import { LiaTelegram } from "react-icons/lia";
 import { MdWhatsapp } from "react-icons/md";
 import { SlSocialLinkedin } from "react-icons/sl";
+import { useGetCompanyEmailQuery } from "@/context/api/CompanyEmailApi";
 const Footer = () => {
   const t = useTranslations("footer");
-
   const { data: companyData } = useGetComponyQuery({});
   const { data: companyPhoneData } = useGetCompanyPhoneQuery({});
+  const { data: companyEmailData } = useGetCompanyEmailQuery({});
   const { data: socials } = useGetSocialsQuery({});
-  console.log(socials);
 
-  const phones: number[] = [];
+  const phones: string[] = [];
   const emails: string[] = [];
 
-  if (companyPhoneData) {
-    for (const key in companyPhoneData) {
-      if (companyPhoneData[key] && key.includes("phone")) {
-        phones.push(companyPhoneData[key] as number);
+  // companyPhoneData array ichida obyektlar bor, ularni tekshirib phone larni qo'shamiz
+  if (Array.isArray(companyPhoneData)) {
+    companyPhoneData.forEach((item) => {
+      if (item.phone) {
+        phones.push(item.phone);
       }
+    });
+  }
+
+  // companyData ichidagi phone va email larni tekshirib qo'shamiz
+  if (companyData) {
+    if (companyData.phone) {
+      phones.push(companyData.phone);
+    }
+    if (companyData.email) {
+      emails.push(companyData.email);
     }
   }
 
-  if (companyData) {
-    for (const key in companyData) {
-      if (companyData[key] && key.includes("phone")) {
-        phones.push(companyData[key] as number);
-      }
-      if (companyData[key] && key.includes("email")) {
-        emails.push(companyData[key] as string);
+  // companyEmailData ichidan email larni qo'shamiz
+  if (companyEmailData) {
+    for (const key in companyEmailData) {
+      if (companyEmailData[key] && key.includes("email")) {
+        emails.push(companyEmailData[key] as string);
       }
     }
   }
@@ -54,7 +63,7 @@ const Footer = () => {
                 src={logo}
                 alt="logo"
                 quality={100}
-                className="w-[180px]  sm:w-[210px]"
+                className=""
               />
             </Link>
             <div className="grid grid-cols-1 ssm:grid-cols-2 gap-5 w-full md:grid-cols-[1fr_1fr_1fr]">
@@ -62,7 +71,7 @@ const Footer = () => {
                 <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-base">
                   {t("phone")}
                 </h3>
-                <div>
+                <div className="flex flex-col items-start">
                   {phones.length > 0 &&
                     phones.map((item, index) => (
                       <a
@@ -89,7 +98,7 @@ const Footer = () => {
                 <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-base">
                   {t("email")}
                 </h3>
-                <div>
+                <div className="flex flex-col items-start">
                   {emails.length > 0 &&
                     emails.map((item, index) => (
                       <a

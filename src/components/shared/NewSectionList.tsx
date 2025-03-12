@@ -80,7 +80,7 @@ const NewSectionList = () => {
                   <NewsItemLoading />
                 </SwiperSlide>
               ))
-            : data?.map((item: Item) => (
+            : data?.items?.map((item: Item) => (
                 <SwiperSlide key={item.uuid}>
                   <CardNews item={item} />
                 </SwiperSlide>

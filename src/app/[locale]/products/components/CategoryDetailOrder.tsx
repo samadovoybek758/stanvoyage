@@ -5,6 +5,7 @@ import Input from "@/components/ui/Input";
 import Select from "@/components/ui/Select";
 import Textarea from "@/components/ui/Textarea";
 import {
+  useGetCategoryByIdQuery,
   useGetCategoryCompositionQuery,
   useGetCategoryMaterialsQuery,
   useGetCategoryQualitiesQuery,
@@ -28,9 +29,10 @@ const initialState = {
   country: "",
   company_name: "",
   content: "",
+  product: "",
 };
-const ProductDetailOrder = () => {
-  const { id, subId } = useParams();
+const CategoryDetailOrder = () => {
+  const { id } = useParams();
   const local = useLocale();
   const t = useTranslations("order");
   const [form, setForm] = useState(initialState);
@@ -38,6 +40,7 @@ const ProductDetailOrder = () => {
   const { data: qualities } = useGetCategoryQualitiesQuery(id);
   const { data: materials } = useGetCategoryMaterialsQuery(id);
   const { data: composition } = useGetCategoryCompositionQuery(id);
+  const { data: categoryProduct } = useGetCategoryByIdQuery(id as string);
 
   const handleChange = (
     e:
@@ -53,7 +56,6 @@ const ProductDetailOrder = () => {
       const newObject = {
         ...form,
         category: id,
-        product: subId,
       };
       await orderCreate(newObject).unwrap();
       toast.success(t("success"));
@@ -63,6 +65,21 @@ const ProductDetailOrder = () => {
     }
   };
   const selects = [
+    categoryProduct?.products?.length && {
+      name: "product",
+      placeholder: t("product"),
+      options: categoryProduct?.products?.map(
+        (product: {
+          uuid: string;
+          title_uz: string;
+          title_ru: string;
+          title_en: string;
+        }) => ({
+          value: product.uuid,
+          label: getTitle(product, local),
+        })
+      ),
+    },
     qualities?.length && {
       name: "quality",
       placeholder: t("quality"),
@@ -109,15 +126,16 @@ const ProductDetailOrder = () => {
       ),
     },
   ].filter(Boolean);
-
   if (!selects.length) return null;
 
   const gridClass = `grid gap-x-4 gap-y-5 mb-4 ${
     selects.length === 1
       ? "grid-cols-1"
       : selects.length === 2
-      ? "sm:grid-cols-2"
-      : "md:grid-cols-3"
+      ? "grid-cols-2"
+      : selects.length === 3
+      ? "sm:grid-cols-2 md:grid-cols-3"
+      : "sm:grid-cols-2 md:grid-cols-2"
   }`;
   return (
     <section className="mb-[120px]">
@@ -209,4 +227,4 @@ const ProductDetailOrder = () => {
   );
 };
 
-export default ProductDetailOrder;
+export default CategoryDetailOrder;

@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import ProductDetailHero from "./ProductDetailHero";
-import ProductDetailOrder from "./ProductDetailOrder";
 import ProductList from "./ProductList";
 import { useParams } from "next/navigation";
 import { useGetCategoryByIdQuery } from "@/context/api/CategoryApi";
 import PerformanceEfficiency from "./PerformanceEfficiency";
 import { useGetPerformancesQuery } from "@/context/api/PerformancesApi";
+import CategoryDetailOrder from "./CategoryDetailOrder";
 
 interface CategoryDetailItem {
   category: {
@@ -40,7 +40,7 @@ const CategoryDetailsScreen = () => {
         data={data?.category as unknown as CategoryDetailItem["category"]}
       />
       {performances?.length > 0 && <PerformanceEfficiency />}
-      {data?.products?.length > 0 ? (
+      {data?.category?.page_product ? (
         <ProductList
           data={data?.products}
           subId={id as string}
@@ -48,7 +48,7 @@ const CategoryDetailsScreen = () => {
           isFetching={isFetching}
         />
       ) : (
-        <ProductDetailOrder />
+        <CategoryDetailOrder />
       )}
     </>
   );

@@ -1,36 +1,24 @@
 import { api } from "./index";
-export interface News {
-  id: string;
-  title: string;
-  content: string;
-  image: string;
-  createdAt: string;
-}
-
-export interface NewsParams {
-  page?: number;
-  limit?: number;
-}
 
 export const newsApi = api.injectEndpoints({
   endpoints: (build) => ({
-    getNews: build.query<News[], NewsParams>({
-      query: (params) => ({
-        url: "/news/?is_article=False",
-        params,
+    getNews: build.query({
+      query: ({ page }) => ({
+        url: "/news/",
+        params: { page },
       }),
       providesTags: ["News"],
     }),
 
-    getArticles: build.query<News[], NewsParams>({
-      query: (params) => ({ 
-        url: "/news/?is_article=True",
+    getArticles: build.query({
+      query: (params) => ({
+        url: "/news/",
         params,
       }),
       providesTags: ["Articles"],
     }),
 
-    getNewsById: build.query<News, string>({
+    getNewsById: build.query({
       query: (id) => ({
         url: `/news/${id}`,
       }),

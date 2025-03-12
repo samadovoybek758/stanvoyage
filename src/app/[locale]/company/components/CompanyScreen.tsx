@@ -15,7 +15,7 @@ const CompanyScreen = () => {
   const t = useTranslations("about");
   return (
     <>
-      <AllHero title={t("title")} image={companyImg} />
+      <AllHero title={t("title")} image={companyImg} mbDefault={false} />
       <CompanyVideo />
       <CompanyOverview />
       <CompanyHistory />

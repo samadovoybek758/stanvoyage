@@ -14,7 +14,7 @@ const GalleryTopBox = () => {
         {isLoading || isFetching
           ? Array.from({ length: 2 }).map((_, index) => (
               <div className="bg-[#FFFFFF] rounded-lg p-5 md:p-10" key={index}>
-                <div className="w-full h-[500px] overflow-hidden rounded-lg">
+                <div className="w-full h-[270px] sm:h-[300px] md:h-[400px] lg:h-[500px]  overflow-hidden rounded-lg">
                   <ImageLoading />
                 </div>
               </div>
@@ -25,7 +25,7 @@ const GalleryTopBox = () => {
                 className="bg-[#FFFFFF] rounded-lg p-5 md:p-10"
                 key={item?.uuid}
               >
-                <div className="w-full h-[500px] overflow-hidden rounded-lg">
+                <div className="w-full h-[270px] sm:h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-lg">
                   <Image
                     className="w-full h-full object-cover cursor-pointer"
                     src={`${baseUrl}/${item?.file}`}

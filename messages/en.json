@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Home",
-    "company": "Company",
+    "about-us": "About Us",
     "products": "Products",
     "factories": "Factories",
     "gallery": "Gallery",
@@ -54,7 +54,7 @@
   },
   "order": {
     "title": "Order",
-    "category": "Category",
+    "materials": "Type",
     "quality": "Quality",
     "composition": "Composition",
     "quantity": "Quantity",
@@ -65,7 +65,11 @@
     "button": "Send request",
     "button-loading": "Loading...",
     "error": "Error occurred while creating the order",
-    "success": "Order successfully created"
+    "success": "Order successfully created",
+    "email": "Email",
+    "product": "Product",
+    "category": "Category",
+    "company_name": "Company name"
   },
   "contact": {
     "contact": "Contact",
@@ -87,7 +91,7 @@
     }
   },
   "footer": {
-    "company": "Company",
+    "about-us": "About Us",
     "products": "Products",
     "factories": "Factories",
     "gallery": "Gallery",

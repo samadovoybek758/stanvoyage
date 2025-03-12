@@ -2,7 +2,7 @@ export const baseUrl = process.env.NEXT_PUBLIC_SAMO_API_BASE_URL;
 
 export const footerNavigations = [
   {
-    name: "company",
+    name: "about-us",
     href: "/company",
   },
   {
@@ -32,7 +32,7 @@ export const navigations = [
     href: "/",
   },
   {
-    name: "company",
+    name: "about-us",
     href: "/company",
   },
   {

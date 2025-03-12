@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Главная",
-    "company": "Компания",
+    "about-us": "About Us",
     "products": "Продукты",
     "factories": "Фабрики",
     "gallery": "Галерея",
@@ -54,7 +54,7 @@
   },
   "order": {
     "title": "Заказ",
-    "category": "Категория",
+    "materials": "тип",
     "quality": "Качество",
     "composition": "Состав",
     "quantity": "Количество",
@@ -65,7 +65,11 @@
     "button": "Отправить запрос",
     "button-loading": "Загрузка...",
     "error": "Ошибка при создании заказа",
-    "success": "Заказ успешно создан"
+    "success": "Заказ успешно создан",
+    "email": "Электронная почта",
+    "product": "Продукты",
+    "category": "Категория",
+    "company_name": "Название компании"
   },
   "contact": {
     "contact": "Контакты",
@@ -87,7 +91,7 @@
     }
   },
   "footer": {
-    "company": "Компания",
+    "about-us": "About Us",
     "products": "Продукты",
     "factories": "Фабрики",
     "gallery": "Галерея",

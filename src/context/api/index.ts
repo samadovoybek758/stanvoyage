@@ -96,6 +96,7 @@ export const api = createApi({
     "Statistics",
     "Search",
     "Performances",
+    "CompanyEmail"
   ],
   endpoints: () => ({}),
 });

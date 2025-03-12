@@ -30,13 +30,15 @@ function PerformanceEfficiency() {
                 key={item.uuid}
                 className="pt-[30px] pl-4 pb-4 pr-[22px] rounded-lg bg-white"
               >
-                <Image
-                  width={50}
-                  height={50}
-                  src={baseUrl + item.image}
-                  alt="icon"
-                  className="mb-[60px]"
-                />
+                <div>
+                  <Image
+                    width={50}
+                    height={50}
+                    src={baseUrl + item.image}
+                    alt="icon"
+                    className="mb-[60px]"
+                  />
+                </div>
 
                 <p className="text-[#080808] text-lg line-clamp-4">
                   {getContent(item, locale)}

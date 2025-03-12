@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Bosh sahifa",
-    "company": "Kompaniya",
+    "about-us": "Biz haqimizda",
     "products": "Mahsulotlar",
     "factories": "Fabrikalar",
     "gallery": "Galareya",
@@ -54,7 +54,7 @@
   },
   "order": {
     "title": "Buyurtma",
-    "category": "Kategoriya",
+    "materials": "Turi",
     "quality": "Sifat",
     "composition": "Tarkib",
     "quantity": "Miqdor",
@@ -65,7 +65,11 @@
     "button": "So‘rov yuborish",
     "button-loading": "Yuklanmoqda...",
     "error": "Buyurtma yaratishda xatolik yuz berdi",
-    "success": "Buyurtma muvaffaqiyatli yaratildi"
+    "success": "Buyurtma muvaffaqiyatli yuborildi",
+    "email": "Email",
+    "product": "Mahsulot",
+    "category": "Toyifa",
+    "company_name": "Kompaniya nomi"
   },
   "contact": {
     "contact": "Bog‘lanish",
@@ -87,7 +91,7 @@
     }
   },
   "footer": {
-    "company": "Kompaniya",
+    "about-us": "Biz haqimizda",
     "products": "Mahsulotlar",
     "factories": "Fabrikalar",
     "gallery": "Galareya",

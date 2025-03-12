@@ -12,6 +12,7 @@
 body {
   background-color: #f7f7f7;
   font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
 }
 .font-brigends-expanded {
   font-family: "Brigends Expanded", sans-serif;
@@ -67,4 +68,32 @@ body {
 .swiper-slide-active .shutter-effect {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   opacity: 1;
+}
+.pageDefaultPagination a {
+  height: 42px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1.31px solid transparent;
+  font-size: 1.125rem;
+  text-align: center;
+}
+.pageDefaultPaginationActive a {
+  border-color: #f37325;
+  color: #f37325;
+}
+.pagination-prev,
+.pagination-next {
+  height: 42px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 8px;
 }
