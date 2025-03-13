@@ -36,7 +36,7 @@ function Mission() {
                 key={index}
                 className="md:pt-[30px] w-full   md:pb-9  lg:pr-[84px] lg:pl-[30px] py-5 pl-4 pr-[18px]  bg-white rounded-lg"
               >
-                <h1 className="text-[#080808] text-xl md:text-[28px] mb-[20px] md:mb-[50px] xl:mb-[95px] w-full font-semibold md:max-w-[174px]">
+                <h1 className="text-[#080808] text-xl md:text-[28px] mb-[20px] md:mb-[50px] xl:mb-[95px] w-full font-semibold md:max-w-[190px]">
                   {isLoading || isFetching ? (
                     <>
                       <Loading className="w-full h-10" />

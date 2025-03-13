@@ -11,7 +11,6 @@ import Loading from "@/components/ui/Loading";
 function CompanyStatistics() {
   const { data, isLoading, isFetching } = useGetStatisticsQuery({});
   const t = useTranslations("statistics");
-  console.log("hello", data);
   const locale = useLocale();
 
   interface TypeData {

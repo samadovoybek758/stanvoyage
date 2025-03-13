@@ -10,12 +10,20 @@
     "order": "Buyurtma",
     "contact": "Bog‘lanish"
   },
+  "search": {
+    "title": "Izlash",
+    "placeholder": "Izlash...",
+    "loading": "Yuklanmoqda...",
+    "not-found": "Hech narsa topilmadi"
+  },
   "hero": {
     "watch-video": "Video ko’rish"
   },
   "product": {
     "title": "Mahsulotlar",
-    "description": "Kompaniya tavsifi"
+    "description": "Kompaniya tavsifi",
+    "loading": "Yuklanmoqda...",
+    "pdf-download": "PDF yuklab olish"
   },
   "performance-efficiency": {
     "title": "Ishlash samaradorligi"
@@ -23,10 +31,18 @@
   "news": {
     "title": "Yangiliklar",
     "all-button": "Barchasi",
-    "all-button-loading": "Yuklanmoqda..."
+    "all-button-loading": "Yuklanmoqda...",
+    "back": "Orqaga",
+    "share": "Ulashish",
+    "close": "Yopish",
+    "facebook": "Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter",
+    "copy": "Nusxalash"
   },
   "gallery": {
-    "title": "Galleriya"
+    "title": "Galareya"
   },
   "certificates": {
     "title": "Sertifikatlar"
@@ -49,8 +65,19 @@
   },
   "vacancy": {
     "title": "Vakansiyalar",
+    "apply": "Ariza topshirish",
     "all-button": "Barchasi",
-    "all-button-loading": "Yuklanmoqda..."
+    "all-button-loading": "Yuklanmoqda...",
+    "back": "Orqaga",
+    "resume": "Rezyume yuklash",
+    "loading": "Yuklanmoqda...",
+    "send": "Yuborish",
+    "error": "Ariza yuborishda xatolik yuz berdi",
+    "success": "Ariza muvaffaqiyatli yuborildi",
+    "full_name": "Ism Familya",
+    "phone": "Telefon raqam",
+    "experience": "Tajribasi",
+    "content": "Xabaringizni qoldiring"
   },
   "order": {
     "title": "Buyurtma",
@@ -75,6 +102,7 @@
     "contact": "Bog‘lanish",
     "title": "Xabaringizni yuboring",
     "contact-form": {
+      "title": "Arizangizni yuboring",
       "full_name": "Ism Familiya",
       "phone": "Telefon raqam",
       "country": "Mamlakat",

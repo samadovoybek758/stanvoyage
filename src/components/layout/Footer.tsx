@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { footerNavigations } from "../../../public/static/Index";
 import instagram from "../../../public/Images/instagram.svg";
 import facebook from "../../../public/Images/facebook.svg";
@@ -15,13 +15,14 @@ import { LiaTelegram } from "react-icons/lia";
 import { MdWhatsapp } from "react-icons/md";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { useGetCompanyEmailQuery } from "@/context/api/CompanyEmailApi";
+import { getAddress } from "@/hook/getLanguage";
 const Footer = () => {
   const t = useTranslations("footer");
   const { data: companyData } = useGetComponyQuery({});
   const { data: companyPhoneData } = useGetCompanyPhoneQuery({});
   const { data: companyEmailData } = useGetCompanyEmailQuery({});
   const { data: socials } = useGetSocialsQuery({});
-
+  const locale = useLocale();
   const phones: string[] = [];
   const emails: string[] = [];
 
@@ -59,12 +60,7 @@ const Footer = () => {
         <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-1 gap-10 lg:grid-cols-[1fr_304px]">
           <div className="flex items-start flex-col justify-between gap-[30px] md:gap-[71px] ">
             <Link href="/">
-              <Image
-                src={logo}
-                alt="logo"
-                quality={100}
-                className=""
-              />
+              <Image src={logo} alt="logo" quality={100} className="" />
             </Link>
             <div className="grid grid-cols-1 ssm:grid-cols-2 gap-5 w-full md:grid-cols-[1fr_1fr_1fr]">
               <div>
@@ -90,7 +86,7 @@ const Footer = () => {
                 </h3>
                 <div>
                   <p className="text-base font-normal text-[#000] max-w-full line-clamp-2">
-                    {companyData?.address_uz}
+                    {companyData && getAddress(companyData, locale) || ""}
                   </p>
                 </div>
               </div>
@@ -119,7 +115,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     className="font-normal text-base text-[#000000]"
-                    href={item.href}
+                    href={`/${locale}/${item.href}`}
                   >
                     {t(item.name)}
                   </Link>

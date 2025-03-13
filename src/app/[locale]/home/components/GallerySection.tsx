@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper/modules";
 import left from "../../../../../public/Images/gallary-left.svg";
 import right from "../../../../../public/Images/gallary-right.svg";
 import Image from "next/image";
@@ -55,8 +55,12 @@ export default function Gallery() {
             nextEl: ".next",
             prevEl: ".prev",
           }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
           thumbs={{ swiper: thumbsSwiper }}
-          modules={[FreeMode, Navigation, Thumbs]}
+          modules={[FreeMode, Navigation, Thumbs, Autoplay]}
         >
           {isLoading || isFetching ? (
             <div className="h-[260px] sm:h-[320px] md:h-[480px] lg:h-[580px] w-full overflow-hidden">

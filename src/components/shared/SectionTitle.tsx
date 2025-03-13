@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import arrowRight from "../../../public/Images/section-title-arrow.svg";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface SectionTitleProps {
   title: string;
@@ -18,11 +20,18 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   href = "",
 }) => {
   const local = useLocale();
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   return (
     <div
       className={`mb-3 md:mb-4 lg:mb-6 flex items-center justify-between ${className}`}
     >
-      <h2 className="font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-2xl md:text-3xl lg:text-4xl font-brigends-expanded">
+      <h2
+        className="font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-2xl md:text-3xl lg:text-4xl font-brigends-expanded"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         {title}
       </h2>
       {buttonName ? (
@@ -30,6 +39,8 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
           href={`/${local}/${href}`}
           className="font-medium text-sm ssm:text-base md:text-lg hover:text-[#F37325] transition-all duration-300 text-black flex items-center gap-[6px]"
           onClick={onClick}
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
           {buttonName}
           <svg

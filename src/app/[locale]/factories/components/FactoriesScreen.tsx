@@ -21,7 +21,6 @@ interface Factory {
 const FactoriesScreen = () => {
   const { data, isFetching, isLoading } = useGetFactoriesQuery({});
   const t = useTranslations("factories");
-  console.log(data);
 
   return (
     <>

@@ -21,12 +21,9 @@ const NewsList = () => {
   const { data, isLoading, isFetching } = useGetNewsQuery({
     page: currentPage,
   });
-  console.log(data);
   const handlePageChange = (selectedPage: number) => {
     setCurrentPage(selectedPage + 1);
   };
-
-  console.log(currentPage);
 
   return (
     <section className="mb-[120px]">

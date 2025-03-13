@@ -12,7 +12,6 @@ import { baseUrl } from "../../../../../public/static/Index";
 import ImageLoading from "@/components/ui/ImageLoading";
 function CompanyOverview() {
   const { data: item, isLoading, isFetching } = useGetComponyQuery({});
-  console.log(item);
 
   const locale = useLocale();
   return (

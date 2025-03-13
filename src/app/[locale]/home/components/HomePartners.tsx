@@ -4,14 +4,15 @@ import { useGetPartnersQuery } from "@/context/api/Partners";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { baseUrl } from "../../../../../public/static/Index";
+import { useTranslations } from "next-intl";
 
 function Partners() {
   const { data } = useGetPartnersQuery({});
-
+  const t = useTranslations("partner");
   return (
     <section className="container">
       <div className="">
-        <SectionTitle title="Hamkorlar" />
+        <SectionTitle title={t("title")} />
       </div>
       <div className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] flex flex-col gap-2 md:gap-5 lg:gap-10">
         <Marquee speed={25} pauseOnHover={false} direction="left">

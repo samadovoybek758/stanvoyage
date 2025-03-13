@@ -1,16 +1,16 @@
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
-// import PhoneInput from "@/components/ui/PhoneInput";
 import Textarea from "@/components/ui/Textarea";
 import { useCreateContactMutation } from "@/context/api/ContactApi";
 import { useTranslations } from "next-intl";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const initialState = {
   full_name: "",
   phone: "",
-  country: "",
   message: "",
 };
 
@@ -38,11 +38,22 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
       toast.error(t("error"));
     }
   };
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
-    <div className={`bg-[#FFFFFF] p-5 sm:p-[30px] rounded-lg ${className}`}>
-      <h2 className="text-[#080808]  sm:text-[28px] leading-[42px] mb-5 md:mb-6 max-w-[282px] font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-[28px] ssm:leading-[39.2px] font-brigends-expanded">
-        Arizangizni yuboring
+    <div
+      className={`bg-[#FFFFFF] p-5 sm:p-[30px] rounded-lg ${className}`}
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <h2
+        className="text-[#080808]  sm:text-[28px] leading-[42px] mb-5 md:mb-6 max-w-[282px] font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-[28px] ssm:leading-[39.2px] font-brigends-expanded"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
+        {t("title")}
       </h2>
       <form onSubmit={handleContact}>
         <div className="flex items-start flex-col gap-4 mb-6 w-full">
@@ -54,21 +65,19 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             value={form.full_name}
             onChange={handleChange}
             className="py-[14.5px] sm:py-[18px]"
+            data-aos="fade-up"
+            data-aos-delay="600"
           />
-          {/* <PhoneInput
-            label="Telefon raqamingiz"
-            placeholder="+998 (__) ___-__-__"
-            mask="+998 (99) 999-99-99"
-            required
-          /> */}
           <Input
             type="text"
-            name="country"
-            placeholder={t("country")}
+            name="phone"
+            placeholder={t("phone")}
             required
-            value={form.country}
+            value={form.phone}
             onChange={handleChange}
             className="py-[14.5px] sm:py-[18px]"
+            data-aos="fade-up"
+            data-aos-delay="600"
           />
           <Textarea
             name="message"
@@ -76,6 +85,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             value={form.message}
             onChange={handleChange}
             className="py-[14.5px] sm:py-[18px]"
+            data-aos="fade-up"
+            data-aos-delay="1000"
           />
         </div>
         <Button
@@ -83,6 +94,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
           disabled={isLoading}
           type="submit"
           className="w-full sm:rounded-lg rounded-[95px] py-4  sm:py-5"
+          data-aos="fade-up"
+          data-aos-delay="1200"
         />
       </form>
     </div>
@@ -90,7 +103,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
 };
 
 export default ContactForm;
-
 
 // import Button from "@/components/ui/Button";
 // import Input from "@/components/ui/Input";

@@ -7,7 +7,7 @@ import { Autoplay } from "swiper/modules";
 import { useGetNewsByIdQuery } from "@/context/api/News";
 import { useParams, useRouter } from "next/navigation";
 import { getDescription, getTitle } from "@/hook/getLanguage";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import DOMPurify from "dompurify";
 import { baseUrl } from "../../../../../public/static/Index";
 import arrowLeft from "../../../../../public/Images/vacancies-left-arow.svg";
@@ -36,6 +36,7 @@ function NewsDetail() {
   const imagesArray = Array.isArray(item?.images) ? item?.images : [];
   const itemImages = [...imagesArray, ...(item?.image ? [item.image] : [])];
   const router = useRouter();
+  const t = useTranslations("news");
   return (
     <>
       <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]  mt-24 md:mt-28 lg:mt-[137px]">
@@ -46,7 +47,7 @@ function NewsDetail() {
               className="flex items-center gap-2 mb-4 text-[#000] font-normal"
             >
               <Image src={arrowLeft} alt="arrow-left" width={24} height={24} />
-              Orqaga
+              {t("back")}
             </button>
             <div className=" md:px-8 md:py-8 rounded-lg  bg-white px-4 py-4 mb-[30px]">
               <Swiper

@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Главная",
-    "about-us": "About Us",
+    "about-us": "О нас",
     "products": "Продукты",
     "factories": "Фабрики",
     "gallery": "Галерея",
@@ -10,12 +10,20 @@
     "order": "Заказ",
     "contact": "Контакты"
   },
+  "search": {
+    "title": "Поиск",
+    "placeholder": "Поиск...",
+    "loading": "Загрузка...",
+    "not-found": "Ничего не найдено"
+  },
   "hero": {
     "watch-video": "Посмотреть видео"
   },
   "product": {
     "title": "Продукты",
-    "description": "Описание компании"
+    "description": "Описание компании",
+    "loading": "Загрузка...",
+    "pdf-download": "скачать PDF"
   },
   "performance-efficiency": {
     "title": "Эффективность работы"
@@ -23,7 +31,15 @@
   "news": {
     "title": "Новости",
     "all-button": "Все",
-    "all-button-loading": "Загрузка..."
+    "all-button-loading": "Загрузка...",
+    "back": "Назад",
+    "share": "Поделиться",
+    "close": "Закрыть",
+    "facebook": "Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter",
+    "copy": "Копировать"
   },
   "gallery": {
     "title": "Галерея"
@@ -49,8 +65,19 @@
   },
   "vacancy": {
     "title": "Вакансии",
+    "apply": "Отправить заявку",
     "all-button": "Все",
-    "all-button-loading": "Загрузка..."
+    "all-button-loading": "Загрузка...",
+    "back": "Назад",
+    "resume": "Отправить резюме",
+    "loading": "Загрузка...",
+    "send": "Отправить",
+    "error": "Произошла ошибка",
+    "success": "Успешно отправлено",
+    "full_name": "Имя Фамилия",
+    "phone": "Телефон",
+    "experience": "Опыт",
+    "content": "Сообщение"
   },
   "order": {
     "title": "Заказ",
@@ -76,6 +103,7 @@
     "title": "Отправьте ваше сообщение",
     "contact-form": {
       "full_name": "Имя Фамилия",
+      "title": "Отправьте ваше сообщение",
       "phone": "Телефон",
       "country": "Страна",
       "message": "Комментарий",
@@ -91,7 +119,7 @@
     }
   },
   "footer": {
-    "about-us": "About Us",
+    "about-us": "О нас",
     "products": "Продукты",
     "factories": "Фабрики",
     "gallery": "Галерея",

@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import search from "../../../public/Images/search.svg";
 import { X } from "lucide-react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useGetSearchProductQuery } from "@/context/api/SearchApi";
 import Link from "next/link";
 import searchArrow from "../../../public/Images/search-arrow.svg";
@@ -22,7 +22,7 @@ const Search = ({
   const { data, isLoading, isFetching } = useGetSearchProductQuery({
     locale: locale,
   });
-
+  const t = useTranslations("search");
   const resultMasivi = useMemo(() => {
     if (!data) return [];
     return data.filter((item: { name: string }) =>
@@ -92,7 +92,7 @@ const Search = ({
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       className="w-full h-full py-2.5 bg-transparent border-b border-[#fff] text-white placeholder:text-white text-lg outline-none"
-                      placeholder="Izlash"
+                      placeholder={t("placeholder")}
                     />
                     <button className="flex items-center justify-center absolute right-0">
                       <Image
@@ -130,7 +130,7 @@ const Search = ({
                   >
                     <ul className="mx-auto w-full max-w-[1001px] px-[15px] max-h-[300px] overflow-y-auto">
                       {isLoading || isFetching ? (
-                        <li>Yuklanmoqda...</li>
+                        <li>{t("loading")}</li>
                       ) : resultMasivi.length > 0 ? (
                         resultMasivi.map(
                           (item: {
@@ -165,7 +165,7 @@ const Search = ({
                           )
                         )
                       ) : (
-                        <li>Hech narsa topilmadi</li>
+                        <li>{t("not-found")}</li>
                       )}
                     </ul>
                   </motion.div>

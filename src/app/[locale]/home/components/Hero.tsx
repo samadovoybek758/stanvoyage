@@ -56,6 +56,7 @@ const Hero = () => {
                   alt="hero"
                   fill
                   className="object-cover"
+                  priority={true}
                 />
               </div>
               <div className="relative z-20 flex flex-col items-center h-full pb-7 px-[15px]">

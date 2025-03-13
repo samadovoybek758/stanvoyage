@@ -24,6 +24,11 @@ interface Amount {
   amount_en: string;
   amount_uz: string;
 }
+interface Address {
+  address_ru: string;
+  address_en: string;
+  address_uz: string;
+} 
 
 export const getTitle = (item: Title, locale: string) => {
   const title = item[`title_${locale}` as keyof Title];
@@ -51,3 +56,9 @@ export const getAmount = (item: Amount, locale: string) => {
   const amount = item[`amount_${locale}` as keyof Amount];
   return amount;
 }
+
+export const getAddress = (item: Address, locale: string) => {
+  const address = item[`address_${locale}` as keyof Address];
+  return address;
+}
+

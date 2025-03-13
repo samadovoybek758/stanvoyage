@@ -17,6 +17,7 @@ interface CategoryDetailItem {
     description_ru: string;
     description_en: string;
     description_uz: string;
+    product_file: string;
     image: string;
   };
   products: {
@@ -33,6 +34,7 @@ interface CategoryDetailItem {
 const CategoryDetailsScreen = () => {
   const { id } = useParams();
   const { data, isLoading, isFetching } = useGetCategoryByIdQuery(id as string);
+
   const { data: performances } = useGetPerformancesQuery({ id });
   return (
     <>

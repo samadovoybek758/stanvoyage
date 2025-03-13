@@ -14,7 +14,21 @@ interface Props {
   title_uz: string;
   image: string;
 }
-const CardProduct = ({ item, subId = "" }: { item: Props; subId?: string }) => {
+const CardProduct = ({
+  item,
+  subId = "",
+  className = "",
+  delay = 0,
+  anchorPlacement = "top-center",
+  dataAos = "fade-up",
+}: {
+  item: Props;
+  subId?: string;
+  className?: string;
+  delay?: number;
+  anchorPlacement?: string;
+  dataAos?: string;
+}) => {
   const local = useLocale();
   return (
     <Link
@@ -23,6 +37,10 @@ const CardProduct = ({ item, subId = "" }: { item: Props; subId?: string }) => {
           ? `/${local}/products/${subId}/${item?.uuid}`
           : `/${local}/products/${item.uuid}`
       }
+      data-aos={dataAos}
+      data-aos-delay={delay}
+      data-aos-anchor-placement={anchorPlacement}
+      className={className}
     >
       <div className="h-[230px] md:h-[320px] w-full relative bg-white rounded-lg mb-3 p-5 sm:p-8 lg:p-[40px]">
         <div className="w-full h-full rounded-lg overflow-hidden flex items-center justify-center">

@@ -27,7 +27,6 @@ interface Item {
 const NewSectionList = () => {
   const { data, isLoading, isFetching } = useGetNewsQuery({});
   const t = useTranslations("news");
-  console.log(data);
 
   const mainSwiper = useRef<SwiperType | null>(null);
 

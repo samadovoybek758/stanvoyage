@@ -3,7 +3,7 @@ import Image from "next/image";
 import vacanciesArrow from "../../../../public/Images/vacancies-arow.svg";
 import Link from "next/link";
 import { getDescription, getTitle } from "@/hook/getLanguage";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import DOMPurify from "dompurify";
 
 interface Item {
@@ -18,6 +18,7 @@ interface Item {
 
 const CardVacancies = ({ item }: { item: Item }) => {
   const locale = useLocale();
+  const t = useTranslations("vacancy");
   return (
     <div className="p-6 bg-[#FFFFFF] card-vacancies-img rounded-lg sm:rounded-lg h-[280px] md:h-[328px] flex flex-col justify-between">
       <div className="mb-5 sm:mb-9">
@@ -48,7 +49,7 @@ const CardVacancies = ({ item }: { item: Item }) => {
         href={`/${locale}/vacancies/${item.uuid}`}
         className="py-[10.5px] sm:py-[13px] w-full max-w-[158px] flex items-center justify-center rounded-lg border border-[#F37325] hover:bg-[#F37325] transition-all duration-300 hover:text-white font-normal text-sm sm:text-base text-[#F37325]"
       >
-        Ariza topshirish
+        {t("apply")}
       </Link>
     </div>
   );

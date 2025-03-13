@@ -152,7 +152,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Copy, X } from "lucide-react";
 import Image from "next/image";
 import sher from "../../../public/Images/sher.svg";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function ShareButton({ productId }: { productId: string }) {
   const [shareUrl, setShareUrl] = useState("");
@@ -163,7 +163,7 @@ export default function ShareButton({ productId }: { productId: string }) {
   const [canUseNativeShare, setCanUseNativeShare] = useState(false);
   const [clipboardError, setClipboardError] = useState(false);
   const local = useLocale();
-
+  const t = useTranslations("news");
   useEffect(() => {
     // Set the share URL
     setShareUrl(`${window.location.origin}/${local}/news/${productId}`);
@@ -266,7 +266,7 @@ export default function ShareButton({ productId }: { productId: string }) {
         disabled={isSharing}
       >
         <Image width={18} height={18} alt="share icon" src={sher} />
-        <span>{isSharing ? "Ulashmoqda..." : "Ulashish"}</span>
+        <span>{isSharing ? t("loading") : t("share")}</span>
       </button>
 
       {/* Modal - Only shown on desktop or as fallback */}
@@ -295,7 +295,7 @@ export default function ShareButton({ productId }: { productId: string }) {
               <button
                 onClick={closeModal}
                 className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-                aria-label="Yopish"
+                aria-label={t("close")}
               >
                 <X size={24} />
               </button>
@@ -311,7 +311,7 @@ export default function ShareButton({ productId }: { productId: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-500 text-white px-4 py-2 rounded text-center hover:bg-blue-600 transition-colors"
-                  aria-label="Telegram orqali ulashish"
+                  aria-label={t("telegram")}
                 >
                   Telegram
                 </a>
@@ -320,27 +320,27 @@ export default function ShareButton({ productId }: { productId: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-700 text-white px-4 py-2 rounded text-center hover:bg-blue-800 transition-colors"
-                  aria-label="Facebook orqali ulashish"
+                  aria-label={t("facebook")}
                 >
-                  Facebook
+                  {t("facebook")}
                 </a>
                 <a
                   href={socialLinks.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-green-500 text-white px-4 py-2 rounded text-center hover:bg-green-600 transition-colors"
-                  aria-label="WhatsApp orqali ulashish"
+                  aria-label={t("whatsapp")}
                 >
-                  WhatsApp
+                  {t("whatsapp")}
                 </a>
                 <a
                   href={socialLinks.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-400 text-white px-4 py-2 rounded text-center hover:bg-blue-500 transition-colors"
-                  aria-label="Twitter orqali ulashish"
+                  aria-label={t("twitter")}
                 >
-                  Twitter
+                  {t("twitter")}
                 </a>
               </div>
 
@@ -357,12 +357,12 @@ export default function ShareButton({ productId }: { productId: string }) {
                 aria-live="polite"
               >
                 {clipboardError ? (
-                  "❌ Xatolik yuz berdi"
+                  t("error")
                 ) : copied ? (
-                  "✅ Nusxalandi"
+                  t("success")
                 ) : (
                   <>
-                    <Copy size={16} className="mr-2" /> Nusxalash
+                    <Copy size={16} className="mr-2" /> {t("copy")}
                   </>
                 )}
               </button>

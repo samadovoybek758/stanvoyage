@@ -7,7 +7,6 @@ import ImageLoading from "@/components/ui/ImageLoading";
 // import Image from 'next/image'
 const GalleryTopBox = () => {
   const { data, isLoading, isFetching } = useGetGaleryQuery({});
-  console.log(data);
   return (
     <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-4">
