@@ -43,7 +43,7 @@ function CompanyHistory() {
               className="mb-[30px] md:mb-[60px]"
             />
 
-            <h2 className="font-normal text-[24px] sm:text-[32px] leading-[44.8px] text-[#080808] font-brigends-expanded mb-5">
+            <h2 className={`font-normal text-[24px] sm:text-[32px] leading-[44.8px] text-[#080808]  mb-5  ${locale === "ru" ? 'font-brigends-unbounded': 'font-brigends-expanded'}`}>
               {isLoading || isFetching ? (
                 <>
                   <Loading className="w-full h-10" />

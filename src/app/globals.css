@@ -18,6 +18,10 @@ body {
   font-family: "Brigends Expanded", sans-serif;
   font-weight: 400; /* yoki 700 */
 }
+.font-brigends-unbounded {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 400; /* yoki 700 */
+}
 @font-face {
   font-family: "Inter";
   src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
@@ -31,7 +35,13 @@ body {
   font-weight: 300 800;
   font-style: normal;
 }
-
+@font-face {
+  font-family: "Unbounded";
+  src: url("../../public/fonts/unbaounded/Unbounded-SemiBold.ttf")
+    format("opentype");
+  font-weight: 300 800;
+  font-style: normal;
+}
 .thumb-slide {
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;

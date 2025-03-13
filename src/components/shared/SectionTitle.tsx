@@ -28,7 +28,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       className={`mb-3 md:mb-4 lg:mb-6 flex items-center justify-between ${className}`}
     >
       <h2
-        className="font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-2xl md:text-3xl lg:text-4xl font-brigends-expanded"
+        className={`font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-2xl md:text-3xl lg:text-4xl ${local==='ru' ? 'font-brigends-unbounded ': "font-brigends-expanded"}`}
         data-aos="fade-up"
         data-aos-delay="100"
       >

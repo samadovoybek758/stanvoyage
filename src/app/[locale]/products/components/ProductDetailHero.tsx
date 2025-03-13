@@ -48,7 +48,13 @@ function ProductDetailHero({ data }: { data: CategoryDetailItem }) {
       <div className="container">
         <div className="flex gap-4 lg:flex-row flex-col">
           <div className="md:py-10 md:pb-[30px] md:pl-10 flex-1 bg-white rounded-lg pt-6 pl-[20px] pb-[20px] pr-[22px]">
-            <h2 className="text-[#080808] text-xl  sm:text-[28px] mb-6 max-w-[452px] font-brigends-expanded">
+            <h2
+              className={`text-[#080808] text-xl  sm:text-[28px] mb-6 max-w-[452px] ${
+                locale === "ru"
+                  ? "font-brigends-unbounded"
+                  : "font-brigends-expanded"
+              } `}
+            >
               {item ? getTitle(item, locale) : ""}
             </h2>
             <div

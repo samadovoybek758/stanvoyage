@@ -47,7 +47,7 @@ const CompanyOverview = () => {
             />
             <div className="max-w-full lg:max-w-[384px]">
               <h2
-                className="font-normal text-2xl md:text-[32px] md:leading-[44.8px] text-[#080808] font-brigends-expanded mb-3 md:mb-5"
+                className={`font-normal text-2xl md:text-[32px] md:leading-[44.8px] text-[#080808] mb-3 md:mb-5 ${locale === 'ru' ? 'font-brigends-unbounded ': 'font-brigends-expanded '}`}
                 data-aos="fade-up"
                 data-aos-delay="150"
               >

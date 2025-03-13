@@ -2,7 +2,7 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import { useCreateContactMutation } from "@/context/api/ContactApi";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import AOS from "aos";
@@ -21,6 +21,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
   const [contactCreate, { isLoading }] = useCreateContactMutation();
   const t = useTranslations("contact.contact-form");
   const [form, setForm] = useState(initialState);
+  const locale = useLocale();
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -49,7 +50,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
       data-aos-delay="200"
     >
       <h2
-        className="text-[#080808]  sm:text-[28px] leading-[42px] mb-5 md:mb-6 max-w-[282px] font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-[28px] ssm:leading-[39.2px] font-brigends-expanded"
+        className={`text-[#080808]  sm:text-[28px] leading-[42px] mb-5 md:mb-6 max-w-[282px] font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-[28px] ssm:leading-[39.2px] ${
+          locale === "ru" ? "font-brigends-unbounded" : "font-brigends-expanded"
+        } `}
         data-aos="fade-up"
         data-aos-delay="400"
       >

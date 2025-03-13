@@ -80,7 +80,7 @@ function NewsDetail() {
               </Swiper>
             </div>
 
-            <h1 className="mb-5 text-[#080808] text-lg sm:text-[28px] font-brigends-expanded max-w-[700px]">
+            <h1 className={`mb-5 text-[#080808] text-lg sm:text-[28px]  max-w-[700px]  ${locale === 'ru' ? 'font-brigends-unbounded' : 'font-brigends-expanded'}`}>
               {isLoading || isFetching ? (
                 <>
                   <Loading className="w-full h-10" />

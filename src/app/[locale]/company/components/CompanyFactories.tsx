@@ -9,7 +9,7 @@ import left from "../../../../../public/Images/gallary-left.svg";
 import right from "../../../../../public/Images/gallary-right.svg";
 import { useGetFactoriesQuery } from "@/context/api/Factories";
 import CardFactories from "@/components/ui/cards/CardFactories";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import FactoriesItemLoader from "@/components/ui/itemLoader/FactoriesItemLoader";
 import { Autoplay } from "swiper/modules";
 
@@ -31,13 +31,14 @@ function CompanyFactories() {
   const { data, isLoading, isFetching } = useGetFactoriesQuery({});
   const t = useTranslations("factories");
   const swiperRef = useRef<SwiperCore | null>(null);
+  const locale = useLocale()
 
   return (
     <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
       <div className="container">
         <div>
           <div className="flex justify-between items-center mb-6">
-            <h1 className="font-normal text-4xl font-brigends-expanded text-[#080808]">
+            <h1 className={`font-normal text-4xl  text-[#080808] ${locale === 'ru' ? 'font-brigends-unbounded' : 'font-brigends-expanded'}`}>
               {t("title")}
             </h1>
 
