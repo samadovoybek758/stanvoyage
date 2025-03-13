@@ -2,10 +2,9 @@ import { api } from "./index";
 
 export const orderApi = api.injectEndpoints({
   endpoints: (build) => ({
-
     createOrder: build.mutation({
       query: (body) => ({
-        url: "/contact/",
+        url: "/order/",
         method: "POST",
         body,
       }),

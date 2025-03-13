@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import ProductDetailHero from "./ProductDetailHero";
-import ProductDetailOrder from "./ProductDetailOrder";
 import ProductList from "./ProductList";
 import { useParams } from "next/navigation";
 import { useGetCategoryByIdQuery } from "@/context/api/CategoryApi";
 import PerformanceEfficiency from "./PerformanceEfficiency";
+import { useGetPerformancesQuery } from "@/context/api/PerformancesApi";
+import CategoryDetailOrder from "./CategoryDetailOrder";
 
 interface CategoryDetailItem {
   category: {
@@ -16,6 +17,7 @@ interface CategoryDetailItem {
     description_ru: string;
     description_en: string;
     description_uz: string;
+    product_file: string;
     image: string;
   };
   products: {
@@ -31,16 +33,24 @@ interface CategoryDetailItem {
 }
 const CategoryDetailsScreen = () => {
   const { id } = useParams();
-  const { data } = useGetCategoryByIdQuery(id as string);
+  const { data, isLoading, isFetching } = useGetCategoryByIdQuery(id as string);
+
+  const { data: performances } = useGetPerformancesQuery({ id });
   return (
     <>
       <ProductDetailHero
         data={data?.category as unknown as CategoryDetailItem["category"]}
       />
-      <PerformanceEfficiency />
-      <ProductDetailOrder />
-      {data?.products?.length > 0 && (
-        <ProductList data={data?.products} subId={id as string} />
+      {performances?.length > 0 && <PerformanceEfficiency />}
+      {data?.category?.page_product ? (
+        <ProductList
+          data={data?.products}
+          subId={id as string}
+          isLoading={isLoading}
+          isFetching={isFetching}
+        />
+      ) : (
+        <CategoryDetailOrder />
       )}
     </>
   );

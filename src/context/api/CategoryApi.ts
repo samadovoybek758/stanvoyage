@@ -15,7 +15,31 @@ export const categoryApi = api.injectEndpoints({
       }),
       providesTags: ["Category"],
     }),
+    getCategoryMaterials: build.query({
+      query: (id) => ({
+        url: `/category/materials/${id}/`,
+      }),
+      providesTags: ["Category"],
+    }),
+    getCategoryQualities: build.query({
+      query: (id) => ({
+        url: `/category/qualities/${id}/`,
+      }),
+      providesTags: ["Category"],
+    }),
+    getCategoryComposition: build.query({
+      query: (id) => ({
+        url: `/category/compositions/${id}/`,
+      }),
+      providesTags: ["Category"],
+    }),
   }),
 });
 
-export const { useGetCategoryQuery, useGetCategoryByIdQuery } = categoryApi;
+export const {
+  useGetCategoryQuery,
+  useGetCategoryByIdQuery,
+  useGetCategoryCompositionQuery,
+  useGetCategoryMaterialsQuery,
+  useGetCategoryQualitiesQuery,
+} = categoryApi;

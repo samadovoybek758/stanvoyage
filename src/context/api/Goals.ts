@@ -1,15 +1,15 @@
 import { api } from "./index";
 
-export const goalsApi = api.injectEndpoints({
+export const getOurMission = api.injectEndpoints({
   endpoints: (build) => ({
-    getGoals: build.query({
+    getOurMission: build.query({
       query: (params) => ({
-        url: "goals/",
+        url: "our-mission/",
         params,
       }),
-      providesTags: ["Goals"],
+      providesTags: ["OurMission"],
     }),
   }),
 });
 
-export const { useGetGoalsQuery  } = goalsApi;
+export const { useGetOurMissionQuery  } = getOurMission;

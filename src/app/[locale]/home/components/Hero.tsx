@@ -14,6 +14,8 @@ import { getDescription, getTitle } from "@/hook/getLanguage";
 import { useLocale, useTranslations } from "next-intl";
 import { baseUrl } from "../../../../../public/static/Index";
 import type { Swiper as SwiperType } from "swiper";
+import Link from "next/link";
+// import { useRouter } from "next/navigation";
 
 interface Slider {
   uuid: string;
@@ -31,11 +33,15 @@ const Hero = () => {
   const local = useLocale();
   const swiperRef = useRef<SwiperType | null>(null);
   const t = useTranslations("hero");
+  // const rout = useRouter();
+  // const handelRout = () => {
+  //   rout.push(`/${local}/company/`);
+  // };
   return (
-    <section className="max-h-[640px] w-full mb-[120px] relative">
+    <section className="max-h-[640px] w-full mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] relative">
       <Swiper
         modules={[Autoplay, Navigation, EffectFade]}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
         effect="fade"
         loop={true}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -43,26 +49,36 @@ const Hero = () => {
       >
         {data?.map((item: Slider) => (
           <SwiperSlide key={item.uuid}>
-            <div className="flex flex-col items-center pt-[128px] hero-slider h-[640px] relative before:bg-[#00000040] before:absolute before:inset-0 before:z-10">
+            <div className="flex flex-col items-center pt-[110px] md:pt-[128px] hero-slider h-[640px] relative before:bg-[#00000040] before:absolute before:inset-0 before:z-10">
               <div className="absolute inset-0">
                 <Image
                   src={`${baseUrl}${item.image}`}
                   alt="hero"
                   fill
                   className="object-cover"
+                  priority={true}
                 />
               </div>
-              <div className="relative z-20 flex flex-col items-center h-full pb-7 ">
-                <h1 className="max-w-[1024px] font-normal text-5xl leading-[60px] mb-2 text-[#fff] text-center font-brigends-expanded line-clamp-4">
+              <div className="relative z-20 flex flex-col items-center h-full pb-7 px-[15px]">
+                <h1
+                  className={`max-w-[1024px] font-normal text-3xl ssm:text-4xl lg:text-5xl md:leading-[60px] mb-3 text-[#fff] text-center ${
+                    local === "ru"
+                      ? "font-brigends-unbounded"
+                      : "font-brigends-expanded"
+                  } line-clamp-4 md:line-clamp-3`}
+                >
                   {getTitle(item, local)}
                 </h1>
-                <p className="max-w-[760px] text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
+                <p className="max-w-[760px] text-base md:text-xl leading-[30px] text-[#fff] text-center line-clamp-4">
                   {getDescription(item, local)}
                 </p>
-                <button className="border-[2px] border-[#fff] text-[#fff] px-9 rounded-lg mt-[24px] py-5 font-medium text-lg flex items-center gap-2.5">
+                <Link
+                  href={`/${local}/company/#company-video`}
+                  className="border-[2px] border-[#fff] opacity-1 hover:opacity-[0.8] transition-all duration-300 text-[#fff] px-8 lg:px-9 rounded-lg mt-[24px] py-3 md:py-5 font-medium text-sm md:text-lg flex items-center gap-2.5"
+                >
                   <Image src={play} alt="play" width={24} height={24} />
                   {t("watch-video")}
-                </button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>

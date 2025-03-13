@@ -14,11 +14,10 @@ interface CardNewsProps {
 
 const CardNews = ({ item }: { item: CardNewsProps }) => {
   const locale = useLocale();
-  console.log(item);
 
   return (
     <Link href={`/${locale}/news/${item.uuid}`}>
-      <div className="h-[296px] bg-[#EEEEEE] mb-4 rounded-lg overflow-hidden">
+      <div className="h-[230px] md:h-[296px] bg-[#EEEEEE] mb-4 rounded-lg overflow-hidden">
         <Image
           width={296}
           height={320}
@@ -27,8 +26,10 @@ const CardNews = ({ item }: { item: CardNewsProps }) => {
           className="w-full h-full object-cover"
         />
       </div>
-      <span className="font-normal text-base text-black mb-2">{item.date}</span>
-      <h3 className="font-normal line-clamp-2 text-lg text-black max-w-[387px]">
+      <span className="font-normal text-sm sm:text-base text-black mb-[6px] sm:mb-2">
+        {item.date}
+      </span>
+      <h3 className="font-normal line-clamp-2 text-base sm:text-lg text-black max-w-[387px]">
         {getTitle(item, locale)}
       </h3>
     </Link>

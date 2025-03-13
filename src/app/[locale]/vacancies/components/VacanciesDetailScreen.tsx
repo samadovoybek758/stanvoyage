@@ -1,7 +1,7 @@
 "use client";
 import { getDescription, getTitle } from "@/hook/getLanguage";
 import { useGetVacansyByIdQuery } from "@/context/api/Vacancies";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useParams, useRouter } from "next/navigation";
 import DOMPurify from "dompurify";
 import SmallSectionTitle from "@/components/shared/SmallSectionTitle";
@@ -20,13 +20,14 @@ const VacanciesDetailScreen = () => {
   const locale = useLocale();
   const { data: item } = useGetVacansyByIdQuery(id);
   const [aplicationCreate, { isLoading }] = useCreateAplicationMutation();
+  const t = useTranslations("vacancy");
   const router = useRouter();
   const [formData, setFormData] = useState({
     full_name: "",
     phone: "",
     experience: "",
     content: "",
-    file: null as File | null,
+    resume: null as File | null,
   });
 
   const handleChange = (
@@ -48,44 +49,44 @@ const VacanciesDetailScreen = () => {
     formDataToSend.append("experience", formData.experience);
     formDataToSend.append("content", formData.content);
     formDataToSend.append("vacancy", id as string);
-    if (formData.file) {
-      formDataToSend.append("file", formData.file);
+    if (formData.resume) {
+      formDataToSend.append("resume", formData.resume);
     }
 
     try {
       await aplicationCreate(formDataToSend);
-      toast.success("Arizangiz muvaffaqiyatli yuborildi");
+      toast.success(t("success"));
 
       setFormData({
         full_name: "",
         phone: "",
         experience: "",
         content: "",
-        file: null,
+        resume: null,
       });
     } catch (error) {
-      toast.error("Arizangiz yuborishda xatolik yuz berdi");
+      toast.error(t("error"));
       console.log(error);
     }
   };
 
   return (
-    <section className="mb-[120px] mt-[136px]">
-      <div className="container flex justify-between gap-10">
+    <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px] mt-[136px] ">
+      <div className="container flex md:flex-row flex-col  justify-between gap-10">
         <div className="max-w-[638px]">
           <button
             onClick={() => router.back()}
             className="flex items-center gap-2 mb-4 text-[#000] font-normal"
           >
             <Image src={arrowLeft} alt="arrow-left" width={24} height={24} />
-            Orqaga
+            {t("back")}
           </button>
           <SmallSectionTitle
             title={item ? getTitle(item, locale) : ""}
             className="mb-[30px]"
           />
           <div
-            className="text-[#000] text-[18px] leading-[29px] font-normal"
+            className="text-[#000] text-base sm:text-[18px] leading-[29px] font-normal"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
                 String(item ? getDescription(item, locale) : "")
@@ -93,35 +94,36 @@ const VacanciesDetailScreen = () => {
             }}
           />
         </div>
-        <div className="w-full max-w-[504px] rounded-lg bg-[#fff] p-[30px]">
+
+        <div className="w-full md:max-w-[504px] rounded-lg bg-[#fff] py-[18px] px-4 sm:p-[30px]">
           <div className="mb-6 max-w-[282px]">
-            <SmallSectionTitle title="Arizangizni yuboring" />
+            <SmallSectionTitle title={t("title")} />
           </div>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-4 mb-5">
               <Input
                 required
-                placeholder="Ism Familya"
+                placeholder={t("full_name")}
                 name="full_name"
                 value={formData.full_name}
                 onChange={handleChange}
               />
               <Input
                 required
-                placeholder="Telefon raqam"
+                placeholder={t("phone")}
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
               />
               <Input
                 required
-                placeholder="Tajribasi"
+                placeholder={t("experience")}
                 name="experience"
                 value={formData.experience}
                 onChange={handleChange}
               />
               <Textarea
-                placeholder="Xabaringizni qoldiring"
+                placeholder={t("content")}
                 name="content"
                 value={formData.content}
                 onChange={handleChange}
@@ -137,11 +139,11 @@ const VacanciesDetailScreen = () => {
               />
               <div className="flex items-center gap-2 p-1 rounded-lg">
                 <Image src={pdfIcon} alt="pdf" width={24} height={24} />
-                <p className="text-[#3B3B3B] font-medium">Rezyume yuklash</p>
+                <p className="text-[#3B3B3B] font-medium">{t("resume")}</p>
               </div>
-              {formData.file && (
+              {formData.resume && (
                 <div className="flex items-center gap-2 p-1 text-[#3B3B3B] font-normal">
-                  {formData.file.name}
+                  {formData.resume.name}
                 </div>
               )}
             </label>
@@ -149,7 +151,7 @@ const VacanciesDetailScreen = () => {
             <Button
               type="submit"
               className="w-full"
-              text={isLoading ? "Yuklanmoqda..." : "Yuborish"}
+              text={isLoading ? t("loading") : t("send")}
               disabled={isLoading}
             />
           </form>

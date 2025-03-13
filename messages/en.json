@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Home",
-    "company": "Company",
+    "about-us": "About Us",
     "products": "Products",
     "factories": "Factories",
     "gallery": "Gallery",
@@ -10,12 +10,20 @@
     "order": "Order",
     "contact": "Contact"
   },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search...",
+    "loading": "Loading...",
+    "not-found": "Nothing found"
+  },
   "hero": {
     "watch-video": "Watch video"
   },
   "product": {
     "title": "Products",
-    "description": "Company description"
+    "description": "Company description",
+    "loading": "Loading...",
+    "pdf-download": "PDF download"
   },
   "performance-efficiency": {
     "title": "Performance efficiency"
@@ -23,7 +31,15 @@
   "news": {
     "title": "News",
     "all-button": "All",
-    "all-button-loading": "Loading..."
+    "all-button-loading": "Loading...",
+    "back": "Back",
+    "share": "Share",
+    "close": "Close",
+    "facebook": "Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter",
+    "copy": "Copy"
   },
   "gallery": {
     "title": "Gallery"
@@ -44,14 +60,28 @@
   "mission-and-values": {
     "title": "Mission and values"
   },
+  "statistics": {
+    "title": "Statistics"
+  },
   "vacancy": {
     "title": "Vacancies",
+    "apply": "Apply",
     "all-button": "All",
-    "all-button-loading": "Loading..."
+    "all-button-loading": "Loading...",
+    "back": "Back",
+    "resume": "Upload resume",
+    "loading": "Loading...",
+    "send": "Send",
+    "error": "An error occurred",
+    "success": "Successfully sent",
+    "full_name": "Full Name",
+    "phone": "Phone",
+    "experience": "Experience",
+    "content": "Content"
   },
   "order": {
     "title": "Order",
-    "category": "Category",
+    "materials": "Type",
     "quality": "Quality",
     "composition": "Composition",
     "quantity": "Quantity",
@@ -62,12 +92,17 @@
     "button": "Send request",
     "button-loading": "Loading...",
     "error": "Error occurred while creating the order",
-    "success": "Order successfully created"
+    "success": "Order successfully created",
+    "email": "Email",
+    "product": "Product",
+    "category": "Category",
+    "company_name": "Company name"
   },
   "contact": {
     "contact": "Contact",
     "title": "Send your message",
     "contact-form": {
+      "title": "Send your message",
       "full_name": "Full Name",
       "phone": "Phone",
       "country": "Country",
@@ -83,8 +118,9 @@
       "email": "Email"
     }
   },
+
   "footer": {
-    "company": "Company",
+    "about-us": "About Us",
     "products": "Products",
     "factories": "Factories",
     "gallery": "Gallery",

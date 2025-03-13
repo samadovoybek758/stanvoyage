@@ -21,8 +21,8 @@ interface Factory {
 const CardFactories = ({ item }: { item: Factory }) => {
   const local = useLocale();
   return (
-    <div className="p-[20px] md:p-[30px] bg-white rounded-lg min-h-[602px]">
-      <div className="h-[280px] sm:h-[315px] overflow-hidden  rounded-lg mb-6">
+    <div className="p-4 md:p-[30px] bg-white flex-col flex rounded-lg min-h-[345px] sm:min-h-[602px]">
+      <div className="h-[315px]  sm:h-[315px] overflow-hidden  rounded-lg mb-4 sm:mb-6">
         <Image
           width={548}
           height={315}
@@ -33,32 +33,33 @@ const CardFactories = ({ item }: { item: Factory }) => {
         />
       </div>
 
-      <div>
-        <div className="border-b-2 mb-5 flex items-start flex-col">
-          <h1 className="text-[#080808] text-[24px] font-semibold mb-2 md:text-[28px] ">
+      <div className="flex flex-col justify-between flex-1">
+        <div className=" flex  items-start flex-col">
+          <h1 className="text-[#080808] text-xl sm:text-[24px] font-semibold mb-2 md:text-[28px] ">
             {getTitle(item, local)}
           </h1>
-          <p
-            className="text-[#080808] text-lg mb-5 line-clamp-4"
+          <p 
+            className="text-[#080808] text-base sm:text-lg mb-5 line-clamp-4 sm:line-clamp-5"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
                 String(item ? getDescription(item, local) : "")
               ),
             }}
+            
           />
         </div>
 
-        <div className="flex justify-between items-center">
+        <div className="flex gap-3 justify-between pt-4 items-center border-t-2">
           <a
             href={`tel:${item.phone}`}
-            className="max-w-[152px]  text-[#080808] line-clamp-1 text-base font-normal"
+            className="max-w-[152px]  text-[#080808] line-clamp-1 text-sm sm:text-base font-normal"
           >
             {item.phone}
           </a>
 
           <a
             href={`mailto:${item.email}`}
-            className="max-w-[158px]  text-[#080808] line-clamp-1 text-base font-normal"
+            className="max-w-[158px]  text-[#080808] line-clamp-1 text-sm sm:text-base font-normal"
           >
             {item.email}
           </a>

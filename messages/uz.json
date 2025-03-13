@@ -1,21 +1,29 @@
 {
   "header": {
     "home": "Bosh sahifa",
-    "company": "Kompaniya",
+    "about-us": "Biz haqimizda",
     "products": "Mahsulotlar",
     "factories": "Fabrikalar",
-    "gallery": "Galleriya",
+    "gallery": "Galareya",
     "news": "Yangiliklar",
     "vacancies": "Vakansiyalar",
     "order": "Buyurtma",
     "contact": "Bog‘lanish"
+  },
+  "search": {
+    "title": "Izlash",
+    "placeholder": "Izlash...",
+    "loading": "Yuklanmoqda...",
+    "not-found": "Hech narsa topilmadi"
   },
   "hero": {
     "watch-video": "Video ko’rish"
   },
   "product": {
     "title": "Mahsulotlar",
-    "description": "Kompaniya tavsifi"
+    "description": "Kompaniya tavsifi",
+    "loading": "Yuklanmoqda...",
+    "pdf-download": "PDF yuklab olish"
   },
   "performance-efficiency": {
     "title": "Ishlash samaradorligi"
@@ -23,10 +31,18 @@
   "news": {
     "title": "Yangiliklar",
     "all-button": "Barchasi",
-    "all-button-loading": "Yuklanmoqda..."
+    "all-button-loading": "Yuklanmoqda...",
+    "back": "Orqaga",
+    "share": "Ulashish",
+    "close": "Yopish",
+    "facebook": "Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter",
+    "copy": "Nusxalash"
   },
   "gallery": {
-    "title": "Galleriya"
+    "title": "Galareya"
   },
   "certificates": {
     "title": "Sertifikatlar"
@@ -44,14 +60,28 @@
   "mission-and-values": {
     "title": "Missiya va qadriyatlar"
   },
+  "statistics": {
+    "title": "Statistikalar"
+  },
   "vacancy": {
     "title": "Vakansiyalar",
+    "apply": "Ariza topshirish",
     "all-button": "Barchasi",
-    "all-button-loading": "Yuklanmoqda..."
+    "all-button-loading": "Yuklanmoqda...",
+    "back": "Orqaga",
+    "resume": "Rezyume yuklash",
+    "loading": "Yuklanmoqda...",
+    "send": "Yuborish",
+    "error": "Ariza yuborishda xatolik yuz berdi",
+    "success": "Ariza muvaffaqiyatli yuborildi",
+    "full_name": "Ism Familya",
+    "phone": "Telefon raqam",
+    "experience": "Tajribasi",
+    "content": "Xabaringizni qoldiring"
   },
   "order": {
     "title": "Buyurtma",
-    "category": "Kategoriya",
+    "materials": "Turi",
     "quality": "Sifat",
     "composition": "Tarkib",
     "quantity": "Miqdor",
@@ -62,12 +92,17 @@
     "button": "So‘rov yuborish",
     "button-loading": "Yuklanmoqda...",
     "error": "Buyurtma yaratishda xatolik yuz berdi",
-    "success": "Buyurtma muvaffaqiyatli yaratildi"
+    "success": "Buyurtma muvaffaqiyatli yuborildi",
+    "email": "Email",
+    "product": "Mahsulot",
+    "category": "Toyifa",
+    "company_name": "Kompaniya nomi"
   },
   "contact": {
     "contact": "Bog‘lanish",
     "title": "Xabaringizni yuboring",
     "contact-form": {
+      "title": "Arizangizni yuboring",
       "full_name": "Ism Familiya",
       "phone": "Telefon raqam",
       "country": "Mamlakat",
@@ -84,10 +119,10 @@
     }
   },
   "footer": {
-    "company": "Kompaniya",
+    "about-us": "Biz haqimizda",
     "products": "Mahsulotlar",
     "factories": "Fabrikalar",
-    "gallery": "Galleriya",
+    "gallery": "Galareya",
     "news": "Yangiliklar",
     "vacancies": "Vakansiyalar",
     "location": "Manzil",

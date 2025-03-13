@@ -35,7 +35,7 @@ const LanguageDropdown = () => {
   return (
     <div className="w-full flex justify-end relative">
       <button
-        className="flex items-center flex-row gap-2 rounded-lg transition-all hover:text-primary mb-0.1 text-[#fff] "
+        className="flex items-center flex-row gap-2 rounded-lg transition-all hover:text-primary mb-0.1 text-[#000] xl:text-[#fff] "
         onClick={(e) => {
           setDropdown((p) => !p);
           e.stopPropagation();

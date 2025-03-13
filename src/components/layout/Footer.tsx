@@ -1,54 +1,83 @@
+"use client";
 import React from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { footerNavigations } from "../../../public/static/Index";
 import instagram from "../../../public/Images/instagram.svg";
 import facebook from "../../../public/Images/facebook.svg";
 import youtube from "../../../public/Images/youtube.svg";
 import Image from "next/image";
 import logo from "../../../public/Images/max-logo.svg";
-const socialMedia = [
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/samo/",
-    icon: instagram,
-  },
-  {
-    name: "Facebook",
-    href: "https://www.facebook.com/samo/",
-    icon: facebook,
-  },
-  {
-    name: "Youtube",
-    href: "https://www.youtube.com/samo",
-    icon: youtube,
-  },
-];
+import { useGetComponyQuery } from "@/context/api/Compony";
+import { useGetCompanyPhoneQuery } from "@/context/api/CompanyPhoneApi";
+import { useGetSocialsQuery } from "@/context/api/Socials";
+import { LiaTelegram } from "react-icons/lia";
+import { MdWhatsapp } from "react-icons/md";
+import { SlSocialLinkedin } from "react-icons/sl";
+import { useGetCompanyEmailQuery } from "@/context/api/CompanyEmailApi";
+import { getAddress } from "@/hook/getLanguage";
 const Footer = () => {
   const t = useTranslations("footer");
+  const { data: companyData } = useGetComponyQuery({});
+  const { data: companyPhoneData } = useGetCompanyPhoneQuery({});
+  const { data: companyEmailData } = useGetCompanyEmailQuery({});
+  const { data: socials } = useGetSocialsQuery({});
+  const locale = useLocale();
+  const phones: string[] = [];
+  const emails: string[] = [];
+
+  // companyPhoneData array ichida obyektlar bor, ularni tekshirib phone larni qo'shamiz
+  if (Array.isArray(companyPhoneData)) {
+    companyPhoneData.forEach((item) => {
+      if (item.phone) {
+        phones.push(item.phone);
+      }
+    });
+  }
+
+  // companyData ichidagi phone va email larni tekshirib qo'shamiz
+  if (companyData) {
+    if (companyData.phone) {
+      phones.push(companyData.phone);
+    }
+    if (companyData.email) {
+      emails.push(companyData.email);
+    }
+  }
+
+  // companyEmailData ichidan email larni qo'shamiz
+  if (companyEmailData) {
+    for (const key in companyEmailData) {
+      if (companyEmailData[key] && key.includes("email")) {
+        emails.push(companyEmailData[key] as string);
+      }
+    }
+  }
+
   return (
     <footer className="mb-4">
       <div className="container">
-        <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-[1fr_auto]">
-          <div className="flex items-start flex-col justify-between gap-[71px] ">
+        <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-1 gap-10 lg:grid-cols-[1fr_304px]">
+          <div className="flex items-start flex-col justify-between gap-[30px] md:gap-[71px] ">
             <Link href="/">
-              <Image
-                src={logo}
-                alt="logo"
-                width={210}
-                quality={100}
-                height={56}
-              />
+              <Image src={logo} alt="logo" quality={100} className="" />
             </Link>
-            <div className="grid grid-cols-3 gap-5 w-full">
+            <div className="grid grid-cols-1 ssm:grid-cols-2 gap-5 w-full md:grid-cols-[1fr_1fr_1fr]">
               <div>
                 <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-base">
                   {t("phone")}
                 </h3>
-                <div>
-                  <p className="text-base font-normal text-[#000]">
-                    +998 (71) 231 86 01
-                  </p>
+                <div className="flex flex-col items-start">
+                  {phones.length > 0 &&
+                    phones.map((item, index) => (
+                      <a
+                        href={`tel:${item}`}
+                        key={index}
+                        className="text-base font-normal text-[#000]"
+                      >
+                        {item}
+                      </a>
+                    ))}
                 </div>
               </div>
               <div>
@@ -56,8 +85,8 @@ const Footer = () => {
                   {t("location")}
                 </h3>
                 <div>
-                  <p className="text-base font-normal text-[#000] max-w-[180px] line-clamp-2">
-                    {"Toshkent shahridagi, Amir Temur ko'chasi, 45-uy."}
+                  <p className="text-base font-normal text-[#000] max-w-full line-clamp-2">
+                    {companyData && getAddress(companyData, locale) || ""}
                   </p>
                 </div>
               </div>
@@ -65,21 +94,28 @@ const Footer = () => {
                 <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-base">
                   {t("email")}
                 </h3>
-                <div>
-                  <p className="text-base font-normal text-[#000] max-w-[180px] line-clamp-1">
-                    info@samo.uz
-                  </p>
+                <div className="flex flex-col items-start">
+                  {emails.length > 0 &&
+                    emails.map((item, index) => (
+                      <a
+                        href={`mailto:${item}`}
+                        key={index}
+                        className="text-base font-normal text-[#000] max-w-[180px] line-clamp-1"
+                      >
+                        {item}
+                      </a>
+                    ))}
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex items-start justify-between w-full max-w-[385px]">
+          <div className="flex items-start justify-between">
             <ul className="flex flex-col gap-[18px]">
               {footerNavigations.map((item) => (
                 <li key={item.name}>
                   <Link
                     className="font-normal text-base text-[#000000]"
-                    href={item.href}
+                    href={`/${locale}/${item.href}`}
                   >
                     {t(item.name)}
                   </Link>
@@ -87,10 +123,10 @@ const Footer = () => {
               ))}
             </ul>
             <ul className="flex flex-col gap-[18px]">
-              {socialMedia.map((item) => (
-                <li key={item.name}>
+              {socials?.instagram ? (
+                <li>
                   <a
-                    href={item.href}
+                    href={socials?.instagram}
                     target="_blank"
                     className="text-[#000000] text-base font-normal flex items-center gap-2"
                   >
@@ -99,14 +135,96 @@ const Footer = () => {
                         width={16}
                         height={16}
                         quality={100}
-                        src={item.icon}
-                        alt={item.name}
+                        src={instagram}
+                        alt={socials?.instagram}
                       />
                     </div>
-                    <span>{item.name}</span>
+                    <span>Instagram</span>
                   </a>
                 </li>
-              ))}
+              ) : null}
+              {socials?.telegram ? (
+                <li>
+                  <a
+                    href={socials?.telegram}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <LiaTelegram />
+                    </div>
+                    <span>Telegram</span>
+                  </a>
+                </li>
+              ) : null}
+              {socials?.facebook ? (
+                <li>
+                  <a
+                    href={socials?.facebook}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <Image
+                        width={16}
+                        height={16}
+                        quality={100}
+                        src={facebook}
+                        alt={socials?.facebook}
+                      />
+                    </div>
+                    <span>Facebook</span>
+                  </a>
+                </li>
+              ) : null}
+              {socials?.youtube ? (
+                <li>
+                  <a
+                    href={socials?.youtube}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <Image
+                        width={16}
+                        height={16}
+                        quality={100}
+                        src={youtube}
+                        alt={socials?.youtube}
+                      />
+                    </div>
+                    <span>Youtube</span>
+                  </a>
+                </li>
+              ) : null}
+              {socials?.linkedin ? (
+                <li>
+                  <a
+                    href={socials?.linkedin}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <SlSocialLinkedin />
+                    </div>
+                    <span>Linkedin</span>
+                  </a>
+                </li>
+              ) : null}
+              {socials?.whatsapp ? (
+                <li>
+                  <a
+                    href={socials?.whatsapp}
+                    target="_blank"
+                    className="text-[#000000] text-base font-normal flex items-center gap-2"
+                  >
+                    <div>
+                      <MdWhatsapp />
+                    </div>
+                    <span>Whatsapp</span>
+                  </a>
+                </li>
+              ) : null}
             </ul>
           </div>
         </div>

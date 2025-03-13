@@ -7,12 +7,14 @@ import { Autoplay } from "swiper/modules";
 import { useGetNewsByIdQuery } from "@/context/api/News";
 import { useParams, useRouter } from "next/navigation";
 import { getDescription, getTitle } from "@/hook/getLanguage";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import DOMPurify from "dompurify";
 import { baseUrl } from "../../../../../public/static/Index";
 import arrowLeft from "../../../../../public/Images/vacancies-left-arow.svg";
 import ShareButton from "@/components/shared/ShareButton";
 import NewSectionList from "@/components/shared/NewSectionList";
+import ImageLoading from "@/components/ui/ImageLoading";
+import Loading from "@/components/ui/Loading";
 
 interface NewsDetailItem {
   uuid: string;
@@ -28,15 +30,16 @@ interface NewsDetailItem {
 }
 function NewsDetail() {
   const { id } = useParams();
-  const { data } = useGetNewsByIdQuery(id as string);
+  const { data, isLoading, isFetching } = useGetNewsByIdQuery(id as string);
   const item = data as unknown as NewsDetailItem;
   const locale = useLocale();
   const imagesArray = Array.isArray(item?.images) ? item?.images : [];
   const itemImages = [...imagesArray, ...(item?.image ? [item.image] : [])];
   const router = useRouter();
+  const t = useTranslations("news");
   return (
     <>
-      <section className="mb-[120px] pt-[137px]">
+      <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]  mt-24 md:mt-28 lg:mt-[137px]">
         <div className="container">
           <div>
             <button
@@ -44,7 +47,7 @@ function NewsDetail() {
               className="flex items-center gap-2 mb-4 text-[#000] font-normal"
             >
               <Image src={arrowLeft} alt="arrow-left" width={24} height={24} />
-              Orqaga
+              {t("back")}
             </button>
             <div className=" md:px-8 md:py-8 rounded-lg  bg-white px-4 py-4 mb-[30px]">
               <Swiper
@@ -53,40 +56,52 @@ function NewsDetail() {
                   disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
-                spaceBetween={15}
                 className=""
                 loop={true}
               >
-                <div className=" ">
-                  {itemImages.length > 0 &&
-                    itemImages.map((item, index) => (
-                      <SwiperSlide key={index}>
-                        <div className="max-h-[400px] md:max-h-[580px]">
+                {itemImages.length > 0 &&
+                  itemImages.map((item, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="h-[320px] w-full md:h-[500px]">
+                        {isLoading || isFetching ? (
+                          <ImageLoading className="w-full h-full" />
+                        ) : (
                           <Image
                             width={1200}
                             height={600}
                             alt="img"
                             src={baseUrl + item}
-                            className="object-cover rounded-lg h-[400px]  w-full md:h-[500px]"
+                            className="object-cover rounded-lg w-full h-full"
                           />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                </div>
+                        )}
+                      </div>
+                    </SwiperSlide>
+                  ))}
               </Swiper>
             </div>
 
-            <h1 className="mb-5 text-[#080808] text-lg sm:text-[28px] font-brigends-expanded max-w-[700px]">
-              {item ? getTitle(item, locale) : ""}
+            <h1 className={`mb-5 text-[#080808] text-lg sm:text-[28px]  max-w-[700px]  ${locale === 'ru' ? 'font-brigends-unbounded' : 'font-brigends-expanded'}`}>
+              {isLoading || isFetching ? (
+                <>
+                  <Loading className="w-full h-10" />
+                  <Loading className="w-full h-10" />
+                </>
+              ) : item ? (
+                getTitle(item, locale)
+              ) : (
+                ""
+              )}
             </h1>
 
             <div className="mb-[30px] flex gap-11 items-center">
-              <span className=" text-[18px]">{item ? item.date : ""}</span>
+              <span className="text-base sm:text-[18px]">
+                {item ? item.date : ""}
+              </span>
               <ShareButton productId={id as string} />
             </div>
 
             <div
-              className="text-[#080808] font-normal text-lg mb-8"
+              className="text-[#080808] font-normal text-base sm:text-lg mb-8"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(
                   String(item ? getDescription(item, locale) : "")
