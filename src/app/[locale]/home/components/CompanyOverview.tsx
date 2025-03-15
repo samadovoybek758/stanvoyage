@@ -29,7 +29,19 @@ const CompanyOverview = () => {
     const parts = htmlString.split("<br><br>");
     return parts[0];
   };
+  const extractTwoParagraphs = (htmlString: string) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, "text/html");
 
+    const paragraphs = Array.from(doc.querySelectorAll("p")); 
+
+    const limitedHTML = paragraphs
+      .slice(0, 3)
+      .map((p) => p.outerHTML)
+      .join("");
+
+    return DOMPurify.sanitize(limitedHTML); 
+  };
   return (
     <section className="mb-[80px] md:mb-28 lg:mb-[120px]">
       <div className="container">
@@ -47,7 +59,11 @@ const CompanyOverview = () => {
             />
             <div className="max-w-full lg:max-w-[384px]">
               <h2
-                className={`font-normal text-2xl md:text-[32px] md:leading-[44.8px] text-[#080808] mb-3 md:mb-5 ${locale === 'ru' ? 'font-brigends-unbounded ': 'font-brigends-expanded '}`}
+                className={`font-normal text-2xl md:text-[32px] md:leading-[44.8px] text-[#080808] mb-3 md:mb-5 ${
+                  locale === "ru"
+                    ? "font-brigends-unbounded "
+                    : "font-brigends-expanded "
+                }`}
                 data-aos="fade-up"
                 data-aos-delay="150"
               >
@@ -66,7 +82,7 @@ const CompanyOverview = () => {
               <div
                 className="text-[#080808] font-normal text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8"
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(
+                  __html: extractTwoParagraphs(
                     cleanDescription(
                       String(item ? getDescriptionShort(item, locale) : "")
                     )

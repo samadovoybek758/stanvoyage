@@ -96,21 +96,50 @@
     "email": "Email",
     "product": "Product",
     "category": "Category",
-    "company_name": "Company name"
+    "company_name": "Company name",
+    "errors": {
+      "quantity_required": "Quantity is required.",
+      "full_name_required": "Please enter your full name.",
+      "full_name_invalid": "Name must contain only letters.",
+      "full_name_short": "Name must be at least 3 characters.",
+      "full_name_long": "Name must not exceed 50 characters.",
+      "phone_required": "Please enter your phone number.",
+      "phone_invalid": "Invalid phone number format.",
+      "country_required": "Please enter your country name.",
+      "category_required": "Category selection is required.",
+      "product_required": "Product selection is required.",
+      "quality_required": "Quality selection is required.",
+      "composition_required": "Composition selection is required.",
+      "material_type_required": "Material type selection is required.",
+      "message_long": "Message must not exceed 1000 characters.",
+      "message_max_words": "Message must not exceed 200 words.",
+      "email_invalid": "Invalid email format.",
+      "company_name_short": "Company name must be at least 2 characters.",
+      "company_name_long": "Company name must not exceed 100 characters."
+    }
   },
   "contact": {
     "contact": "Contact",
     "title": "Send your message",
     "contact-form": {
-      "title": "Send your message",
+      "form_title": "Submit Your Application",
       "full_name": "Full Name",
-      "phone": "Phone",
-      "country": "Country",
-      "message": "Comment",
-      "button": "Send",
-      "button-loading": "Loading...",
-      "error": "An error occurred",
-      "success": "Successfully sent"
+      "phone": "Phone Number",
+      "message": "Your Message",
+      "button": "Submit",
+      "button-loading": "Submitting...",
+      "success": "Your request has been sent successfully!",
+      "error": "Something went wrong, please try again.",
+      "errors": {
+        "full_name_required": "Full name is required.",
+        "full_name_short": "Full name must be at least 3 characters.",
+        "full_name_long": "Full name cannot exceed 50 characters.",
+        "full_name_invalid": "Full name can only contain letters, spaces, apostrophes, and hyphens.",
+        "phone_required": "Phone number is required.",
+        "phone_invalid": "Enter a valid phone number (10-15 digits).",
+        "message_long": "Message cannot exceed 1000 characters.",
+        "message_max_words": "Message cannot exceed 200 words."
+      }
     },
     "contact-footer": {
       "phone": "Phone",

@@ -13,6 +13,7 @@ interface NewsListType {
   title_ru: string;
   title_en: string;
   date: string;
+  image: string;
 }
 
 const NewsList = () => {

@@ -20,9 +20,9 @@ interface Factory {
   title_ru: string;
   title_en: string;
   title_uz: string;
-  description_ru: string;
-  description_en: string;
-  description_uz: string;
+  content_ru: string;
+  content_en: string;
+  content_uz: string;
   phone: string;
   email: string;
 }
@@ -31,14 +31,20 @@ function CompanyFactories() {
   const { data, isLoading, isFetching } = useGetFactoriesQuery({});
   const t = useTranslations("factories");
   const swiperRef = useRef<SwiperCore | null>(null);
-  const locale = useLocale()
+  const locale = useLocale();
 
   return (
     <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
       <div className="container">
         <div>
           <div className="flex justify-between items-center mb-6">
-            <h1 className={`font-normal text-4xl  text-[#080808] ${locale === 'ru' ? 'font-brigends-unbounded' : 'font-brigends-expanded'}`}>
+            <h1
+              className={`font-normal text-4xl  text-[#080808] ${
+                locale === "ru"
+                  ? "font-brigends-unbounded"
+                  : "font-brigends-expanded"
+              }`}
+            >
               {t("title")}
             </h1>
 
@@ -61,7 +67,7 @@ function CompanyFactories() {
 
           <Swiper
             modules={[Autoplay]}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            // autoplay={{ delay: 3000, disableOnInteraction: false }}
             loop={true}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             spaceBetween={15}

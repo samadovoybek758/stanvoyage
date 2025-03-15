@@ -1,72 +1,56 @@
-// import React from "react";
-// import PhoneInput from "react-phone-input-2";
-// import "react-phone-input-2/lib/style.css";
-// import classNames from "classnames";
-
-// interface PhoneInputProps {
-//   value: string;
-//   onChange: (value: string) => void;
-//   label?: string;
-//   error?: string;
-//   className?: string;
-// }
-
-// const CustomPhoneInput: React.FC<PhoneInputProps> = ({
-//   value,
-//   onChange,
-//   label,
-//   error,
-//   className,
-// }) => {
-//   return (
-//     <div className="flex flex-col gap-1">
-//       {label && <label className="text-gray-700 font-medium">{label}</label>}
-//       <PhoneInput
-//         country={"uz"}
-//         value={value}
-//         onChange={onChange}
-//         containerClass={classNames("w-full", className)}
-//         placeholder="Telefon raqamingizni kiriting"
-//         inputClass={classNames(
-//           "!w-full !bg-[#F7F7F7] !font-normal !text-base placeholder:!text-[#9F9F9F] !rounded-lg !outline-none !py-[18px] !px-[20px] !text-[#080808]"
-//         )}
-//         buttonClass="bg-gray-200 rounded-lg"
-//       />
-//       {error && <span className="text-red-500 text-sm">{error}</span>}
-//     </div>
-//   );
-// };
-
-// export default CustomPhoneInput;
 // "use client";
-// import React from "react";
-// import InputMask from "react-input-mask";
+// import React, { useState } from "react";
 
 // interface PhoneInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 //   label?: string;
 //   error?: string;
 //   className?: string;
-//   mask?: string;
 // }
 
 // const PhoneInput: React.FC<PhoneInputProps> = ({
 //   label,
 //   error,
 //   className,
-//   mask = "+998 (99) 999-99-99", // Default UZ format
+//   onChange,
 //   ...props
 // }) => {
+//   const [phone, setPhone] = useState("+");
+
+//   // ✅ Raqam formatlash funksiyasi
+//   const formatPhoneNumber = (inputValue: string) => {
+//     let cleanedValue = inputValue.replace(/[^\d+]/g, ""); // Faqat + va raqam qabul qilinadi
+//     if (!cleanedValue.startsWith("+")) {
+//       cleanedValue = "+" + cleanedValue; // Majburiy + belgisi
+//     }
+
+//     // Raqamlarni xalqaro formatga yaqin shaklda joylashtirish
+//     let formattedNumber = cleanedValue.replace(
+//       /(\+\d{1,3})(\d{3})(\d{3})(\d{4})/,
+//       "$1 $2 $3 $4"
+//     );
+//     return formattedNumber.trim();
+//   };
+
+//   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const formattedNumber = formatPhoneNumber(e.target.value);
+//     setPhone(formattedNumber);
+//     onChange &&
+//       onChange({ target: { name: props.name, value: formattedNumber } });
+//   };
+
 //   return (
-//     <div className="flex flex-col gap-1 w-full">
+//     <div className={`flex flex-col gap-1 w-full ${className}`}>
 //       {label && <label className="text-gray-700 font-medium">{label}</label>}
-//       <InputMask
-//         mask={mask}
-//         className={`w-full bg-[#F7F7F7] font-normal text-base placeholder:text-[#9F9F9F] rounded-lg outline-none sm:py-[18px] px-[20px] text-[#080808] ${
-//           error ? "border-red-500" : "border-gray-300"
-//         } ${className}`}
+//       <input
+//         type="tel"
+//         value={phone}
+//         onChange={handleChange}
+//         className={`w-full bg-[#F7F7F7] font-normal text-base placeholder:text-[#9F9F9F] rounded-lg outline-none py-[14.5px] sm:py-[18px] px-[20px] text-[#080808] border ${
+//           error ? "border-[#F37325]" : "border-transparent"
+//         }`}
 //         {...props}
 //       />
-//       {error && <span className="text-red-500 text-sm">{error}</span>}
+//       {error && <span className="text-[#F37325] text-sm">{error}</span>}
 //     </div>
 //   );
 // };

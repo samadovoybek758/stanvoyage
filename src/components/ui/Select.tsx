@@ -10,15 +10,21 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   error?: string;
   options: Option[];
   placeholder?: string;
-  name?: string;
+  name: string; 
+  value: string; 
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onBlur: (e: React.FocusEvent<HTMLSelectElement>) => void;
 }
 
 const Select: React.FC<SelectProps> = ({
   label,
   error,
   options,
-  className,
+  className = "",
   placeholder,
+  value,
+  onChange,
+  onBlur,
   ...props
 }) => {
   return (
@@ -26,21 +32,19 @@ const Select: React.FC<SelectProps> = ({
       {label && <label className="text-gray-700 font-medium">{label}</label>}
       <div className="relative w-full">
         <select
-          className={`w-full appearance-none bg-[#F7F7F7] font-normal text-base text-[#080808] placeholder:text-[#9F9F9F] rounded-lg outline-none py-[18px] px-[20px] cursor-pointer ${
-            error ? "border-red-500" : "border-gray-300"
+          value={value} 
+          onChange={onChange}
+          onBlur={onBlur}
+          className={`w-full appearance-none bg-[#F7F7F7] font-normal text-base text-[#080808] placeholder:text-[#9F9F9F] rounded-lg outline-none py-[18px] px-[20px] cursor-pointer border ${
+            error ? "border-[#F37325]" : "border-transparent"
           } ${className}`}
-          defaultValue=""
           {...props}
         >
           <option value="" disabled>
             {placeholder}
           </option>
           {options.map((option) => (
-            <option
-              key={option.value}
-              value={option.value}
-              className="bg-[#F7F7F7] text-[#080808] cursor-pointer"
-            >
+            <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}

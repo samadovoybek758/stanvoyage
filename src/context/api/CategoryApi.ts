@@ -9,6 +9,13 @@ export const categoryApi = api.injectEndpoints({
       }),
       providesTags: ["Category"],
     }),
+    getCategoryDownloadFile: build.query({
+      query: ({ id }) => ({
+        url: `/category/download/${id}/`,
+      }),
+      providesTags: ["Category"],
+    }),
+
     getCategoryById: build.query({
       query: (id) => ({
         url: `/category/${id}/`,

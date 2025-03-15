@@ -1,14 +1,15 @@
 import Image from "next/image";
-import newsImg from "../../../../public/Images/newx-bg.png";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { getTitle } from "@/hook/getLanguage";
+import { baseUrl } from "../../../../public/static/Index";
 
 interface CardNewsProps {
   uuid: string;
   title_uz: string;
   title_ru: string;
   title_en: string;
+  image: string;
   date: string;
 }
 
@@ -21,7 +22,7 @@ const CardNews = ({ item }: { item: CardNewsProps }) => {
         <Image
           width={296}
           height={320}
-          src={newsImg}
+          src={baseUrl + item?.image}
           alt={"news-img"}
           className="w-full h-full object-cover"
         />

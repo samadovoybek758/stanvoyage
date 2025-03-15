@@ -96,21 +96,50 @@
     "email": "Email",
     "product": "Mahsulot",
     "category": "Toyifa",
-    "company_name": "Kompaniya nomi"
+    "company_name": "Kompaniya nomi",
+    "errors": {
+      "quantity_required": "Miqdorni kiritish majburiy.",
+      "full_name_required": "To‘liq ismingizni kiriting.",
+      "full_name_invalid": "Ism faqat harflardan iborat bo‘lishi kerak.",
+      "full_name_short": "Ism kamida 3 ta belgidan iborat bo‘lishi kerak.",
+      "full_name_long": "Ism 50 ta belgidan oshmasligi kerak.",
+      "phone_required": "Telefon raqamingizni kiriting.",
+      "phone_invalid": "Telefon raqami noto‘g‘ri formatda.",
+      "country_required": "Davlat nomini kiriting.",
+      "category_required": "Kategoriya tanlash majburiy.",
+      "product_required": "Mahsulot tanlash majburiy.",
+      "quality_required": "Sifatni tanlash majburiy.",
+      "composition_required": "Tarkibni tanlash majburiy.",
+      "material_type_required": "Material turini tanlash majburiy.",
+      "message_long": "Xabar 1000 ta belgidan oshmasligi kerak.",
+      "message_max_words": "Xabar 200 ta so‘zdan oshmasligi kerak.",
+      "email_invalid": "Email manzil noto‘g‘ri formatda.",
+      "company_name_short": "Kompaniya nomi kamida 2 ta belgidan iborat bo‘lishi kerak.",
+      "company_name_long": "Kompaniya nomi 100 ta belgidan oshmasligi kerak."
+    }
   },
   "contact": {
     "contact": "Bog‘lanish",
     "title": "Xabaringizni yuboring",
     "contact-form": {
-      "title": "Arizangizni yuboring",
-      "full_name": "Ism Familiya",
-      "phone": "Telefon raqam",
-      "country": "Mamlakat",
-      "message": "Izoh",
+      "form_title": "Arizangizni yuboring",
+      "full_name": "To‘liq ismingiz",
+      "phone": "Telefon raqamingiz",
+      "message": "Xabaringiz",
       "button": "Yuborish",
-      "button-loading": "Yuklanmoqda...",
-      "error": "Xatolik yuz berdi",
-      "success": "Muvaffaqiyatli yuborildi"
+      "button-loading": "Yuborilmoqda...",
+      "success": "Arizangiz muvaffaqiyatli yuborildi!",
+      "error": "Xatolik yuz berdi, qayta urinib ko‘ring.",
+      "errors": {
+        "full_name_required": "Ism-sharif majburiy.",
+        "full_name_short": "Ism kamida 3 ta belgidan iborat bo‘lishi kerak.",
+        "full_name_long": "Ism 50 ta belgidan oshmasligi kerak.",
+        "full_name_invalid": "Ism faqat harflar, bo‘sh joy, apostrof va tiredan iborat bo‘lishi kerak.",
+        "phone_required": "Telefon raqam majburiy.",
+        "phone_invalid": "To‘g‘ri telefon raqam kiriting (10-15 ta raqam).",
+        "message_long": "Xabar 1000 ta belgidan oshmasligi kerak.",
+        "message_max_words": "Xabar 200 ta so‘zdan oshmasligi kerak."
+      }
     },
     "contact-footer": {
       "phone": "Telefon",

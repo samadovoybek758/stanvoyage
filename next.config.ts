@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   images: {
-    domains: ["samo-admin.novacode.uz"],
+    domains: ["samo-admin.novacode.uz", "192.168.1.112"],
     remotePatterns: [
       {
         protocol: "https",
