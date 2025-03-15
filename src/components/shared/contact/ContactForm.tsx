@@ -140,12 +140,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
       .required(t("errors.phone_required")),
     message: Yup.string()
       .trim()
-      .max(1000, t("errors.message_long")) // Maksimal 1000 ta belgi
+      .max(1000, t("errors.message_long"))
       .test(
         "max-words",
         t("errors.message_max_words"),
         (value) => !value || countWords(value) <= 200
-      ), // 200 ta so‘zdan oshmasligi kerak
+      ),
   });
 
   const formik = useFormik({
@@ -181,7 +181,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.full_name ? formik.errors.full_name : ""}
-            required
           />
           <Input
             type="text"
@@ -191,7 +190,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.phone ? formik.errors.phone : ""}
-            required
           />
           <Textarea
             name="message"
