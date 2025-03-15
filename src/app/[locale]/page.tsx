@@ -1,4 +1,4 @@
-import HomeScreen from "./home/components/HomeScreen"; 
+import HomeScreen from "./home/components/HomeScreen";
 
 export default function Home() {
   return (
@@ -7,3 +7,5 @@ export default function Home() {
     </>
   );
 }
+
+
