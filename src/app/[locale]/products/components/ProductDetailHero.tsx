@@ -93,15 +93,16 @@ function ProductDetailHero({ data }: { data: CategoryDetailItem }) {
               </div>
             ) : null}
           </div>
-
-          <div className="flex-1 md:py-[53px] md:px-[46.5px] p-5 bg-white rounded-lg h-[360px] md:h-[500px] ">
-            <Image
-              width={515}
-              height={412}
-              alt="product Image"
-              src={baseUrl + item?.image}
-              className="w-full h-full rounded-xl"
-            />
+          <div className="bg-white rounded-lg flex-1 md:py-[53px] md:px-[46.5px] p-5 overflow-hidden max-h-[400px] md:max-h-[600px]">
+            <div className="h-full">
+              <Image
+                width={515}
+                height={412}
+                alt="product Image"
+                src={baseUrl + item?.image}
+                className="w-full h-full rounded-xl"
+              />
+            </div>
           </div>
         </div>
       </div>
