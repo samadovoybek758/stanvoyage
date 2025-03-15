@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import { useGetStatisticsQuery } from "@/context/api/Statistics";
 import { getAmount, getTitle, getType } from "@/hook/getLanguage";
@@ -12,6 +15,10 @@ function CompanyStatistics() {
   const { data, isLoading, isFetching } = useGetStatisticsQuery({});
   const t = useTranslations("statistics");
   const locale = useLocale();
+
+  useEffect(() => {
+    AOS.init({ duration: 100, once: true });
+  }, []);
 
   interface TypeData {
     amount_en: string;
@@ -38,8 +45,8 @@ function CompanyStatistics() {
         <div className="grid grid-cols-1 xssm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {data?.length > 0 &&
             data?.map((item: TypeData, index: number) => (
-              <div key={index} className=" bg-white rounded-lg overflow-hidden">
-                <div className="mt-[-200px] ml-[-146.48px] md:mt-[-140px]  rotate-45 ">
+              <div key={index} className=" bg-white rounded-lg overflow-hidden" >
+                <div className="mt-[-200px] ml-[-146.48px] md:mt-[-140px]  rotate-45 " >
                   {isLoading || isFetching ? (
                     <ImageLoading className="w-full h-full object-cover rounded-lg" />
                   ) : (
@@ -50,6 +57,7 @@ function CompanyStatistics() {
                       src={`${baseUrl}${item?.image}`}
                       quality={100}
                       className="md:mb-[50px] mb-[100px] w-[400px] h-[320px] rounded-lg"
+                      data-aos="fade-down"
                     />
                   )}
                 </div>
@@ -72,18 +80,18 @@ function CompanyStatistics() {
                         <Loading className="w-full h-10" />
                       </>
                     ) : item ? (
-                      getType(item, locale)
+                      getType(item, locale)    
                     ) : (
                       ""
                     )}
-                    :
-                    <span className="text-[#F37325]">
+                    : 
+                    <span className="text-[#F37325] ml-1">
                       {isLoading || isFetching ? (
                         <>
                           <Loading className="w-full h-10" />
                         </>
                       ) : item ? (
-                        getAmount(item, locale)
+                         getAmount(item, locale)
                       ) : (
                         ""
                       )}
