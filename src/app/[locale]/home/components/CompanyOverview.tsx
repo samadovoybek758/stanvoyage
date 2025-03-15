@@ -53,7 +53,7 @@ const CompanyOverview = () => {
               alt="company-icon"
               width={100}
               height={100}
-              className="w-16 h-16 xl:mb-24 mb-10"
+              className="w-16 h-16 xl:mb-14 mb-10"
               data-aos="fade-up"
               data-aos-delay="100"
             />
