@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import logo from "../../../public/Images/white-max-logo.svg";
+import React, { useEffect, useState } from "react";
+import logoSvg from "../../../public/Images/white-max-logo.svg";
+import logoPng from '../../../public/Images/logo (2).png'
 import { navigations } from "../../../public/static/Index";
 import { useLocale, useTranslations } from "next-intl";
 import { useSelectedLayoutSegment } from "next/navigation";
@@ -24,13 +25,37 @@ const Header = () => {
     dispatch(openModal({ x: e.clientX, y: e.clientY }));
   };
 
+
+
+  const [logo, setLogo] = useState(logoSvg);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setLogo(logoPng); // md dan kichik bo'lsa, kichik logoni qo'yamiz
+      } else {
+        setLogo(logoSvg); // Katta ekranda default logoni qo'yamiz
+      }
+    };
+
+    handleResize(); // Sahifa yuklanganda tekshiramiz
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <header className="fixed top-4 left-0 right-0 z-50">
       <div className="container relative">
         <nav className="flex items-center justify-between bg-[#F37325] px-3 py-[14px] rounded-xl">
-          <div>
-            <Link href="/">
-              <Image src={logo} quality={100} alt="logo" width={0} height={0} />
+          <div className="max-w-[127px] max-h-[34px]">
+            <Link href={`/${locale}`}>
+              <Image
+                src={logo}
+                quality={100}
+                alt="logo"
+                width={0}
+                height={0}
+              />
             </Link>
           </div>
           <ul className="hidden xl:flex items-center gap-[20px]">

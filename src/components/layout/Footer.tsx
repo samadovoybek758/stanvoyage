@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { footerNavigations } from "../../../public/static/Index";
@@ -7,7 +7,8 @@ import instagram from "../../../public/Images/instagram.svg";
 import facebook from "../../../public/Images/facebook.svg";
 import youtube from "../../../public/Images/youtube.svg";
 import Image from "next/image";
-import logo from "../../../public/Images/max-logo.svg";
+import logoSvg from "../../../public/Images/max-logo.svg";
+import logoPng from "../../../public/Images/logo qora (2).png";
 import { useGetComponyQuery } from "@/context/api/Compony";
 import { useGetCompanyPhoneQuery } from "@/context/api/CompanyPhoneApi";
 import { useGetSocialsQuery } from "@/context/api/Socials";
@@ -54,14 +55,33 @@ const Footer = () => {
     }
   }
 
+  const [logo, setLogo] = useState(logoSvg);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setLogo(logoPng); // md dan kichik bo'lsa, kichik logoni qo'yamiz
+      } else {
+        setLogo(logoSvg); // Katta ekranda default logoni qo'yamiz
+      }
+    };
+
+    handleResize(); // Sahifa yuklanganda tekshiramiz
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <footer className="mb-4">
       <div className="container">
         <div className="bg-[#FFFFFF] p-[30px] rounded-lg grid grid-cols-1 gap-10 lg:grid-cols-[1fr_304px]">
-          <div className="flex items-start flex-col justify-between gap-[30px] md:gap-[71px] ">
-            <Link href="/">
-              <Image src={logo} alt="logo" quality={100} className="" />
-            </Link>
+          <div className="flex items-start flex-col justify-between gap-[30px] md:gap-[71px]">
+            <div className=" max-w-[210px] max-h-[56px]">
+              <Link href={`/${locale}`}>
+                <Image src={logo} alt="logo" quality={100} className="" />
+              </Link>
+            </div>
+
             <div className="grid grid-cols-1 ssm:grid-cols-2 gap-5 w-full md:grid-cols-[1fr_1fr_1fr]">
               <div>
                 <h3 className="flex items-center gap-[6px] text-[#9F9F9F] text-base">
@@ -86,7 +106,7 @@ const Footer = () => {
                 </h3>
                 <div>
                   <p className="text-base font-normal text-[#000] max-w-full line-clamp-2">
-                    {companyData && getAddress(companyData, locale) || ""}
+                    {(companyData && getAddress(companyData, locale)) || ""}
                   </p>
                 </div>
               </div>
