@@ -122,7 +122,7 @@
     "contact": "Contact",
     "title": "Send your message",
     "contact-form": {
-      "form_title": "Submit Your Application",
+      "title": "Submit Your Application",
       "full_name": "Full Name",
       "phone": "Phone Number",
       "message": "Your Message",

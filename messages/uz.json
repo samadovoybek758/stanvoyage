@@ -122,7 +122,7 @@
     "contact": "Bog‘lanish",
     "title": "Xabaringizni yuboring",
     "contact-form": {
-      "form_title": "Arizangizni yuboring",
+      "title": "Arizangizni yuboring",
       "full_name": "To‘liq ismingiz",
       "phone": "Telefon raqamingiz",
       "message": "Xabaringiz",

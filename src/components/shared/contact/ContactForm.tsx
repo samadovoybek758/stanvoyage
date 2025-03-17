@@ -111,7 +111,7 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import { useCreateContactMutation } from "@/context/api/ContactApi";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
@@ -126,7 +126,7 @@ const countWords = (str: string) => str.trim().split(/\s+/).length;
 const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
   const [contactCreate, { isLoading }] = useCreateContactMutation();
   const t = useTranslations("contact.contact-form");
-
+  const locale = useLocale();
   // Yup validatsiya sxemasi
   const validationSchema = Yup.object({
     full_name: Yup.string()
@@ -168,8 +168,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
 
   return (
     <div className={`bg-[#FFFFFF] p-5 sm:p-[30px] rounded-lg ${className}`}>
-      <h2 className="text-[#080808] sm:text-[28px] leading-[42px] mb-5 md:mb-6 max-w-[282px] font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-[28px] ssm:leading-[39.2px] font-brigends-expanded">
-        {t("form_title")}
+      <h2
+        className={`text-[#080808] sm:text-[28px] leading-[42px] mb-5 md:mb-6 max-w-[282px] font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-[28px] ssm:leading-[39.2px] ${
+          locale === "ru" ? "font-brigends-unbounded" : "font-brigends-expanded"
+        } `}
+      >
+        {t("title")}
       </h2>
       <form onSubmit={formik.handleSubmit}>
         <div className="flex flex-col gap-4 mb-6 w-full">
