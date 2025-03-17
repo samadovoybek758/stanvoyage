@@ -97,6 +97,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        
         <link
           rel="preload"
           as="image"
