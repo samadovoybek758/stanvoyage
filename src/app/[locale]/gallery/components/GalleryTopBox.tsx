@@ -1,49 +1,4 @@
 "use client";
-// import { useGetGaleryQuery } from "@/context/api/Galery";
-// import Image from "next/image";
-// import React from "react";
-// import { baseUrl } from "../../../../../public/static/Index";
-// import ImageLoading from "@/components/ui/ImageLoading";
-// // import Image from 'next/image'
-// const GalleryTopBox = () => {
-//   const { data, isLoading, isFetching } = useGetGaleryQuery({});
-//   return (
-//     <section className="mb-16 sm:mb-20 md:mb-28 lg:mb-[120px]">
-//       <div className="container grid grid-cols-1 md:grid-cols-2 gap-4">
-//         {isLoading || isFetching
-//           ? Array.from({ length: 2 }).map((_, index) => (
-//               <div className="bg-[#FFFFFF] rounded-lg p-5 md:p-10" key={index}>
-//                 <div className="w-full h-[270px] sm:h-[300px] md:h-[400px] lg:h-[500px]  overflow-hidden rounded-lg">
-//                   <ImageLoading />
-//                 </div>
-//               </div>
-//             ))
-//           : data?.length > 0 &&
-//             data?.slice(0, 2)?.map((item: { uuid: string; file: string }) => (
-//               <div
-//                 className="bg-[#FFFFFF] rounded-lg p-5 md:p-10"
-//                 key={item?.uuid}
-//               >
-//                 <div className="w-full h-[270px] sm:h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-lg">
-//                   <Image
-//                     className="w-full h-full object-cover cursor-pointer"
-//                     src={`${baseUrl}/${item?.file}`}
-//                     alt={"gallery image"}
-//                     width={1232}
-//                     height={580}
-//                   />
-//                 </div>
-//               </div>
-//             ))}
-//         <div></div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default GalleryTopBox;
-
-
 
 import React from 'react';
 import Image from 'next/image';
@@ -51,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { useGetGaleryQuery } from '@/context/api/Galery';
 import { baseUrl } from '../../../../../public/static/Index';
-import Loading from '@/components/ui/Loading';
+import ImageLoading from '@/components/ui/ImageLoading';
 
 
 interface ItemType {
@@ -93,7 +48,11 @@ function GalleryTopBox() {
             </div>
           ))
         ): (
-          <Loading/>
+          <div className='w-[1100px] grid grid-cols-2 h-[400px] gap-4'>
+            <ImageLoading className='h-[400px]'/>
+            <ImageLoading  className='h-[400px]'/>
+
+          </div>
         )}
       </div>
     </div>

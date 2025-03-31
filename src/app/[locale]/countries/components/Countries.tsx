@@ -8,6 +8,7 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useGetCountriesQuery } from "@/context/api/CountriesApi";
+import NewsItemLoading from "@/components/ui/itemLoader/NewsItemLoading";
 
 interface ItemType {
   uuid: string;
@@ -44,14 +45,25 @@ function Countries() {
     
         <SectionTitle title={t("title")} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          { data && data.map((item: ItemType) => (
+          { data ?(
+            data.map((item: ItemType) => (
            
-           <div key={item.uuid} >
-               <Link href={`/${locale}/countries/${item.uuid}`}>
-               <CardCountry item={item}  />
-               </Link>
-           </div>
-         ))}
+              <div key={item.uuid} >
+                  <Link href={`/${locale}/countries/${item.uuid}`}>
+                  <CardCountry item={item}  />
+                  </Link>
+              </div>
+            ))
+          ) :
+         (
+          <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 w-[1100px] gap-4'>
+          <NewsItemLoading />
+          <NewsItemLoading />
+          <NewsItemLoading/>
+      </div>
+         )
+         
+         }
           </div>
        
       </div>

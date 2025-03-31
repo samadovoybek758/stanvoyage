@@ -11,6 +11,7 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import { useLocale, useTranslations } from "next-intl";
 import { useGetTripQuery } from "@/context/api/TripApi";
 import Link from "next/link";
+import NewsItemLoading from "@/components/ui/itemLoader/NewsItemLoading";
 
 
 
@@ -59,14 +60,24 @@ function TravelTips() {
             1024: { slidesPerView: 3 },
           }}
         >
-          {data && data.map((item: ItemType) => (
-            <SwiperSlide key={item.uuid}>
-              <Link href={`/${locale}/travel/${item.uuid}`} >
-              <CardTravelTips item={item} />
-              </Link>
-              
-            </SwiperSlide>
-          ))}
+          {data ?(
+            data.map((item: ItemType) => (
+              <SwiperSlide key={item.uuid}>
+                <Link href={`/${locale}/travel/${item.uuid}`} >
+                <CardTravelTips item={item} />
+                </Link>
+                
+              </SwiperSlide>
+            ))
+          )
+            :(
+              <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 w-[1100px] gap-4'>
+                                <NewsItemLoading />
+                                <NewsItemLoading />
+                                <NewsItemLoading/>
+                            </div>
+            )
+          }
         </Swiper>
       </div>
     </section>

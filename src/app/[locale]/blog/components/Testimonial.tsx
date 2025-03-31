@@ -8,6 +8,7 @@ import CustomerCard from '@/components/ui/cards/CardCustomer';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { useTranslations } from 'next-intl';
 import { useGetCommentsQuery } from '@/context/api/CommentsApi';
+import VacanciesItemLoading from '@/components/ui/itemLoader/VacanciesItemLoading';
 
 
 interface ItemType {
@@ -34,12 +35,20 @@ function Testemonial() {
         <SectionTitle title={t("testimonial")}/>
         <div className='grid grid-cols-1 sm:grid-cols-2 xm:grid-cols-3 gap-4'>
           
-          {data  && data.map((item:ItemType, index:number) => (
+          {data ? (
+            data.map((item:ItemType, index:number) => (
             
-            <div key={index}>
-                <CustomerCard item={item} />
+              <div key={index}>
+                  <CustomerCard item={item} />
+              </div>
+            ))
+          ): (
+            <div className='w-[1100px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
+              <VacanciesItemLoading/>
+              <VacanciesItemLoading/>
+              <VacanciesItemLoading/>
             </div>
-          ))}
+          )}
        
             </div>
         </div>

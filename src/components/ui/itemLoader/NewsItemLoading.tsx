@@ -4,7 +4,7 @@ import React from "react";
 
 const NewsItemLoading = () => {
   return (
-    <li>
+    <div>
       <div className="h-[230px] md:h-[296px]  mb-4 rounded-lg overflow-hidden">
         <ImageLoading className="w-full h-full object-cover" />
       </div>
@@ -16,7 +16,7 @@ const NewsItemLoading = () => {
           <Loading className="w-full h-6" />
         </div>
       </div>
-    </li>
+    </div>
   );
 };
 
