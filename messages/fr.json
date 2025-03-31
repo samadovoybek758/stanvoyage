@@ -1,0 +1,58 @@
+{
+    "header": {
+        "home": "Accueil",
+        "about-us": "À Propos de Nous",
+        "countries": "Pays",
+        "travel": "Voyage",
+        "gallery": "Galerie",
+        "blog": "Blogs",
+        "vacancies": "Offres d'emploi",
+        "contact": "Contact"
+    },
+    "home": {
+        "title": "Circuit sur mesure en Ouzbékistan et en Asie centrale",
+        "learn": "En savoir plus"
+    },
+    "gallery": {
+        "title": "Galerie"
+    },
+    "about": {
+        "title": "À Propos de l'Entreprise"
+    },
+    "countries": {
+        "title": "Pays",
+        "all-button": "Tous",
+        "location": "Emplacement"
+    },
+    "customer": {
+        "title": "Avis des clients"
+    },
+    "travel": {
+        "home": "Conseils de voyage pour tous.",
+        "title": "Voyage",
+        "travel": "Conseils de voyage",
+        "detail": "Voyage de groupe en Ouzbékistan",
+        "detailT": "Itinéraire"
+    },
+    "blog": {
+        "title": "Témoignages et Blogs",
+        "testimonial": "Témoignages",
+        "blog": "Blogs"
+    },
+    "footer": {
+        "home": "Accueil",
+        "about-us": "À Propos de l'Entreprise",
+        "countries": "Pays",
+        "travel": "Voyage",
+        "gallery": "Galerie",
+        "blog": "Témoignages et Blogs"
+    },
+    "contact": {
+        "title": "Formulaire de contact",
+        "name": "Nom",
+        "phone": "Numéro de téléphone",
+        "button": "Envoyer",
+        "loading": "Chargement",
+        "success": "Envoyé avec succès"
+    }
+}

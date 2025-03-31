@@ -1,23 +1,21 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const locales = ["uz", "en", "ru"];
+  const locales = ["en", "ru","fr","de","es"];
   const pages = [
     "", 
     "/company",
-    "/contact",
-    "/factories",
+    "/countries",
     "/gallery",
-    "/news",
-    "/products",
-    "/vacancies",
+    "/travel",
+    "/blogs",
   ];
 
   const now = new Date().toISOString();
 
   return locales.flatMap((locale) =>
     pages.map((page) => ({
-      url: `https://samo.uz/${locale}${page}`,
+      url: `https://stanvoyage.en/${locale}${page}`,
       lastModified: now,
     }))
   );

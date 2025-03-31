@@ -1,29 +1,30 @@
-export const baseUrl = process.env.NEXT_PUBLIC_SAMO_API_BASE_URL;
+export const baseUrl = process.env.NEXT_PUBLIC_STANOYAGE_API_BASE_URL;
 
 export const footerNavigations = [
+
+  {
+    name: "home",
+    href: "/",
+  },
   {
     name: "about-us",
     href: "/company",
   },
   {
-    name: "products",
-    href: "/products",
+    name: "countries",
+    href: "/countries",
   },
   {
-    name: "factories",
-    href: "/factories",
+    name: "travel",
+    href: "/travel",
   },
   {
     name: "gallery",
     href: "/gallery",
   },
   {
-    name: "news",
-    href: "/news",
-  },
-  {
-    name: "vacancies",
-    href: "/vacancies",
+    name: "blog",
+    href: "/blog",
   },
 ];
 export const navigations = [
@@ -36,23 +37,24 @@ export const navigations = [
     href: "/company",
   },
   {
-    name: "products",
-    href: "/products",
+    name: "countries",
+    href: "/countries",
   },
   {
-    name: "factories",
-    href: "/factories",
+    name: "travel",
+    href: "/travel",
   },
   {
     name: "gallery",
     href: "/gallery",
   },
   {
-    name: "news",
-    href: "/news",
+    name: "blog",
+    href: "/blog",
   },
+  
   {
-    name: "vacancies",
-    href: "/vacancies",
+    name: "contact",
+    href: "#footer",
   },
 ];

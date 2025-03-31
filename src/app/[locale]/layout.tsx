@@ -8,7 +8,6 @@ import StoreProvider from "./StoreProvider";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-// import OGImage from "@/components/ui/OGImage";
 
 export async function generateMetadata({
   params: { locale },
@@ -16,9 +15,9 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   const messages = await getMessages();
-  const title = (messages["meta.title"] as string) || "Samo | Textile";
+  const title = (messages["meta.title"] as string) || "Stanvoyage | Travel";
   const description =
-    (messages["meta.description"] as string) || "Best textile products online";
+    (messages["meta.description"] as string) || "Best travel company online";
 
   return {
     title,
@@ -29,25 +28,27 @@ export async function generateMetadata({
     },
     manifest: "/site.webmanifest",
     alternates: {
-      canonical: `https://samo.uz/${locale}`,
+      canonical: `https://stanvoyage.en/${locale}`,
       languages: {
-        en: "https://samo.uz/en",
-        uz: "https://samo.uz/uz",
-        ru: "https://samo.uz/ru",
+        en: "https://stanvoyage.en/en",
+        ru: "https://stanvoyage.en/ru",
+        fr: "https://stanvoyage.en/fr",
+        de: "https://stanvoyage.en/de",
+        es: "https://stanvoyage.en/es",
       },
     },
     openGraph: {
       title,
       description,
-      url: `https://samo.uz/${locale}`,
-      siteName: "Samo Textile",
+      url: `https://stanvoyage.en/${locale}`,
+      siteName: "Stanvoyage Travel",
       type: "website",
       images: [
         {
           url: "/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: "Samo Textile",
+          alt: "Stanvoyage Travel",
         },
       ],
     },
@@ -55,7 +56,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      site: "@samo_textile",
+      site: "@stanvoyage_travel",
       images: ["/og-image.jpg"],
     },
     robots: "index, follow",
@@ -69,7 +70,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  if (!routing.locales.includes(locale as "en" | "uz" | "ru")) {
+  if (!routing.locales.includes(locale as "en" | "ru" | "fr" | "de" | "es" )) {
     notFound();
   }
 
@@ -77,9 +78,9 @@ export default async function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Samo Textile",
-    url: "https://samo.uz",
-    logo: "https://samo.uz/logo.png",
+    name: "Stanvoyage Travel",
+    url: "https://stanvoyage.en",
+    logo: "https://stanvoyage.en/logo.png",
     contactPoint: [
       {
         "@type": "ContactPoint",

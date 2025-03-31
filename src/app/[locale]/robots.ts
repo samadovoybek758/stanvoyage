@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://samo.uz/sitemap.xml",
+    sitemap: "https://stanvoyage.en/sitemap.xml",
   };
 }

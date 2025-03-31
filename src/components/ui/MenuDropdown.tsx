@@ -8,8 +8,7 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { navigations } from "../../../public/static/Index";
 import LanguageDropdown from "./LanguagesDropdown";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
-import { openModal } from "@/context/slice/OpenOrderModal";
+
 
 const MenuDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +18,7 @@ const MenuDropdown = () => {
   const segment = useSelectedLayoutSegment();
   const homePage = segment === null ? "/" : "";
   const toggleMenu = () => setIsOpen(!isOpen);
-  const dispatch = useDispatch();
-  const open = (e: React.MouseEvent<HTMLButtonElement>) => {
-    dispatch(openModal({ x: e.clientX, y: e.clientY }));
-  };
+  
 
   // Tashqariga bosganda yopish
   useEffect(() => {
@@ -84,17 +80,7 @@ const MenuDropdown = () => {
                 </Link>
               </li>
             ))}
-            <li>
-              <button
-                onClick={(e) => {
-                  setIsOpen(false);
-                  open(e);
-                }}
-                className={`text-base sm:text-xl lg:text-2xl xl:text-base font-normal text-[#000] xl:text-[#fff] relative transition-all duration-300 ease-in-out `}
-              >
-                {t("order")}
-              </button>
-            </li>
+           
           </ul>
           <div className="flex items-start flex-col gap-5">
             <div className="">

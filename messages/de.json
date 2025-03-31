@@ -1,0 +1,57 @@
+{
+  "header": {
+    "home": "Heim",
+    "about-us": "Über uns",
+    "countries": "Länder",
+    "travel": "Reisen",
+    "gallery": "Galerie",
+    "blog": "Blogs",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "title": "Maßgeschneiderte Tour nach Usbekistan und Zentralasien",
+    "learn": "Mehr erfahren"
+  },
+  "gallery": {
+    "title": "Galerie"
+  },
+  "about": {
+    "title": "Über das Unternehmen"
+  },
+  "countries": {
+    "title": "Länder",
+    "all-button": "Alle",
+    "location": "Standort"
+  },
+  "customer": {
+    "title": "Kundenbewertungen"
+  },
+  "travel": {
+    "home": "Reisetipps für alle.",
+    "title": "Reisen",
+    "travel": "Travel tips",
+    "detail": "Gruppenreise nach Usbekistan",
+    "detailT": "Reiseverlauf"
+  },
+  "blog": {
+    "title": "Erfahrungsberichte & Blogs",
+    "testimonial": "Erfahrungsberichte",
+    "blog": "Blogs"
+  },
+  "footer": {
+    "home": "Heim",
+    "about-us": "Über das Unternehmen",
+    "countries": "Länder",
+    "travel": "Reisen",
+    "gallery": "Galerie",
+    "blog": "Erfahrungsberichte & Blogs"
+  },
+  "contact": {
+    "title": "Kontakt formular",
+    "name": "Name",
+    "phone": "Telefon nummer",
+    "button": "Senden",
+    "loading": "Laden",
+    "success": "Erfolgreich gesendet"
+  }
+}

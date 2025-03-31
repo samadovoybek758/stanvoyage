@@ -4,7 +4,7 @@ export const socialsApi = api.injectEndpoints({
   endpoints: (build) => ({
     getSocials: build.query({
       query: (params) => ({
-        url: "/socials/",
+        url: "/social",
         params,
       }),
       providesTags: ["Socials"],

@@ -4,7 +4,7 @@ export const galeryApi = api.injectEndpoints({
   endpoints: (build) => ({
     getGalery: build.query({
       query: (params) => ({
-        url: "/gallery/",
+        url: "/gallery",
         params,
       }),
       providesTags: ["Galery"],

@@ -2,160 +2,53 @@
   "header": {
     "home": "Bosh sahifa",
     "about-us": "Biz haqimizda",
-    "products": "Mahsulotlar",
-    "factories": "Fabrikalar",
+    "countries": "Davlatlar",
+    "travel": "Sayohat",
     "gallery": "Galareya",
     "news": "Yangiliklar",
-    "vacancies": "Vakansiyalar",
-    "order": "Buyurtma",
+    "blog": "Bloglar",
     "contact": "Bog‘lanish"
   },
-  "search": {
-    "title": "Izlash",
-    "placeholder": "Izlash...",
-    "loading": "Yuklanmoqda...",
-    "not-found": "Hech narsa topilmadi"
+  "home": {
+        "title": "Hello worlkd"
+    },
+  "blog": {
+    "title": "Guvohnoma va Bloglar",
+    "testimonial": "Guvohnoma",
+    "blog": "Bloglar"
   },
-  "hero": {
-    "watch-video": "Video ko’rish"
-  },
-  "product": {
-    "title": "Mahsulotlar",
-    "description": "Kompaniya tavsifi",
-    "loading": "Yuklanmoqda...",
-    "pdf-download": "PDF yuklab olish"
-  },
-  "performance-efficiency": {
-    "title": "Ishlash samaradorligi"
-  },
-  "news": {
-    "title": "Yangiliklar",
-    "all-button": "Barchasi",
-    "all-button-loading": "Yuklanmoqda...",
-    "back": "Orqaga",
-    "share": "Ulashish",
-    "close": "Yopish",
-    "facebook": "Facebook",
-    "telegram": "Telegram",
-    "whatsapp": "WhatsApp",
-    "twitter": "Twitter",
-    "copy": "Nusxalash"
-  },
+ 
   "gallery": {
     "title": "Galareya"
   },
-  "certificates": {
-    "title": "Sertifikatlar"
-  },
-  "factories": {
-    "title": "Fabrikalar"
-  },
-  "partner": {
-    "title": "Hamkorlar"
+  "travel":{
+    "home": "Hamma uchun sayohat bo'yicha maslahatlar.",
+    "title": "Sayohat",
+    "travel": "Sayohat bo'yicha maslahatlar"
   },
   "about": {
     "title": "Kompaniya haqida",
     "button": "Kompaniya haqida"
   },
-  "mission-and-values": {
-    "title": "Missiya va qadriyatlar"
+  
+  "countries": {
+    "title": "Davlatlar",
+    "all-button": "Barchasi"
+
   },
-  "statistics": {
-    "title": "Statistikalar"
-  },
-  "vacancy": {
-    "title": "Vakansiyalar",
-    "apply": "Ariza topshirish",
-    "all-button": "Barchasi",
-    "all-button-loading": "Yuklanmoqda...",
-    "back": "Orqaga",
-    "resume": "Rezyume yuklash",
-    "loading": "Yuklanmoqda...",
-    "send": "Yuborish",
-    "error": "Ariza yuborishda xatolik yuz berdi",
-    "success": "Ariza muvaffaqiyatli yuborildi",
-    "full_name": "Ism Familya",
-    "phone": "Telefon raqam",
-    "experience": "Tajribasi",
-    "content": "Xabaringizni qoldiring"
-  },
-  "order": {
-    "title": "Buyurtma",
-    "materials": "Turi",
-    "quality": "Sifat",
-    "composition": "Tarkib",
-    "quantity": "Miqdor",
-    "name": "Ism",
-    "phone": "Telefon",
-    "country": "Mamlakat",
-    "message": "Xabar",
-    "button": "So‘rov yuborish",
-    "button-loading": "Yuklanmoqda...",
-    "error": "Buyurtma yaratishda xatolik yuz berdi",
-    "success": "Buyurtma muvaffaqiyatli yuborildi",
-    "email": "Email",
-    "product": "Mahsulot",
-    "category": "Toyifa",
-    "company_name": "Kompaniya nomi",
-    "errors": {
-      "quantity_required": "Miqdorni kiritish majburiy.",
-      "full_name_required": "To‘liq ismingizni kiriting.",
-      "full_name_invalid": "Ism faqat harflardan iborat bo‘lishi kerak.",
-      "full_name_short": "Ism kamida 3 ta belgidan iborat bo‘lishi kerak.",
-      "full_name_long": "Ism 50 ta belgidan oshmasligi kerak.",
-      "phone_required": "Telefon raqamingizni kiriting.",
-      "phone_invalid": "Telefon raqami noto‘g‘ri formatda.",
-      "country_required": "Davlat nomini kiriting.",
-      "category_required": "Kategoriya tanlash majburiy.",
-      "product_required": "Mahsulot tanlash majburiy.",
-      "quality_required": "Sifatni tanlash majburiy.",
-      "composition_required": "Tarkibni tanlash majburiy.",
-      "material_type_required": "Material turini tanlash majburiy.",
-      "message_long": "Xabar 1000 ta belgidan oshmasligi kerak.",
-      "message_max_words": "Xabar 200 ta so‘zdan oshmasligi kerak.",
-      "email_invalid": "Email manzil noto‘g‘ri formatda.",
-      "company_name_short": "Kompaniya nomi kamida 2 ta belgidan iborat bo‘lishi kerak.",
-      "company_name_long": "Kompaniya nomi 100 ta belgidan oshmasligi kerak."
-    }
+ 
+  "footer": {
+    "home": "Home",
+    "about-us": "Biz haqimizda",
+    "gallery": "Galareya",
+   "countries": "Davlatlar",
+    "travel": "Sayohat",
+    "blog": "Guvohnoma va Bloglar"
   },
   "contact": {
-    "contact": "Bog‘lanish",
-    "title": "Xabaringizni yuboring",
-    "contact-form": {
-      "title": "Arizangizni yuboring",
-      "full_name": "To‘liq ismingiz",
-      "phone": "Telefon raqamingiz",
-      "message": "Xabaringiz",
-      "button": "Yuborish",
-      "button-loading": "Yuborilmoqda...",
-      "success": "Arizangiz muvaffaqiyatli yuborildi!",
-      "error": "Xatolik yuz berdi, qayta urinib ko‘ring.",
-      "errors": {
-        "full_name_required": "Ism-sharif majburiy.",
-        "full_name_short": "Ism kamida 3 ta belgidan iborat bo‘lishi kerak.",
-        "full_name_long": "Ism 50 ta belgidan oshmasligi kerak.",
-        "full_name_invalid": "Ism faqat harflar, bo‘sh joy, apostrof va tiredan iborat bo‘lishi kerak.",
-        "phone_required": "Telefon raqam majburiy.",
-        "phone_invalid": "To‘g‘ri telefon raqam kiriting (10-15 ta raqam).",
-        "message_long": "Xabar 1000 ta belgidan oshmasligi kerak.",
-        "message_max_words": "Xabar 200 ta so‘zdan oshmasligi kerak."
-      }
-    },
-    "contact-footer": {
-      "phone": "Telefon",
-      "location": "Manzil",
-      "email": "Elektron manzil"
-    }
-  },
-  "footer": {
-    "about-us": "Biz haqimizda",
-    "products": "Mahsulotlar",
-    "factories": "Fabrikalar",
-    "gallery": "Galareya",
-    "news": "Yangiliklar",
-    "vacancies": "Vakansiyalar",
-    "location": "Manzil",
-    "phone": "Telefon",
-    "email": "Elektron manzil"
-  }
+    "title": "Форма для связи",
+    "name": "Имя",
+    "phone": "Номер телефона",
+    "button": "Отправить"
+}
 }

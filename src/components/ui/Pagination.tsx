@@ -1,6 +1,6 @@
 import ReactPaginate from "react-paginate";
-import arrowLeft from "../../../public/Images/gallary-left.svg";
-import arrowRight from "../../../public/Images/gallary-right.svg";
+import arrowLeft from "../../../public/Images/stanvoyage/gallary-left.svg";
+import arrowRight from "../../../public/Images/stanvoyage/gallary-right.svg";
 import Image from "next/image";
 
 interface PaginationProps {

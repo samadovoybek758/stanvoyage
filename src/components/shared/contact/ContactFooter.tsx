@@ -1,4 +1,4 @@
-import { useGetComponyQuery } from "@/context/api/Compony";
+import { useGetComponyQuery } from "@/context/api/CompanyApi";
 import { useLocale, useTranslations } from "next-intl";
 import React, { useEffect } from "react";
 import { FiPhone } from "react-icons/fi";

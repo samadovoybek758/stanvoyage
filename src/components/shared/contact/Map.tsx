@@ -1,7 +1,7 @@
 import AOS from "aos";
 import React, { useEffect } from "react";
 import "aos/dist/aos.css";
-import { useGetComponyQuery } from "@/context/api/Compony";
+import { useGetComponyQuery } from "@/context/api/CompanyApi";
 import ImageLoading from "@/components/ui/ImageLoading";
 
 const Map = ({ className }: { className?: string }) => {

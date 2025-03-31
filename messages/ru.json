@@ -2,161 +2,57 @@
   "header": {
     "home": "Главная",
     "about-us": "О нас",
-    "products": "Продукты",
-    "factories": "Фабрики",
+    "countries": "Продукты",
     "gallery": "Галерея",
-    "news": "Новости",
-    "vacancies": "Вакансии",
-    "order": "Заказ",
+    "travel": "Путешествовать",
+    "blog": "Блоги",
     "contact": "Контакты"
   },
-  "search": {
-    "title": "Поиск",
-    "placeholder": "Поиск...",
-    "loading": "Загрузка...",
-    "not-found": "Ничего не найдено"
+  "home": {
+    "title": "Индивидуальный тур в Узбекистан и Центральную Азию",
+    "learn": "Узнать больше"
   },
-  "hero": {
-    "watch-video": "Посмотреть видео"
-  },
-  "product": {
-    "title": "Продукты",
-    "description": "Описание компании",
-    "loading": "Загрузка...",
-    "pdf-download": "скачать PDF"
-  },
-  "performance-efficiency": {
-    "title": "Эффективность работы"
-  },
-  "news": {
-    "title": "Новости",
-    "all-button": "Все",
-    "all-button-loading": "Загрузка...",
-    "back": "Назад",
-    "share": "Поделиться",
-    "close": "Закрыть",
-    "facebook": "Facebook",
-    "telegram": "Telegram",
-    "whatsapp": "WhatsApp",
-    "twitter": "Twitter",
-    "copy": "Копировать"
+  "blog": {
+    "title": "Отзывы и Блоги",
+    "testimonial": "Отзыв",
+    "blog": "Блоги"
   },
   "gallery": {
     "title": "Галерея"
-  },
-  "certificates": {
-    "title": "Сертификаты"
-  },
-  "factories": {
-    "title": "Фабрики"
-  },
-  "partner": {
-    "title": "Партнёры"
   },
   "about": {
     "title": "О компании",
     "button": "Обзор компании"
   },
-  "mission-and-values": {
-    "title": "Миссия и ценности"
+  "countries": {
+    "title": "Countries",
+    "all-button": "Avdfsfsdfbsdll",
+    "location": "Местоположение"
   },
-  "statistics": {
-    "title": "Статистика"
+  "customer": {
+    "title": "Отзывы клиентов"
   },
-  "vacancy": {
-    "title": "Вакансии",
-    "apply": "Отправить заявку",
-    "all-button": "Все",
-    "all-button-loading": "Загрузка...",
-    "back": "Назад",
-    "resume": "Отправить резюме",
-    "loading": "Загрузка...",
-    "send": "Отправить",
-    "error": "Произошла ошибка",
-    "success": "Успешно отправлено",
-    "full_name": "Имя Фамилия",
-    "phone": "Телефон",
-    "experience": "Опыт",
-    "content": "Сообщение"
-  },
-  "order": {
-    "title": "Заказ",
-    "materials": "тип",
-    "quality": "Качество",
-    "composition": "Состав",
-    "quantity": "Количество",
-    "name": "Имя",
-    "phone": "Телефон",
-    "country": "Страна",
-    "message": "Сообщение",
-    "button": "Отправить запрос",
-    "button-loading": "Загрузка...",
-    "error": "Ошибка при создании заказа",
-    "success": "Заказ успешно создан",
-    "email": "Электронная почта",
-    "product": "Продукты",
-    "category": "Категория",
-    "company_name": "Название компании",
-    "errors": {
-      "quantity_required": "Необходимо указать количество.",
-      "full_name_required": "Пожалуйста, введите ваше полное имя.",
-      "full_name_invalid": "Имя должно содержать только буквы.",
-      "full_name_short": "Имя должно содержать не менее 3 символов.",
-      "full_name_long": "Имя не должно превышать 50 символов.",
-      "phone_required": "Пожалуйста, введите ваш номер телефона.",
-      "phone_invalid": "Неверный формат номера телефона.",
-      "country_required": "Пожалуйста, введите название страны.",
-      "category_required": "Выбор категории обязателен.",
-      "product_required": "Выбор продукта обязателен.",
-      "quality_required": "Выбор качества обязателен.",
-      "composition_required": "Выбор состава обязателен.",
-      "material_type_required": "Выбор типа материала обязателен.",
-      "message_long": "Сообщение не должно превышать 1000 символов.",
-      "message_max_words": "Сообщение не должно превышать 200 слов.",
-      "email_invalid": "Неверный формат email.",
-      "company_name_short": "Название компании должно содержать не менее 2 символов.",
-      "company_name_long": "Название компании не должно превышать 100 символов."
-    }
-  },
-  "contact": {
-    "contact": "Контакты",
-    "title": "Отправьте ваше сообщение",
-    "contact-form": {
-      "full_name": "Имя Фамилия",
-      "title": "Отправьте заявку",
-      "phone": "Телефон",
-      "country": "Страна",
-      "message": "Комментарий",
-      "button": "Отправить",
-      "button-loading": "Загрузка...",
-      "error": "Произошла ошибка",
-      "success": "Успешно отправлено",
-      "errors": {
-        "full_name_required": "Полное имя обязательно.",
-        "full_name_short": "Имя должно содержать минимум 3 символа.",
-        "full_name_long": "Имя не может превышать 50 символов.",
-        "full_name_invalid": "Имя может содержать только буквы, пробелы, апострофы и дефисы.",
-        "phone_required": "Номер телефона обязателен.",
-        "phone_invalid": "Введите корректный номер телефона (10-15 цифр).",
-        "message_long": "Сообщение не может превышать 1000 символов.",
-        "message_max_words": "Сообщение не может содержать более 200 слов."
-      }
-    },
-    "contact-footer": {
-      "phone": "Телефон",
-      "location": "Адрес",
-      "email": "Электронная почта"
-    }
+  "travel": {
+    "home": "Советы путешественникам для всех.",
+    "title": "Путешествовать",
+    "travel": "Советы путешественникам",
+    "detail": "Групповая поездка в Узбекистан",
+    "detailT": "Маршрут"
   },
   "footer": {
+    "home": "Главная",
     "about-us": "О нас",
-    "products": "Продукты",
-    "factories": "Фабрики",
+    "countries": "Страны",
+    "travel": "Путешествовать",
     "gallery": "Галерея",
-    "news": "Новости",
-    "vacancies": "Вакансии",
-    "location": "Адрес",
-    "phone": "Телефон",
-    "email": "Электронная почта"
+    "blog": "Отзывы и Блоги"
+  },
+  "contact": {
+    "title": "Форма для связи",
+    "name": "Имя",
+    "phone": "Номер телефона",
+    "button": "Отправить",
+    "loading": "Загрузка",
+    "success": "Успешно отправлено"
   }
 }

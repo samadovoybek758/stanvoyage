@@ -1,0 +1,58 @@
+{
+    "header": {
+        "home": "Inicio",
+        "about-us": "Sobre Nosotros",
+        "countries": "Países",
+        "travel": "Viajes",
+        "gallery": "Galería",
+        "blog": "Blogs",
+        "vacancies": "Vacantes",
+        "contact": "Contacto"
+    },
+    "gallery": {
+        "title": "Galería"
+    },
+    "about": {
+        "title": "Sobre la Empresa"
+    },
+    "countries": {
+        "title": "Países",
+        "all-button": "Todos",
+        "location": "Ubicación"
+    },
+    "home": {
+        "title": "Tour a medida a Uzbekistán y Asia Central",
+        "learn": "Aprende más"
+    },
+    "travel": {
+        "home": "Consejos de viaje para todos.",
+        "title": "Viajes",
+        "travel": "Consejos de viaje",
+        "detail": "Viaje en grupo a Uzbekistán",
+        "detailT": "Itinerario"
+    },
+    "customer": {
+        "title": "Reseñas de clientes"
+    },
+    "blog": {
+        "title": "Testimonios y Blogs",
+        "testimonial": "Testimonios",
+        "blog": "Blogs"
+    },
+    "footer": {
+        "home": "Inicio",
+        "about-us": "Sobre la Empresa",
+        "countries": "Países",
+        "travel": "Viajes",
+        "gallery": "Galería",
+        "blog": "Testimonios y Blogs"
+    },
+    "contact": {
+        "title": "Formulario de contacto",
+        "name": "Nombre",
+        "phone": "Número de teléfono",
+        "button": "Enviar",
+        "loading": "Cargando",
+        "success": "Enviado con éxito"
+    }
+}

@@ -2,161 +2,60 @@
   "header": {
     "home": "Home",
     "about-us": "About Us",
-    "products": "Products",
-    "factories": "Factories",
+    "countries": "Countries",
+    "travel": "Travel",
     "gallery": "Gallery",
-    "news": "News",
+    "blog": "Blogs",
     "vacancies": "Vacancies",
-    "order": "Order",
     "contact": "Contact"
   },
-  "search": {
-    "title": "Search",
-    "placeholder": "Search...",
-    "loading": "Loading...",
-    "not-found": "Nothing found"
-  },
-  "hero": {
-    "watch-video": "Watch video"
-  },
-  "product": {
-    "title": "Products",
-    "description": "Company description",
-    "loading": "Loading...",
-    "pdf-download": "PDF download"
-  },
-  "performance-efficiency": {
-    "title": "Performance efficiency"
-  },
-  "news": {
-    "title": "News",
-    "all-button": "All",
-    "all-button-loading": "Loading...",
-    "back": "Back",
-    "share": "Share",
-    "close": "Close",
-    "facebook": "Facebook",
-    "telegram": "Telegram",
-    "whatsapp": "WhatsApp",
-    "twitter": "Twitter",
-    "copy": "Copy"
-  },
+ "home": {
+        "title": "Tailormade Tour to Uzbekistan & Central Asia",
+        "learn": "Learn more"
+    },
+  
   "gallery": {
     "title": "Gallery"
   },
-  "certificates": {
-    "title": "Certificates"
-  },
-  "factories": {
-    "title": "Factories"
-  },
-  "partner": {
-    "title": "Partners"
-  },
   "about": {
-    "title": "About the company",
-    "button": "Company overview"
+    "title": "About Company"
   },
-  "mission-and-values": {
-    "title": "Mission and values"
-  },
-  "statistics": {
-    "title": "Statistics"
-  },
-  "vacancy": {
-    "title": "Vacancies",
-    "apply": "Apply",
+  "countries": {
+    "title": "Countries",
     "all-button": "All",
-    "all-button-loading": "Loading...",
-    "back": "Back",
-    "resume": "Upload resume",
-    "loading": "Loading...",
-    "send": "Send",
-    "error": "An error occurred",
-    "success": "Successfully sent",
-    "full_name": "Full Name",
-    "phone": "Phone",
-    "experience": "Experience",
-    "content": "Content"
+    "location": "Location"
   },
-  "order": {
-    "title": "Order",
-    "materials": "Type",
-    "quality": "Quality",
-    "composition": "Composition",
-    "quantity": "Quantity",
-    "name": "Name",
-    "phone": "Phone",
-    "country": "Country",
-    "message": "Message",
-    "button": "Send request",
-    "button-loading": "Loading...",
-    "error": "Error occurred while creating the order",
-    "success": "Order successfully created",
-    "email": "Email",
-    "product": "Product",
-    "category": "Category",
-    "company_name": "Company name",
-    "errors": {
-      "quantity_required": "Quantity is required.",
-      "full_name_required": "Please enter your full name.",
-      "full_name_invalid": "Name must contain only letters.",
-      "full_name_short": "Name must be at least 3 characters.",
-      "full_name_long": "Name must not exceed 50 characters.",
-      "phone_required": "Please enter your phone number.",
-      "phone_invalid": "Invalid phone number format.",
-      "country_required": "Please enter your country name.",
-      "category_required": "Category selection is required.",
-      "product_required": "Product selection is required.",
-      "quality_required": "Quality selection is required.",
-      "composition_required": "Composition selection is required.",
-      "material_type_required": "Material type selection is required.",
-      "message_long": "Message must not exceed 1000 characters.",
-      "message_max_words": "Message must not exceed 200 words.",
-      "email_invalid": "Invalid email format.",
-      "company_name_short": "Company name must be at least 2 characters.",
-      "company_name_long": "Company name must not exceed 100 characters."
-    }
+
+  "travel":{
+    "home": "Travel tips for everyone.",
+    "title": "Travel",
+    "travel": "Travel tips",
+    "detail": "Uzbekistan Group Trip",
+    "detailT": "Itinerary"
   },
-  "contact": {
-    "contact": "Contact",
-    "title": "Send your message",
-    "contact-form": {
-      "title": "Submit Your Application",
-      "full_name": "Full Name",
-      "phone": "Phone Number",
-      "message": "Your Message",
-      "button": "Submit",
-      "button-loading": "Submitting...",
-      "success": "Your request has been sent successfully!",
-      "error": "Something went wrong, please try again.",
-      "errors": {
-        "full_name_required": "Full name is required.",
-        "full_name_short": "Full name must be at least 3 characters.",
-        "full_name_long": "Full name cannot exceed 50 characters.",
-        "full_name_invalid": "Full name can only contain letters, spaces, apostrophes, and hyphens.",
-        "phone_required": "Phone number is required.",
-        "phone_invalid": "Enter a valid phone number (10-15 digits).",
-        "message_long": "Message cannot exceed 1000 characters.",
-        "message_max_words": "Message cannot exceed 200 words."
-      }
-    },
-    "contact-footer": {
-      "phone": "Phone",
-      "location": "Address",
-      "email": "Email"
-    }
+  "blog": {
+    "title": "Testimonial & Blogs",
+    "testimonial": "Testimonial",
+    "blog": "Blogs"
   },
 
   "footer": {
-    "about-us": "About Us",
-    "products": "Products",
-    "factories": "Factories",
+    "home": "Home",
+    "about-us": "About Company",
+    "countries": "Countries",
+    "travel": "Travel",
     "gallery": "Gallery",
-    "news": "News",
-    "vacancies": "Vacancies",
-    "location": "Address",
-    "phone": "Phone",
-    "email": "Email"
+    "blog": "Testimonial & Blogs"
+  },
+  "customer":{
+    "title" : "Customer reviews"
+  },
+  "contact": {
+    "title": "Contact form",
+    "name": "Name",
+    "phone": "Phone number",
+    "button": "Send",
+    "loading": "Loading",
+    "success": "Successfully sent"
   }
 }

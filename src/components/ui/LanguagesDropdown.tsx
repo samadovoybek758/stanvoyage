@@ -5,9 +5,11 @@ import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 const languageList = [
-  { code: "uz", name: "UZ" },
   { code: "ru", name: "RU" },
   { code: "en", name: "EN" },
+  { code: "fr", name: "FR" },
+  { code: "es", name: "ES" },
+  { code: "de", name: "DE" },
 ];
 const LanguageDropdown = () => {
   const flag = useLocale();
@@ -28,7 +30,7 @@ const LanguageDropdown = () => {
   }, [dropdown]);
 
   const handleChangeLanguage = (code: string) => {
-    const newPath = `/${code}${pathname.replace(/^\/(uz|ru|en)/, "")}`;
+    const newPath = `/${code}${pathname.replace(/^\/(ru|en|fr|es|de)/, "")}`;
     router.push(newPath);
   };
 
@@ -42,7 +44,7 @@ const LanguageDropdown = () => {
         }}
       >
         <span className="font-normal text-base">
-          {flag === "uz" ? "UZ" : flag === "ru" ? "RU" : "EN"}
+          {flag === "ru" ? "RU" : flag === "en" ? "EN" : flag === "fr" ? "FR" : flag === "es" ? "ES" : "DE"}
         </span>
         <div>
           <MdKeyboardArrowDown />
