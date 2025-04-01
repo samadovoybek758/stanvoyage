@@ -6,7 +6,9 @@ import Image from 'next/image';
 import left from '../../../../../public/Images/stanvoyage/gallary-left.svg';
 import right from '../../../../../public/Images/stanvoyage/gallary-right.svg';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 import SectionTitle from '@/components/shared/SectionTitle';
 import { useLocale, useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
@@ -165,10 +167,10 @@ function TravelDays() {
                         </div>
                     </div>
                     <Swiper
-                        modules={[Autoplay]}
+                        modules={[Autoplay , Navigation]}
                         autoplay={{ delay: 3000 }}
                         loop={true}
-                        onSwiper={(swiper) => (swiperRef.current = swiper)}
+                        navigation={{ nextEl: ".next", prevEl: ".prev" }}
                         spaceBetween={15}
                         breakpoints={{
                             550: { slidesPerView: 1 },

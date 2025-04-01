@@ -36,7 +36,8 @@
   "blog": {
     "title": "Testimonial & Blogs",
     "testimonial": "Testimonial",
-    "blog": "Blogs"
+    "blog": "Blogs",
+    "other" : "Other blogs"
   },
 
   "footer": {

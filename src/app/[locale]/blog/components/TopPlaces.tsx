@@ -3,63 +3,193 @@ import SectionTitle from '@/components/shared/SectionTitle'
 import React from 'react';
 import Image from 'next/image';
 import { useParams } from "next/navigation";
-import { useGetBlogByIdQuery } from '@/context/api/BlogApi';
+import { useGetBlogByIdQuery, useGetBlogQuery } from '@/context/api/BlogApi';
+import { getDescription, getTitle } from '@/hook/getLanguage';
+import { useLocale, useTranslations } from 'next-intl';
+import DOMPurify from "dompurify";
+import { baseUrl } from '../../../../../public/static/Index';
+import ImageLoading from '@/components/ui/ImageLoading';
+import Link from 'next/link';
+import "swiper/css";
+import "swiper/css/navigation";
+import icon from '../../../../../public/Images/stanvoyage/blog.png'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import NewsItemLoading from '@/components/ui/itemLoader/NewsItemLoading';
+
+
+interface ItemType {
+  uuid: string;
+    created_at: string;
+    updated_at: string
+    order: number
+    image: string;
+    blog: string
+  
+}
+
+
+interface ItemType2 {
+  uuid: string;
+  created_at: string;
+  updated_at: string
+  title_en: string;
+  title_ru: string;
+  title_fr: string;
+  title_de: string;
+  title_es: string;
+  image: string;
+  description_en: string
+  description_ru: string
+  description_fr: string
+  description_es: string
+  description_de: string
+}
 
 function TopPlaces() {
   const { id } = useParams();
   const {data} = useGetBlogByIdQuery(id as string)
-  console.log(id, data);
+  const { data: blogs } = useGetBlogQuery({ })
+  const t = useTranslations("blog")  
+  
+  const locale = useLocale()
+
+  const rawDescription = data?.blog ? getDescription(data.blog, locale) : "";
+  const parser = new DOMParser();
+  const parsedHtml = parser.parseFromString(rawDescription, "text/html");
+  const paragraphs = Array.from(parsedHtml.body.getElementsByTagName("p")); // Barcha `<p>` elementlarni olish
+
+  const firstTwoParagraphs = paragraphs.slice(0, 3).map(p => p.outerHTML).join("");
+  const remainingParagraphs = paragraphs.slice(3).map(p => p.outerHTML).join("");
+  
   
   return (
     <section className='mt-20'>
         <div className='container'>
 
-            <SectionTitle title='Top 10 places to See in Central Asia'/>
+            <SectionTitle title={data?.blog ? getTitle(data?.blog, locale) : ''}/>
 
             <div>
-                <p className='mb-6 text-lg '>
-                Central Asia is a region of breathtaking diversity, where dramatic landscapes, ancient cities, and rich cultures come together to offer unforgettable experiences. From the bustling Silk Road cities to the towering peaks and pristine lakes, each of the five Central Asian “Stans” offers something unique for travelers. Our top ten ranking captures the heart of this vast region: marvel at the ancient Silk Road cities of Uzbekistan, experience the serene beauty of Song Kul lake and Issyk Kul in Kyrgyzstan, traverse the epic Pamir Highway in Tajikistan, or be awestruck by the fiery Darvaza Crater in Turkmenistan. Explore modernity amidst tradition in Kazakhstan’s capital Astana, or trek through the turquoise lakes of Tajikistan’s Fann Mountains. Don’t miss the dramatic Charyn Canyon in Kazakhstan or the architectural wonders of Ashgabat in Turkmenistan. Whether you’re a nature lover drawn to pristine lakes and towering mountains, or a culture enthusiast eager to explore ancient cities and modern marvels, Central Asia has it all. This region offers an unforgettable mix of natural beauty and cultural depth that will captivate every type of traveler.
-                </p>
+                <p className='mb-6 text-lg '
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(firstTwoParagraphs),
+                }}/>
+                
+                
 
-                <Image
+                {
+                  data?.blog_image ? (
+                    data?.blog_image.slice(0,1).map((item:ItemType, index:number) =>(
+                      <div key={index}>
+                        <Image 
                 width={1136}
                 height={576}
                 alt='top place'
                 className='rounded-[20px] mb-6'
-                src={'https://s3-alpha-sig.figma.com/img/afa4/46ae/bf71b0670b294268be62373b8171ec6f?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EftjSJcE2lP7d9Abj1Ejnm8ah5CWCxKStI3XPhgAv81AkyzEaECKzkEQ1xYyHoo8iy9VDftO8sWPouruqvqx0sM2RCDN4uDyzYbNPszsH0eZ8B~5WaG2cKyPRa8cKDRPAxEDR~pT-p4ZJqdBkT1RcZkrfuN2OjSzOB4ArusezaBjsKat-~Ui1x-ukBYNSaAy9W~UoUcp2RESFdDk8UhCRG-Gr9oCfCdfZPngI90I-QISFwz91rrt3EclswzQ5nd-~suUxQyu7Q9rNB2tHWLFc7p08ggGTBSsLZob59PJACrcKxZU4AtFL18ykixI7D3tCB6q0ZWnGCU3jr1Si7I-dA__'}
+                src={baseUrl + item.image}
                 />
+                      </div>
+                    ))
 
-                <p className='mb-6 text-lg'>
-                The ancient Silk Road cities of Uzbekistan—Samarkand, Bukhara, and Khiva—are living testaments to Central Asia’s rich history. Samarkand, with its stunning landmarks like Registan Square and the Shah-i-Zinda necropolis, served as the capital of Tamerlane’s empire and remains a mesmerizing blend of cultures and history. Bukhara, known for its well-preserved medieval architecture, offers a journey through time with sites like the Samanid Mausoleum and the domed madrasas and markets, reflecting its significance as a center of learning and trade. Meanwhile, Khiva, with its beautifully restored inner city of Ichan-Kala, transports visitors to a world of mosques, madrasas, and palaces, encapsulating the architectural splendor of the Silk Road.
-                </p>
+                  ): (
+                    <ImageLoading/>
+                  )
+                }
+               
 
-                <div className='grid grid-cols-3 gap-4 mb-6' >
-                    <Image
-                    width={368}
-                    height={262}
-                    alt='places'
-                    src={'https://s3-alpha-sig.figma.com/img/6e60/c92f/f2f79fa4f390ad73830d24fac3714520?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=pnhbuSVK6RgtacxdwMceWkg0dDjMzYmYdbhwETRYAdXPg7jhyiIRqkV79kACFMXHCv0xchHgYlNmLsxHBUE5XYLD~W2iMEtl5JGmYjD6MN3Jv2NyL6kVcJkeNw4Nbxp8HFCy9CxD57CtLd-dmjaQsOxpYCsO5H6LeJG9qWdssV6mL5BX1guPBnIik~5kbYxP4ye9Dbk40d6WgwKWh1Ln-jQ2Uzjuzxf~ZSSQDJF4Gf8qgJqOw17tAJWgFclDBm2M56t1uXHBYv5~xtgIbLaRp1S1OsWeJU1Z-PjW~cZjYVwMtnruHE53f90EZqfOPeHJxiG9kTLmzxRGeZXqSBeVmQ__'}
-                    className='w-full rounded-[20px]'
-                    />
-                    <Image
-                    width={368}
-                    height={262}
-                    alt='places'
-                    className='w-full rounded-[20px]'
-                    src={'https://s3-alpha-sig.figma.com/img/6e60/c92f/f2f79fa4f390ad73830d24fac3714520?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=pnhbuSVK6RgtacxdwMceWkg0dDjMzYmYdbhwETRYAdXPg7jhyiIRqkV79kACFMXHCv0xchHgYlNmLsxHBUE5XYLD~W2iMEtl5JGmYjD6MN3Jv2NyL6kVcJkeNw4Nbxp8HFCy9CxD57CtLd-dmjaQsOxpYCsO5H6LeJG9qWdssV6mL5BX1guPBnIik~5kbYxP4ye9Dbk40d6WgwKWh1Ln-jQ2Uzjuzxf~ZSSQDJF4Gf8qgJqOw17tAJWgFclDBm2M56t1uXHBYv5~xtgIbLaRp1S1OsWeJU1Z-PjW~cZjYVwMtnruHE53f90EZqfOPeHJxiG9kTLmzxRGeZXqSBeVmQ__'}
-                    />
-                    <Image
-                    width={368}
-                    height={262}
-                    className='w-full rounded-[20px]'
-                    alt='places'
-                    src={'https://s3-alpha-sig.figma.com/img/6e60/c92f/f2f79fa4f390ad73830d24fac3714520?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=pnhbuSVK6RgtacxdwMceWkg0dDjMzYmYdbhwETRYAdXPg7jhyiIRqkV79kACFMXHCv0xchHgYlNmLsxHBUE5XYLD~W2iMEtl5JGmYjD6MN3Jv2NyL6kVcJkeNw4Nbxp8HFCy9CxD57CtLd-dmjaQsOxpYCsO5H6LeJG9qWdssV6mL5BX1guPBnIik~5kbYxP4ye9Dbk40d6WgwKWh1Ln-jQ2Uzjuzxf~ZSSQDJF4Gf8qgJqOw17tAJWgFclDBm2M56t1uXHBYv5~xtgIbLaRp1S1OsWeJU1Z-PjW~cZjYVwMtnruHE53f90EZqfOPeHJxiG9kTLmzxRGeZXqSBeVmQ__'}
-                    />
+               <p className='mb-6 text-lg '
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(remainingParagraphs),
+                }}/>
+                <div className='grid grid-cols-3 gap-4 mb-[120px] max-h-[262px]'>
+                {
+                  data?.blog_image ? (
+                    data?.blog_image.map((item:ItemType, index:number) =>(
+                      <div key={index}>
+                        <Image 
+                width={1136}
+                height={576}
+                alt='top place'
+                className='rounded-[20px] w-full h-full'
+                src={baseUrl + item.image}
+                />
+                      </div>
+                    ))
+
+                  ): (
+                    <ImageLoading/>
+                  )
+                }
                 </div>
 
-                <p className='mb-[120px] text-lg'>
-                Song Kul is a breathtaking high-altitude lake located at 3,016 meters, making it an oasis of tranquility amidst the lush grasslands of Kyrgyzstan’s summer pastures. This stunning body of water, surrounded by the rolling plains of the Tian Shan mountains, serves as a seasonal home for nomadic herders who bring their livestock to graze in the rich pastures. Visitors to Song Kul can immerse themselves in traditional nomadic life, staying in yurts, enjoying horseback riding, hiking, and experiencing the vast natural beauty that makes this destination a must-see in Kyrgyzstan​.
-                </p>
+              
+                
+            </div>
+
+            <div>
+                <SectionTitle title={t("other")}/>
+              <div className="mb-6">
+              <Swiper
+          modules={[Autoplay]} 
+          spaceBetween={16}
+          slidesPerView={3}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            0: {slidesPerView: 1},
+            500: { slidesPerView: 1.5 }, 
+            700: { slidesPerView: 2 }, 
+            850:{ slidesPerView: 2.5},
+            1024: { slidesPerView: 3 },
+          }}
+          
+        >
+              {
+                        blogs?.items ? (
+                            blogs.items.map((item: ItemType2, index: number) => (
+                              <SwiperSlide key={index}>
+                                <Link href={`/${locale}/blog/${item.uuid}`} >
+                                    <div className="relative h-[400px] mb-3" >
+                                        <div className="absolute -z-10  rounded-[20px] overflow-hidden shadow-lg w-full  h-full">
+                                            <Image
+                                                width={205}
+                                                height={266}
+                                                alt="About Company"
+                                                className=" w-full h-full object-cover "
+                                                src={baseUrl + item.image}
+                                                quality={100}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="max-w-[320px]">
+                                        <h2 className="text-2xl font-medium mb-[10px] line-clamp-1">{item ? getTitle(item, locale) : ""}</h2>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-lg font-medium ">Read more</span>
+                                            <Image
+                                                src={icon}
+                                                alt="icon"
+                                                width={20}
+                                                height={20}
+                                            />
+                                        </div>
+                                    </div>
+                                </Link>
+                                </SwiperSlide>
+                            ))
+                           
+                        )
+                            : (
+                                <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 w-[1100px] gap-4'>
+                                    <NewsItemLoading />
+                                    <NewsItemLoading />
+                                    <NewsItemLoading />
+                                </div>
+
+                            )
+                     
+                    }
+
+                </Swiper>
+              </div>
             </div>
         </div>
     </section>

@@ -11,6 +11,7 @@ import { baseUrl } from '../../../../../public/static/Index';
 
 function AboutCompany() {
   const {data} = useGetComponyQuery({})
+  console.log("home", data);
   
   const locale = useLocale()
   const t = useTranslations("home")
@@ -32,7 +33,7 @@ function AboutCompany() {
                
 
                 <div className='sm:max-w-[300px] max-w-[200px] md:max-w-[400px] lg:max-w-[627px] flex flex-col items-center '>
-                <p className='text-center font-medium text-base sm:text-2xl md:text-[32px] line-clamp-5'
+                <p className='text-center font-medium text-base sm:text-2xl md:text-[32px] text-inter line-clamp-5'
                 
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(String(data? getDescription(data, locale) : "")),

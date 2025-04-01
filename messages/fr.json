@@ -37,7 +37,8 @@
     "blog": {
         "title": "Témoignages et Blogs",
         "testimonial": "Témoignages",
-        "blog": "Blogs"
+        "blog": "Blogs",
+         "other": "Autres blogs"
     },
     "footer": {
         "home": "Accueil",

@@ -38,7 +38,7 @@ function CaruselImage() {
         },
         {
             uuid: 7,
-            image: 'https://s3-alpha-sig.figma.com/img/f9d4/f059/63c15f7d8d2a0701ef066a5595b874a1?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=k7kSO64Lg1neyb3SbBgeVVsZwizDnU6fNjBeEl68cTnDw68A04d8f6oFrl0aB8AKJWodR24U3GdIOQrBgRX52F2LzLyl68p~dS9IiPVPXfeeAuCKgPaD~hujSMppYnPySk734eG5mcUQL2JZCMhKJX12M~git-ssyMb11zd0rm--PMD0yJfRmV~cUbKdad8vwwMoq8yr1ETpkOcxKJBXc8IyHfN5YVpchaltx2-reNfTm3xfBojbuARmwStjAtfiAku2gDKdkLsoD~3PguFv9DW3Bg22k5pgm1GW3QBOaItaAkVlwPMq7yA-1CzqflXf1B2V3y~yTgq0yyb8vt9gCg__'
+            image: 'https://s3-alpha-sig.figma.com/img/4094/b577/118272090fb951a336ab65fd275e5f5e?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kABYviTT6fxgFjd2~jMczR5JF7qvfLqId9lc4uRRDLdzI21blN9lrug41UhD22aYe~5BzruOHTfuFaJzUshYEqUMoxGjOjOHpGWdXNTmJlX-lQMKcgx4UGH4thqa1khDo5FjGUSc-vOWywRjSlCXxlk1kA7E1ArNLR3xpsW2rGwhKzAfae37wbn8xaKUO7J~CNw-l-JOifMvQK7lSBpc6FWZtI~l3DDD87wiNHn6M8syzroayNZuoD5KuehXrhiGoEswzKqZCgU9TdlY11yGBH~3G5QDG4OPGZU6Y5p0dGMbP5YGapnLnRhxySSN5jAyACELCua1hyd0fxqqSemtzA__'
         },
         {
             uuid: 8,

@@ -11,7 +11,7 @@ export const blogapi = api.injectEndpoints({
     }),
     getBlogById: build.query({
         query: (id) => ({
-          url: `/blog-detail/${id}/`,
+          url: `/blog-details/${id}/`,
         }),
         providesTags: ["Blog"],
       }),

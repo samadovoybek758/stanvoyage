@@ -36,7 +36,8 @@
   "blog": {
     "title": "Erfahrungsberichte & Blogs",
     "testimonial": "Erfahrungsberichte",
-    "blog": "Blogs"
+    "blog": "Blogs",
+    "other": "Andere Blogs"
   },
   "footer": {
     "home": "Heim",

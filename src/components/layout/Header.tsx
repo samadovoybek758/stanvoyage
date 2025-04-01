@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import logoSvg from "../../../public/Images/stanvoyage/Logo.svg";
-import logoPng from '../../../public/Images/logo (2).png'
+import logoPng from '../../../public/Images/stanvoyage/Logo.png'
 import { navigations } from "../../../public/static/Index";
 import { useLocale, useTranslations } from "next-intl";
 import { useSelectedLayoutSegment } from "next/navigation";
@@ -23,13 +23,13 @@ const Header = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setLogo(logoPng); // md dan kichik bo'lsa, kichik logoni qo'yamiz
+        setLogo(logoPng); 
       } else {
-        setLogo(logoSvg); // Katta ekranda default logoni qo'yamiz
+        setLogo(logoSvg);
       }
     };
 
-    handleResize(); // Sahifa yuklanganda tekshiramiz
+    handleResize(); 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
