@@ -76,7 +76,6 @@ function TravelDays() {
     const swiperRef = useRef<SwiperCore | null>(null);
     const { id } = useParams()
     const { data } = useGetTripByIdQuery(id as string)
-    console.log("service" , data);
     
 
 

@@ -17,20 +17,15 @@ import { SlSocialLinkedin } from "react-icons/sl";
 import ContactFooter from "../shared/ContactFooter";
 import call from '../../../public/Images/stanvoyage/call.svg'
 import email from '../../../public/Images/stanvoyage/email.svg'
-import { useGetCompanyInfoQuery } from "@/context/api/CompanyInfoApi";
+import { useGetComponyQuery } from "@/context/api/CompanyApi";
+import { getAddress } from "@/hook/getLanguage";
 const Footer = () => {
   const t = useTranslations("footer");
-  const { data: info } = useGetCompanyInfoQuery({})
   const { data: socials } = useGetSocialsQuery({});
-  const locale = useLocale();
-  const phones: string[] = [];
-  const emails: string[] = [];
-
+  const { data: info } = useGetComponyQuery({})
+  console.log("info" , info);
   
- console.log("df",info);
- 
-
-
+  const locale = useLocale();
   const [logo, setLogo] = useState(logoSvg);
 
   useEffect(() => {
@@ -86,16 +81,14 @@ const Footer = () => {
         src={call}
       />
       <div className="flex flex-col items-start">
-        {phones.length > 0 &&
-          phones.map((item, index) => (
+        {info  &&
             <a
-              href={`tel:${item}`}
-              key={index}
+              href={`tel:${info?.phone}`}
               className="text-base font-normal text-[#000]"
             >
-              {item}
+              {info?.phone}
             </a>
-          ))}
+        }
       </div>
     </div>
 
@@ -108,16 +101,23 @@ const Footer = () => {
         src={email}
       />
       <div className="flex flex-col items-start">
-        {emails.length > 0 &&
-          emails.map((item, index) => (
+      {info  &&
             <a
-              href={`mailto:${item}`}
-              key={index}
-              className="text-base font-normal text-[#000] max-w-[180px] line-clamp-1"
+              href={`tel:${info?.email}`}
+              className="text-base font-normal text-[#000]"
             >
-              {item}
+              {info?.email}
             </a>
-          ))}
+        }
+      </div>
+    </div>
+
+    <div className="flex gap-2 items-center">
+     
+      <div className="flex flex-col items-start">
+      {info  &&
+            <p>{getAddress(info,locale)}</p>
+      }
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@ const Footer = () => {
   </ul>
 
 
-  <ul className="grid grid-cols-2 ssm:grid-cols-1 gap-[18px]">
+  <ul className="grid grid-cols-2 ssm:grid-cols-1 gap-[18px] justify-between">
     {socials?.instagram ? (
       <li>
         <a

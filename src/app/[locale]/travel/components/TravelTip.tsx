@@ -38,7 +38,6 @@ interface ItemType {
 function TravelTip() {
     const t = useTranslations('travel')
     const {data } = useGetTripQuery({})
-    console.log(data);
     
     const locale = useLocale()
     

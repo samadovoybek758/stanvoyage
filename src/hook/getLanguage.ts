@@ -23,6 +23,15 @@ interface ContentType {
 
 }
 
+interface AdressType {
+  address_de: string;
+  address_en: string;
+  address_fr: string;
+  address_es: string;
+  address_ru: string;
+
+}
+
 
 export const getTitle = (item: Title, locale: string) => {
   const title = item[`title_${locale}` as keyof Title];
@@ -41,6 +50,12 @@ export const getContent = (item: ContentType, locale: string) => {
 export const getDescriptionShort = (item: Description, locale: string) => {
   const description = item[`description_${locale}` as keyof Description];
   return description;
+};
+
+
+export const getAddress = (item: AdressType, locale: string) => {
+  const addres = item[`address_${locale}` as keyof AdressType];
+  return addres;
 };
 
 

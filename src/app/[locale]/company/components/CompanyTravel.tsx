@@ -36,7 +36,7 @@ function CompanyTravel() {
                     {
                         data && data.slice(0,4).map((item: ItemType,index: number) => (
                             <div key={index}>
-                                <CardExperts item={item}  className={`p-3 sm:p-6 ${item.order % 2 === 0 ? 'bg-[#F0F0F0]' : 'bg-[#9c9999]'} rounded-lg`}/>
+                                <CardExperts item={item}  className={`p-3 sm:p-6 ${item.order === 2 ? 'bg-[#F0F0F0]' : 'bg-[#9c9999]'} ${item.order === 3 ? 'bg-[#F0F0F0]' : 'bg-[#9c9999]'} rounded-lg`}/>
                             </div>
                         ))
                     }

@@ -8,13 +8,11 @@ import DOMPurify from "dompurify";
 import { baseUrl } from "../../../../../public/static/Index";
 import ImageLoading from "@/components/ui/ImageLoading";
 import Loading from "@/components/ui/Loading";
-import { useParams } from "next/navigation";
 
 
 function CompanyOverview() {
   const { data: item } = useGetComponyQuery({});
-  const params = useParams()
-  console.log(params);
+  
   
   const locale = useLocale();
 

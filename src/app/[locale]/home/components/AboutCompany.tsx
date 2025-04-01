@@ -11,7 +11,6 @@ import { baseUrl } from '../../../../../public/static/Index';
 
 function AboutCompany() {
   const {data} = useGetComponyQuery({})
-  console.log("home", data);
   
   const locale = useLocale()
   const t = useTranslations("home")

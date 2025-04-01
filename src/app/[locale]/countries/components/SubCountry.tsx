@@ -54,7 +54,6 @@ function SubCountry() {
 
   const data1 = data.cities.find((city: ItemType) => city.uuid === subId) || null;
 
-  console.log("helo" ,data1);
   return (
     <section className="mt-20">
       <div className="container">
