@@ -1,5 +1,5 @@
 import AllHero from "@/components/shared/AllHero";
-import galleryImg from "../../../../../public/Images/gallery-hero.jpg";
+import galleryImg from "../../../../../public/Images/stanvoyage/gallery-hero.png";
 import GalleryTopBox from "./GalleryTopBox";
 import { useTranslations } from "next-intl";
 const GalleryScreen = () => {
