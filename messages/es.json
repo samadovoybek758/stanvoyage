@@ -29,7 +29,8 @@
         "title": "Viajes",
         "travel": "Consejos de viaje",
         "detail": "Viaje en grupo a Uzbekistán",
-        "detailT": "Itinerario"
+        "detailT": "Itinerario",
+        "days": "Días"
     },
     "customer": {
         "title": "Reseñas de clientes"

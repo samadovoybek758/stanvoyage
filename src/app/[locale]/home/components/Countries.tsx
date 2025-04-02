@@ -37,7 +37,7 @@ function Countries() {
   const locale = useLocale()
   const t = useTranslations("countries")
   return (
-    <section className="mb-32">
+    <section className="mb-32 ">
       <div className="container">
         <div className="flex justify-between items-center">
           <SectionTitle title={t('title')} />

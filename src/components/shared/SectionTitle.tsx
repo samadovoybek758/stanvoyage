@@ -29,7 +29,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       className={`mb-3 md:mb-4 lg:mb-6 flex items-center justify-between ${className}`}
     >
       <h2
-        className={`font-normal text-xl xssm:text-[22px] xssm:leading-[28px] ssm:text-2xl md:text-3xl lg:text-4xl font-brigends-unbounded `}
+        className={`font-normal text-[27px] xssm:leading-[28px] ssm:text-3xl md:text-3xl lg:text-4xl font-brigends-unbounded `}
         data-aos="fade-up"
         data-aos-delay="100"
       >

@@ -29,14 +29,14 @@ function CompanyTravel() {
 
 
     return (
-        <section className='mb-32'>
+        <section className='mb-20 md:mb-32'>
             <div className='container'>
 
                 <div className='grid grid-cols-1 md:grid-cols-2  gap-4'>
                     {
                         data && data.slice(0,4).map((item: ItemType,index: number) => (
                             <div key={index}>
-                                <CardExperts item={item}  className={`p-3 sm:p-6 ${item.order === 2 ? 'bg-[#F0F0F0]' : 'bg-[#9c9999]'} ${item.order === 3 ? 'bg-[#F0F0F0]' : 'bg-[#9c9999]'} rounded-lg`}/>
+                                <CardExperts item={item}  className={`p-3 sm:p-6 ${index+1 === 2 || index+1 === 3 ? 'bg-[#F0F0F0]' : 'bg-white'}  rounded-lg`}/>
                             </div>
                         ))
                     }

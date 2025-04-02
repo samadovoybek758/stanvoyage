@@ -29,8 +29,8 @@ const CardCountry = ({ item }: { item: CardNewsProps }) => {
 
 
   return (
-    <div className="relative h-[400px]">
-    < div className="absolute -z-10  rounded-[20px] overflow-hidden shadow-lg  h-full">
+    <div className="relative h-[400px] ">
+    < div className="absolute -z-10 w-full rounded-[20px] overflow-hidden shadow-lg  h-full">
       <Image
         width={205}
         height={266}
@@ -43,7 +43,7 @@ const CardCountry = ({ item }: { item: CardNewsProps }) => {
 
         <div className="absolute bottom-[14px] left-[14px] flex items-center">
         <div className="py-1 px-[14px] rounded-[32px] bg-white  ">
-            <h1 className=" ">{getTitle(item, locale)}</h1>
+            <h1 className=" text-lg">{getTitle(item, locale)}</h1>
         </div>
 
         <div className="py-[13px] px-[15.5px] bg-white rounded-full">

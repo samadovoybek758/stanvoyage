@@ -15,7 +15,7 @@ function TravelDetailScreen() {
   const t =useTranslations('travel')
   return (
     <div>
-         <AllHero title={t('detail')} image={`${baseUrl}${data?.trip?.image}`} page='travel'/>
+         <AllHero title={t('detail')} image={`${baseUrl}${data?.trip?.image}`} className='top' page='travel'/>
          <TravelDays/>
     </div>
   )

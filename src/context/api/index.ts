@@ -43,7 +43,9 @@ export const api = createApi({
     "Galery",
     "Socials",
     "Comments",
-    "CompanyInfo"
+    "CompanyInfo",
+    "Banners",
+    "BannerImage"
   ],
   endpoints: () => ({}),
 });

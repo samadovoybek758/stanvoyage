@@ -39,7 +39,7 @@ function Countries() {
   const t = useTranslations('countries')
 
   return (
-    <section className="mb-32 mt-20">
+    <section className="mb-20 md:mb-32 mt-20">
       <div className="container">
 
     

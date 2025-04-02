@@ -27,7 +27,8 @@ function GalleryTopBox() {
   
   const t = useTranslations("gallery")
   return (
-    <div className="container  p-4 ">
+    <section className='mb-10'>
+      <div className="container  p-4 ">
       <SectionTitle title={t("title")}/>
       <div className="grid grid-cols-2 gap-4">
         {data ? (
@@ -56,6 +57,7 @@ function GalleryTopBox() {
         )}
       </div>
     </div>
+    </section>
   );
 };
 

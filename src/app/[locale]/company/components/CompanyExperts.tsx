@@ -32,7 +32,7 @@ function CompanyExperts() {
 
                 <div className='grid grid-cols-1 md:grid-cols-2  gap-4 mb-4'>
                     {
-                        data && data.slice(0, 2).map((item:ItemType) => (
+                        data && data.slice(5, 7).map((item:ItemType) => (
                             <div key={item.order} >
                                 <CardExperts item={item} className={`p-6 ${item.order % 2 === 0 ? 'bg-gray-300' : 'bg-[#F9F9F9]'} rounded-lg`}/>
                             </div>
@@ -42,7 +42,7 @@ function CompanyExperts() {
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4'>
                     {
-                        data  && data.slice(2, data.length).map((item:ItemType) => (
+                        data  && data.slice(7, data.length).map((item:ItemType) => (
                             <div key={item.order} >
                                 <CardExperts item={item} className={`p-6 ${item.order % 2 === 0 ? 'bg-gray-300' : 'bg-[#F9F9F9]'} rounded-lg`}/>
                             </div>

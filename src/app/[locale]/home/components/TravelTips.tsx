@@ -41,7 +41,7 @@ function TravelTips() {
   const { data } = useGetTripQuery({})
 
   return (
-    <section className="mb-32">
+    <section className="">
       <div className="container">
 
         <SectionTitle title={t('home')} />

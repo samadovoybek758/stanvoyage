@@ -13,7 +13,7 @@ import SectionTitle from '@/components/shared/SectionTitle';
 import { useLocale, useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { useGetTripByIdQuery } from '@/context/api/TripApi';
-import { getDescription, getTitle } from '@/hook/getLanguage';
+import { getDescription, getSubtitle, getTitle } from '@/hook/getLanguage';
 import DOMPurify from "dompurify";
 import { baseUrl } from '../../../../../public/static/Index';
 import ImageLoading from '@/components/ui/ImageLoading';
@@ -77,16 +77,16 @@ function TravelDays() {
     const { id } = useParams()
     const { data } = useGetTripByIdQuery(id as string)
     
+    console.log("dsfs",data);
 
-
-    const t = useTranslations('travel')
     const y = useTranslations('gallery')
     const locale = useLocale()
     return (
-        <section className='mt-20 mb-8'>
+        <section className='mt-20 mb-32'>
             <div className='container'>
 
-                <SectionTitle title={t('detailT')} />
+                <SectionTitle title={data?.trip ? getTitle(data.trip , locale): ''} />
+                
                 <div className='md:h-[400px] mb-10 sm:mb-20 h-[250px] sm:h-[300px]' >
                     {
                         data?.trip?.image ? (
@@ -107,9 +107,10 @@ function TravelDays() {
 
                 <div >
                     {data?.trip_days.length > 0 && data.trip_days.map((item: TypeDays, index: number) => (
-                        <div key={index} className='border-[#D7D7D7] border mb-[100px] gap-7 flex flex-col md:flex-row justify-between rounded-[20px] pt-5 pb-6 pl-6 pr-[26px] '>
-                            <div >
+                        <div key={index} className='border-[#D7D7D7] border mb-20 md:mb-[100px] gap-7 flex flex-col md:flex-row justify-between rounded-[20px] pt-5 pb-6 pl-6 pr-[26px] '>
+                            <div className="flex flex-col gap-2">
                                 <span className='text-lg text-[#2C4691] font-medium'>{getTitle(item, locale)}</span>
+                                <span className='text-lg text-[#2C4691] font-medium'>{getSubtitle(item, locale)}</span>
                             </div>
 
                             <div className='max-w-[573px]'>
@@ -143,7 +144,7 @@ function TravelDays() {
 
 
 
-                <div className="w-full  max-h-[400px]  mt-[100px]">
+                <div className="w-full  max-h-[300px]  mt-[100px]">
                     <div className='flex flex-row justify-between w-full'>
 
                         <SectionTitle title={y("title")} />
@@ -152,14 +153,14 @@ function TravelDays() {
                         <div className="hidden gap-3 sm:flex">
                             <button
                                 onClick={() => swiperRef.current?.slidePrev()}
-                                className="w-[40px] h-[40px] bg-[#E1E1E1] rounded-full flex justify-center items-center"
+                                className="w-[40px] prev  h-[40px] bg-[#E1E1E1] rounded-full flex justify-center items-center"
                             >
                                 <Image width={24} height={24} alt="left icon" src={left} />
                             </button>
 
                             <button
                                 onClick={() => swiperRef.current?.slideNext()}
-                                className="w-[40px] h-[40px] bg-[#E1E1E1] rounded-full flex justify-center items-center"
+                                className="w-[40px] next h-[40px] bg-[#E1E1E1] rounded-full flex justify-center items-center"
                             >
                                 <Image width={24} height={24} alt="right icon" src={right} />
                             </button>
@@ -182,13 +183,13 @@ function TravelDays() {
                         {data?.trip_images ? (
                             data.trip_images.map((item: ItemImage, index: number) => (
                                 <SwiperSlide key={index} >
-                                    <div>
+                                    <div className="">
                                         <Image
                                             width={400}
                                             height={500}
                                             src={baseUrl + item.image}
                                             alt="image"
-                                            className='w-full max-h-[400px] rounded-[25px] ssm:rounded-[20px]'
+                                            className='w-full h-[300px] md:h-[400px] rounded-[25px] ssm:rounded-[20px]'
                                         />
                                     </div>
                                 </SwiperSlide>
@@ -206,14 +207,14 @@ function TravelDays() {
                     <div className="flex gap-3 justify-center mt-4 sm:hidden">
                         <button
                             onClick={() => swiperRef.current?.slidePrev()}
-                            className="w-[56px] h-[56px] hover:bg-[#c7c6c6] transition-all duration-300 bg-[#E1E1E1] rounded-lg flex justify-center items-center"
+                            className="w-[56px] h-[56px]  prev hover:bg-[#c7c6c6] transition-all duration-300 bg-[#E1E1E1] rounded-lg flex justify-center items-center"
                         >
                             <Image width={24} height={24} alt="left icon" src={left} />
                         </button>
 
                         <button
                             onClick={() => swiperRef.current?.slideNext()}
-                            className="w-[56px] h-[56px] hover:bg-[#c7c6c6] transition-all duration-300 bg-[#E1E1E1] rounded-lg flex justify-center items-center"
+                            className="w-[56px] h-[56px] next hover:bg-[#c7c6c6] transition-all duration-300 bg-[#E1E1E1] rounded-lg flex justify-center items-center"
                         >
                             <Image width={24} height={24} alt="right icon" src={right} />
                         </button>

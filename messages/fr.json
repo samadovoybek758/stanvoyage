@@ -32,7 +32,8 @@
         "title": "Voyage",
         "travel": "Conseils de voyage",
         "detail": "Voyage de groupe en Ouzbékistan",
-        "detailT": "Itinéraire"
+        "detailT": "Itinéraire",
+        "days": "Jours"
     },
     "blog": {
         "title": "Témoignages et Blogs",

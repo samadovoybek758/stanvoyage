@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import img1 from '../../../../../public/Images/stanvoyage/TravelLocation.svg';
 import img2 from '../../../../../public/Images/stanvoyage/Travelcalendar.svg';
-import img3 from '../../../../../public/Images/stanvoyage/TravelStar.svg';
 import SectionTitle from "@/components/shared/SectionTitle";
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -38,6 +37,7 @@ interface ItemType {
 function TravelTip() {
     const t = useTranslations('travel')
     const {data } = useGetTripQuery({})
+   
     
     const locale = useLocale()
     
@@ -60,15 +60,6 @@ function TravelTip() {
                                          alt={item.title_en}
                                          className='rounded-[20px] w-full h-full object-cover '
                                      />
-                                     <div className='absolute flex  gap-[6px] px-[14px] py-[10px] bg-white rounded-[32px] top-[14px] left-[14px]'>
-                                         <Image
-                                             src={img3}
-                                             alt='icon'
-                                             width={20}
-                                             height={20}
-                                         />
-                                         <span className='text-base font-medium'>{item.duration}</span>
-                                     </div>
                                  </div>
  
                                  <h1 className='text-2xl font-medium mb-[6px]'>{getTitle(item , locale)}</h1>
@@ -80,6 +71,7 @@ function TravelTip() {
                                          width={20}
                                          height={20}
                                      />
+                                     <span className='text-lg font-medium'>{item.diapazon}</span>
                                  </div>
  
                                  <div className='flex items-center gap-[6px]'>
@@ -89,7 +81,8 @@ function TravelTip() {
                                          width={20}
                                          height={20}
                                      />
-                                     <span className='text-lg font-medium'>{item.diapazon}</span>
+                                     <span className='text-lg font-medium'>{item.duration}</span>
+                                     <span>{t("days")}</span>
                                  </div>
  
                              </Link>

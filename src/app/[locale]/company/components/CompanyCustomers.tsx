@@ -32,7 +32,7 @@ function CompanyCustomer() {
   const t = useTranslations("customer")
   
   return (
-    <section className='mb-[100px]'>
+    <section className='mb-20 md:mb-[100px]'>
         <div className='container'>
         <div className='flex justify-between w-full'>
           <SectionTitle title={t("title")}/>

@@ -94,7 +94,7 @@ function CountriesId() {
                   width={752}
                   height={400}
                   alt='imge'
-                  className='rounded-[20px] h-full w-full'
+                  className='rounded-[20px] h-full w-full object-cover'
                   src={baseUrl + data.country.image}
                 />
               ) : (

@@ -29,8 +29,16 @@ interface AdressType {
   address_fr: string;
   address_es: string;
   address_ru: string;
-
 }
+
+interface SubtitleType {
+  subtitle_de: string;
+  subtitle_en: string;
+  subtitle_fr: string;
+  subtitle_es: string;
+  subtitle_ru: string;
+}
+
 
 
 export const getTitle = (item: Title, locale: string) => {
@@ -56,6 +64,12 @@ export const getDescriptionShort = (item: Description, locale: string) => {
 export const getAddress = (item: AdressType, locale: string) => {
   const addres = item[`address_${locale}` as keyof AdressType];
   return addres;
+};
+
+
+export const getSubtitle = (item: SubtitleType, locale: string) => {
+  const subtitle = item[`subtitle_${locale}` as keyof SubtitleType];
+  return subtitle;
 };
 
 

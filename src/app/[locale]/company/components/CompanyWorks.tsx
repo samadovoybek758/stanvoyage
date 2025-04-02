@@ -31,28 +31,28 @@ function CompanyWorks() {
 
     const locale = useLocale()
   return (
-    <section className='mb-[100px]'>
+    <section className='mb-[-80px] md:mb-[100px]'>
         <div className='container'>
 
             <div className='flex flex-col gap-5 md:gap-[100px]'>
             {
                 data  && data.map((item : ItemType , index: number) =>(
-                    <div key={index} className={`flex gap-4 items-center md:flex-row flex-col ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                    <div className='flex-1 h-[450px]'>
+                    <div key={index} className={`flex gap-4  md:flex-row items-center flex-col ${index+2  % 2 > 0 ? 'md:flex-row-reverse' : ''}`}>
+                    <div className='flex-1 '>
                     <Image
                     width={560}
                     height={450}
                     alt='choosing image'
                     src={baseUrl + item.image}
-                    className='w-full h-full rounded-[20px] object-cover'
+                    className='w-full h-full rounded-[20px] object-cover min-h-[400px]'
                 />
                 </div>
                
 
                 <div className='flex-1'>
-                    <h1 className='mb-4 text-xl sm:text-[36px] text-[#1C1C1C] font-medium'>{getTitle(item, locale)}</h1>
+                    <h1 className='mb-2 sm:mb-4 text-xl sm:text-[36px] text-[#1C1C1C] font-medium'>{getTitle(item, locale)}</h1>
                     <p
-              className='text-base sm:text-lg text-[#1C1C1C] mb-3 sm:mb-5 line-clamp-14'
+              className='text-sm sm:text-lg text-[#1C1C1C] mb-3 sm:mb-5 line-clamp-none lg:line-clamp-none sm:line-clamp-20'
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(getContent( item, locale) || ""),
               }}

@@ -97,11 +97,11 @@ function TopPlaces() {
                 }
                
 
-               <p className='mb-6 text-lg '
+               <p className='mb-4 sm:mb-6 text-lg '
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(remainingParagraphs),
                 }}/>
-                <div className='grid grid-cols-3 gap-4 mb-[120px] max-h-[262px]'>
+                <div className='grid grid-cols-3 gap-2 sm:gap-4 mb-[70px] max-h-[262px]'>
                 {
                   data?.blog_image ? (
                     data?.blog_image.map((item:ItemType, index:number) =>(
@@ -110,7 +110,7 @@ function TopPlaces() {
                 width={1136}
                 height={576}
                 alt='top place'
-                className='rounded-[20px] w-full h-full'
+                className='rounded-[10px] sm:rounded-[20px] w-full h-full'
                 src={baseUrl + item.image}
                 />
                       </div>

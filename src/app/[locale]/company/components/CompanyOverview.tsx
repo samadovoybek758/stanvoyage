@@ -29,7 +29,7 @@ function CompanyOverview() {
               {item? getTitle(item, locale) : <Loading/>}
             </h1>
             <p
-              className="text-sm sm:text-lg mb-5 line-clamp-10"
+              className="text-sm sm:text-lg mb-5 "
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(String(item? getDescription(item, locale) : "")),
               }}

@@ -52,7 +52,6 @@ export const navigations = [
     name: "blog",
     href: "/blog",
   },
-  
   {
     name: "contact",
     href: "#footer",

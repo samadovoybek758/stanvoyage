@@ -7,6 +7,7 @@ import CompanyTravel from './CompanyTravel';
 import CompanyWorks from './CompanyWorks';
 import CompanyExperts from './CompanyExperts';
 import CompanyCustomer from './CompanyCustomers';
+import Statistics from './Statistics';
 
 function CompanyScreen() {
 
@@ -19,6 +20,7 @@ function CompanyScreen() {
       <CompanyWorks/>
       <CompanyExperts/>
       <CompanyCustomer/>
+      <Statistics/>
     </div>
   )
 }

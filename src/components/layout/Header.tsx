@@ -76,7 +76,7 @@ const Header = () => {
               <LanguageDropdown />
             </div>
           
-            <div className="block xl:hidden">
+            <div className="block xl:hidden ">
               <MenuDropdown />
             </div>
           </div>
