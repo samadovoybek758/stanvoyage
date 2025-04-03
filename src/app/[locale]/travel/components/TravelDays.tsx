@@ -109,7 +109,7 @@ function TravelDays() {
                         <div key={index} className='border-[#D7D7D7] border mb-20 md:mb-[100px] gap-7 flex flex-col md:flex-row justify-between rounded-[20px] pt-5 pb-6 pl-6 pr-[26px] '>
                             <div className="flex flex-col gap-2">
                                 <span className='text-lg text-[#2C4691] font-medium'>{getTitle(item, locale)}</span>
-                                <span className='text-lg text-[#2C4691] font-medium'>{getSubtitle(item, locale)}</span>
+                                <span className='text-lg text-[#2C4691] max-w-[300px] font-medium'>{getSubtitle(item, locale)}</span>
                             </div>
 
                             <div className='max-w-[573px]'>

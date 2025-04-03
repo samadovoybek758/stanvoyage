@@ -84,8 +84,9 @@ function SubCountry() {
             height={400}
             alt="city"
             src={baseUrl + data1.image}
-            className="rounded-lg md:rounded-[20px] w-full h-full object-cover"
+            className="rounded-lg md:rounded-[20px] w-full h-full contain"
             quality={100}
+            unoptimized
             />
             </div>
         )

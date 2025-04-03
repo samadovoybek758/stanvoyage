@@ -59,6 +59,7 @@ function TravelTip() {
                                          src={baseUrl + item.image}
                                          alt={item.title_en}
                                          className='rounded-[20px] w-full h-full object-cover '
+                                         unoptimized
                                      />
                                  </div>
  

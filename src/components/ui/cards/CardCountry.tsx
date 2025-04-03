@@ -42,6 +42,7 @@ const CardCountry = ({ item }: { item: CardNewsProps }) => {
         />
     </div>
 
+        <div>
         <Link  className="absolute bottom-[14px] left-[14px] flex items-center" href={`/${locale}/countries/${item.uuid}`}>
         <div className="py-1 px-[14px] rounded-[32px] bg-white  ">
             <h1 className=" text-lg">{getTitle(item, locale)}</h1>
@@ -58,6 +59,7 @@ const CardCountry = ({ item }: { item: CardNewsProps }) => {
         </div>
         </Link>
    
+        </div>
     </div>
   );
 };

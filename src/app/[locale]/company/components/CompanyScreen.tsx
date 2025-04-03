@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import AllHero from "@/components/shared/AllHero";
 import companyImg from "../../../../../public/Images/stanvoyage/aboutBg.png";

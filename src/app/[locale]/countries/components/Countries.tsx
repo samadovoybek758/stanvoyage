@@ -5,8 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import CardCountry from "@/components/ui/cards/CardCountry";
 import SectionTitle from "@/components/shared/SectionTitle";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
+import {  useTranslations } from "next-intl";
 import { useGetCountriesQuery } from "@/context/api/CountriesApi";
 import NewsItemLoading from "@/components/ui/itemLoader/NewsItemLoading";
 
@@ -33,7 +32,6 @@ function Countries() {
   const { data } = useGetCountriesQuery({})
 
 
-  const locale = useLocale()
 
  
   const t = useTranslations('countries')
@@ -49,9 +47,9 @@ function Countries() {
             data.map((item: ItemType) => (
            
               <div key={item.uuid} >
-                  <Link href={`/${locale}/countries/${item.uuid}`}>
-                  <CardCountry item={item}  />
-                  </Link>
+                
+                <CardCountry item={item}  />
+                  
               </div>
             ))
           ) :

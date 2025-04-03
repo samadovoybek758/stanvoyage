@@ -39,7 +39,7 @@ interface ItemType {
 function CountriesId() {
   const { id } = useParams()
   const { data } = useGetCountriesByIdQuery(id as string)
-  
+
 
   const t = useTranslations('countries')
   const locale = useLocale()
@@ -76,27 +76,27 @@ function CountriesId() {
 
             <span className='text-2xl font-medium '>{t("location")}</span>
             <div className='mt-4 max-w-[200px]'>
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={20}
-              slidesPerView={1}
-              loop= {true}
-              autoplay={{ delay: 2000, disableOnInteraction: false }}
-            >
-              <ul className=''>
-                {
-                  data?.cities ? (data.cities.map((item: ItemType, index: number) => (
-                    <SwiperSlide key={index}>
-                      <Link key={index} href={`/${locale}/countries/${id}/${item.uuid}`} className='cursor-pointer'>
-                        <li className='text-[#2C4691] text-lg w-[200px]  border-b-2 border-[#D7D7D7]'>{getTitle(item, locale)}</li>
-                      </Link>
-                    </SwiperSlide>
-                  ))) : (
-                    <Loading className='text-[#2C4691] text-lg  border-b-2 border-[#D7D7D7]' />
-                  )
-                }
-              </ul>
-            </Swiper>
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={10}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{ delay: 2000, disableOnInteraction: false }}
+              >
+                <ul className=''>
+                  {
+                    data?.cities ? (data.cities.map((item: ItemType, index: number) => (
+                      <SwiperSlide key={index}>
+                        <Link key={index} href={`/${locale}/countries/${id}/${item.uuid}`} className='cursor-pointer'>
+                          <li className='text-[#2C4691] text-lg w-[200px]  border-b-2 border-[#D7D7D7]'>{getTitle(item, locale)}</li>
+                        </Link>
+                      </SwiperSlide>
+                    ))) : (
+                      <Loading className='text-[#2C4691] text-lg  border-b-2 border-[#D7D7D7]' />
+                    )
+                  }
+                </ul>
+              </Swiper>
             </div>
           </div>
 
@@ -155,15 +155,17 @@ function CountriesId() {
           <span className='text-2xl font-medium'>{t("location")}</span>
 
           <ul className='flex flex-col mt-8 gap-4 w-[200px] lg:w-[320px] '>
-          {
-                data?.cities ? (data.cities.map((item: ItemType, index: number) => (
-                  <Link key={index}  href={`/${locale}/countries/${id}/${item.uuid}`} className='cursor-pointer'>
+            {
+              data?.cities ? (data.cities.map((item: ItemType, index: number) => (
+                <div key={index}>
+                  <Link  href={`/${locale}/countries/${id}/${item.uuid}`} className='cursor-pointer'>
                   <li className='text-[#2C4691] text-lg  border-b-2 border-[#D7D7D7]'>{getTitle(item, locale)}</li>
                 </Link>
-                ))) : (
-                  <Loading className='text-[#2C4691] text-lg  border-b-2 border-[#D7D7D7]' />
-                )
-              }
+                </div>
+              ))) : (
+                <Loading className='text-[#2C4691] text-lg  border-b-2 border-[#D7D7D7]' />
+              )
+            }
           </ul>
         </div>
 
