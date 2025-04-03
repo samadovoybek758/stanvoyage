@@ -87,6 +87,7 @@ function TopPlaces() {
                 alt='top place'
                 className='rounded-[20px] mb-6'
                 src={baseUrl + item.image}
+                unoptimized
                 />
                       </div>
                     ))
@@ -157,6 +158,7 @@ function TopPlaces() {
                                                 className=" w-full h-full object-cover "
                                                 src={baseUrl + item.image}
                                                 quality={100}
+                                                unoptimized
                                             />
                                         </div>
                                     </div>

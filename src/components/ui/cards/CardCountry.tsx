@@ -37,7 +37,7 @@ const CardCountry = ({ item }: { item: CardNewsProps }) => {
         alt="About Company"
         className=" w-full h-full object-cover"
         src={baseUrl + item.image}
-        quality={100}
+        unoptimized
         />
     </div>
 

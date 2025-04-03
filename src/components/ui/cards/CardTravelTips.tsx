@@ -37,7 +37,7 @@ const CardTravelTips = ({ item }: { item: TripCardProps }) => {
             className=" w-full h-full object-cover "
             src={baseUrl + item.image}
             quality={100}
-            
+            unoptimized
           />
         </div>
 
@@ -57,7 +57,7 @@ const CardTravelTips = ({ item }: { item: TripCardProps }) => {
 
 
       <div className="max-w-[320px]">
-        <h2 className="text-2xl font-medium mb-[2px]">{getTitle(item, locale )}</h2>
+        <h2 className="text-2xl font-medium mb-[2px] line-clamp-2">{getTitle(item, locale )}</h2>
       </div>
 
     </div>

@@ -58,6 +58,7 @@ function Blogs() {
                                                 className=" w-full h-full object-cover "
                                                 src={baseUrl + item.image}
                                                 quality={100}
+                                                unoptimized
                                             />
                                         </div>
                                     </div>

@@ -54,8 +54,8 @@ function Locale() {
                     item?.items ? (
                         item.items.slice(0,1).map((item: ItemType ,index:number) => (
                             <div key={index} className={`pt-5 pl-[14px] h-[200px] md:h-[277px]  pb-8 pr-16 bg-[#F0F0F0] rounded-[20px]`}>
-                                <h2 className={`text-[##1C1C1C]  text-[22px] md:text-2xl mb-3 interMed   `}>{item ? getTitle(item, locale) : ''}</h2>
-                                <p className='text-[##1C1C1C] text-lg md:text-base ' 
+                                <h2 className={`text-[##1C1C1C]  text-[22px] md:text-2xl mb-3 interMed   line-clamp-2`}>{item ? getTitle(item, locale) : ''}</h2>
+                                <p className='text-[##1C1C1C] text-lg md:text-base line-clamp-6' 
                                  dangerouslySetInnerHTML={{
                                     __html: DOMPurify.sanitize(String(item? getDescription(item, locale) : "")),
                                   }}/>
@@ -74,8 +74,8 @@ function Locale() {
                     item?.items ?(
                         item.items.slice(1,4).map((item: ItemType, index:number) => (
                             <div key={index} className={`pt-5 pl-[14px] pb-8 pr-3 md:pr-16 border border-[#D7D7D7] ${index  === 1 ? 'bg-[#F0F0F0]' : 'bg-[#fff]'} rounded-[20px]`}>
-                               <h2 className={`text-[##1C1C1C]  text-lg sm:text-[22px] md:text-2xl mb-3  interMed`} >{item ? getTitle(item, locale) : ''}</h2>
-                                    <p className='text-[##1C1C1C] text-sm sm:text-lg md:text-base  ' 
+                               <h2 className={`text-[##1C1C1C]  text-lg sm:text-[22px] md:text-2xl mb-3  interMed line-clamp-2`} >{item ? getTitle(item, locale) : ''}</h2>
+                                    <p className='text-[##1C1C1C] text-sm sm:text-lg md:text-base  line-clamp-6' 
                                      dangerouslySetInnerHTML={{
                                         __html: DOMPurify.sanitize(String(item? getDescription(item, locale) : "")),
                                       }}/>
