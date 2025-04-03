@@ -57,8 +57,8 @@ const Hero = () => {
                 </div>
                 <div className="relative z-20 flex flex-col items-center h-full pb-7 px-[15px]">
                   <h1
-                    className={`max-w-[700px] font-normal text-3xl ssm:text-4xl lg:text-5xl md:leading-[60px] mb-3 text-[#fff] text-center 
-                     line-clamp-4 md:line-clamp-3`}
+                    className={`  ${local === "ru" ?  'max-w-[900px]': 'max-w-[700px]'} font-normal text-3xl ssm:text-4xl lg:text-5xl md:leading-[60px] mb-3 text-[#fff] text-center 
+                     line-clamp-4 md:line-clamp-3 ${local === "ru" ? "unbo" : "interNor"}`}
                   >
                     {item ? getTitle(item, local): ''}
                   </h1>

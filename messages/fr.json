@@ -1,7 +1,7 @@
 {
     "header": {
         "home": "Accueil",
-        "about-us": "À Propos de Nous",
+        "about-us": "À propos de nous",
         "countries": "Pays",
         "travel": "Voyage",
         "gallery": "Galerie",
@@ -11,13 +11,14 @@
     },
     "home": {
         "title": "Circuit sur mesure en Ouzbékistan et en Asie centrale",
-        "learn": "En savoir plus"
+        "learn": "En savoir plus",
+        "local": "Culture et traditions locales"
     },
     "gallery": {
         "title": "Galerie"
     },
     "about": {
-        "title": "À Propos de l'Entreprise",
+        "title": "À propos de l'entreprise",
         "awards": "Récompenses",
         "location": "Emplacement",
         "travellers": "Voyageurs",
@@ -40,18 +41,18 @@
         "days": "Jours"
     },
     "blog": {
-        "title": "Témoignages et Blogs",
+        "title": "Témoignages et blogs",
         "testimonial": "Témoignages",
         "blog": "Blogs",
         "other": "Autres blogs"
     },
     "footer": {
         "home": "Accueil",
-        "about-us": "À Propos de l'Entreprise",
+        "about-us": "À propos de l'entreprise",
         "countries": "Pays",
         "travel": "Voyage",
         "gallery": "Galerie",
-        "blog": "Témoignages et Blogs"
+        "blog": "Témoignages et blogs"
     },
     "contact": {
         "title": "Formulaire de contact",

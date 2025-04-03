@@ -55,6 +55,5 @@ export const navigations = [
   {
     name: "contact",
     href: "#footer",
-    
   },
 ];

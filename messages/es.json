@@ -1,19 +1,18 @@
 {
     "header": {
         "home": "Inicio",
-        "about-us": "Sobre Nosotros",
+        "about-us": "Sobre nosotros",
         "countries": "Países",
         "travel": "Viajes",
         "gallery": "Galería",
         "blog": "Blogs",
-        "vacancies": "Vacantes",
         "contact": "Contacto"
     },
     "gallery": {
         "title": "Galería"
     },
     "about": {
-        "title": "Sobre la Empresa",
+        "title": "Sobre la empresa",
         "awards": "Premios",
         "location": "Ubicación",
         "travellers": "Viajeros",
@@ -26,7 +25,8 @@
     },
     "home": {
         "title": "Tour a medida a Uzbekistán y Asia Central",
-        "learn": "Aprende más"
+        "learn": "Aprender más",
+        "local": "Cultura y tradiciones locales"
     },
     "travel": {
         "home": "Consejos de viaje para todos.",
@@ -40,18 +40,18 @@
         "title": "Reseñas de clientes"
     },
     "blog": {
-        "title": "Testimonios y Blogs",
+        "title": "Testimonios y blogs",
         "testimonial": "Testimonios",
         "blog": "Blogs",
         "other": "Otros blogs"
     },
     "footer": {
         "home": "Inicio",
-        "about-us": "Sobre la Empresa",
+        "about-us": "Sobre la empresa",
         "countries": "Países",
         "travel": "Viajes",
         "gallery": "Galería",
-        "blog": "Testimonios y Blogs"
+        "blog": "Testimonios y blogs"
     },
     "contact": {
         "title": "Formulario de contacto",

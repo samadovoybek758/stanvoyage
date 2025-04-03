@@ -41,7 +41,7 @@ function AboutCompany() {
                
 
                 <div className='sm:max-w-[300px] max-w-[200px] md:max-w-[400px] lg:max-w-[627px] flex flex-col items-center '>
-                <p className={`text-center text-base sm:text-2xl   line-clamp-5 ${locale === 'ru' ? "unbo" : "interMed"}`}
+                <p className={`text-center text-base sm:text-2xl   line-clamp-5 `}
                 
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(String(data? getDescription(data, locale) : "")),

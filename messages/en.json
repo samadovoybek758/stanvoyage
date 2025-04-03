@@ -6,12 +6,12 @@
     "travel": "Travel",
     "gallery": "Gallery",
     "blog": "Blogs",
-    "vacancies": "Vacancies",
     "contact": "Contact"
   },
  "home": {
         "title": "Tailormade Tour to Uzbekistan & Central Asia",
-        "learn": "Learn more"
+        "learn": "Learn more",
+        "local": "Local culture and traditions"
     },
   
   "gallery": {

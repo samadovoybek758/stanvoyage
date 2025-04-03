@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { useCreateContactMutation } from '@/context/api/ContactApi'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import toast from 'react-hot-toast';
 
 const initialState = {
@@ -11,6 +11,7 @@ const initialState = {
 };
 function ContactFooter() {
     const t = useTranslations("contact")
+    const locale = useLocale()
 
     const [contactCreate, { isLoading }] = useCreateContactMutation()
     const [form, setForm] = useState(initialState);
@@ -35,7 +36,7 @@ function ContactFooter() {
         <section >
             <div className='max-w-[1190px]'>
                 <div className='flex flex-col lg:flex-row gap-5 lg:gap-[53px] lg:items-center items-start '>
-                    <h1 className='w-[200px] text-2xl text-black font-medium inline-block'>{t("title")}</h1>
+                    <h1 className={`w-[200px] text-2xl text-black font-medium inline-block ${locale === "ru" ? "unbo": "interNor"}`}>{t("title")}</h1>
 
                     <form onSubmit={handleContact} className='flex w-full gap-3 md:flex-row flex-col text-lg text-[#000000] '>
                         <input name="fullname" required value={form.fullname} onChange={handleChange} className='rounded-[15px] border border-[#2C4691] sm:border-none py-[16.5px] pl-6 bg-white w-full cursor-pointer' type="text" placeholder={t("name")} />

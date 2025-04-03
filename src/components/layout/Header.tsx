@@ -67,6 +67,7 @@ const Header = () => {
                   {t(item.name)}
                 </Link>
               </li>
+              
             ))}
            
           </ul>

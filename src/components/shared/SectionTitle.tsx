@@ -24,12 +24,14 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+
+  const locale = useLocale()
   return (
     <div
       className={`mb-3 md:mb-4 lg:mb-6 flex items-center justify-between ${className}`}
     >
       <h2
-        className={`font-normal text-[27px] xssm:leading-[28px] ssm:text-3xl md:text-3xl lg:text-4xl font-brigends-unbounded `}
+        className={`font-normal text-[27px] xssm:leading-[28px] ssm:text-3xl md:text-3xl lg:text-4xl ${locale === "ru" ? "unbo" : "interNor"} `}
         data-aos="fade-up"
         data-aos-delay="100"
       >

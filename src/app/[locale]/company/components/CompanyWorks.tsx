@@ -34,17 +34,17 @@ function CompanyWorks() {
     <section className='mb-[-80px] md:mb-[100px]'>
         <div className='container'>
 
-            <div className='flex flex-col gap-5 md:gap-[100px]'>
+            <div className='flex flex-col  gap-5 md:gap-[100px]'>
             {
                 data  && data.map((item : ItemType , index: number) =>(
-                    <div key={index} className={`flex gap-4  md:flex-row items-center flex-col ${index+2  % 2 > 0 ? 'md:flex-row-reverse' : ''}`}>
+                    <div key={index} className={`flex gap-4  md:flex-row   flex-col ${index+2  % 2 > 0 ? 'md:flex-row-reverse' : ''}`}>
                     <div className='flex-1 '>
                     <Image
                     width={560}
                     height={450}
                     alt='choosing image'
                     src={baseUrl + item.image}
-                    className='w-full h-full rounded-[20px] object-cover min-h-[400px]'
+                    className='w-full h-full rounded-[20px] object-cover md:max-h-[700px] max-h-[300px]'
                 />
                 </div>
                

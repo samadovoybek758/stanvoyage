@@ -41,7 +41,7 @@ body {
 @font-face {
   font-family: "Unbounded";
   src: url("/fonts/unbounded/Unbounded-SemiBold.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 .unbo{

@@ -5,7 +5,7 @@ import { getDescription, getTitle } from '@/hook/getLanguage';
 import DOMPurify from "dompurify";
 import Image from 'next/image';
 import bgi from '../../../../../public/Images/stanvoyage/local.png'
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import React from 'react'
 
 interface ItemType {
@@ -29,6 +29,7 @@ function Locale() {
     const {data: item } = useGetBlogQuery({})
    
     const locale = useLocale()
+    const t = useTranslations("home")
   return (
     <section className='mb-20 md:mb-32'>
         <div className='container'>
@@ -45,7 +46,7 @@ function Locale() {
             priority
           />
         </div>
-                <h1 className='text-white text-[24px] sm:text-[56px] max-w-[200px]   sm:max-w-[312px] leading-[115%]'>Local culture and traditions</h1>
+                <h1 className={`text-white text-[24px] sm:text-[56px] max-w-[300px]   ${locale === "ru" ? "sm:max-w-[400px]" : "sm:max-w-[320px]"} leading-[115%]`}>{t("local")}</h1>
             </div>
 
             <div className='max-w-[368px] flex-1  md:block hidden'>
@@ -53,7 +54,7 @@ function Locale() {
                     item?.items ? (
                         item.items.slice(0,1).map((item: ItemType ,index:number) => (
                             <div key={index} className={`pt-5 pl-[14px] h-[200px] md:h-[277px]  pb-8 pr-16 bg-[#F0F0F0] rounded-[20px]`}>
-                                <h2 className={`text-[##1C1C1C]  text-[22px] md:text-2xl mb-3 ${locale === "ru" ? "unbo" : "interNor"}`}>{item ? getTitle(item, locale) : ''}</h2>
+                                <h2 className={`text-[##1C1C1C]  text-[22px] md:text-2xl mb-3 interBol `}>{item ? getTitle(item, locale) : ''}</h2>
                                 <p className='text-[##1C1C1C] text-lg md:text-base ' 
                                  dangerouslySetInnerHTML={{
                                     __html: DOMPurify.sanitize(String(item? getDescription(item, locale) : "")),
@@ -73,8 +74,8 @@ function Locale() {
                     item?.items ?(
                         item.items.slice(1,4).map((item: ItemType, index:number) => (
                             <div key={index} className={`pt-5 pl-[14px] pb-8 pr-3 md:pr-16 border border-[#D7D7D7] ${index  === 1 ? 'bg-[#F0F0F0]' : 'bg-[#fff]'} rounded-[20px]`}>
-                               <h2 className='text-[##1C1C1C]  text-lg sm:text-[22px] md:text-2xl mb-3'>{item ? getTitle(item, locale) : ''}</h2>
-                                    <p className='text-[##1C1C1C] text-sm sm:text-lg md:text-base ' 
+                               <h2 className={`text-[##1C1C1C]  text-lg sm:text-[22px] md:text-2xl mb-3  interBol`} >{item ? getTitle(item, locale) : ''}</h2>
+                                    <p className='text-[##1C1C1C] text-sm sm:text-lg md:text-base  ' 
                                      dangerouslySetInnerHTML={{
                                         __html: DOMPurify.sanitize(String(item? getDescription(item, locale) : "")),
                                       }}/>
