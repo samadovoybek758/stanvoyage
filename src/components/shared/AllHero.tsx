@@ -22,7 +22,7 @@ const AllHero = ({
 
   return (
     <div
-      className={`h-[400px]  md:h-[353px] rounded-bl-[50px] rounded-br-[50px] overflow-hidden lg:h-[353px] w-full relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-black/60 before:z-10 ${
+      className={`h-[400px]  md:h-[353px] md:rounded-bl-[50px] rounded-bl-[30px] rounded-br-[30px] md:rounded-br-[50px] overflow-hidden lg:h-[353px] w-full relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-black/60 before:z-10 ${
         mbDefault ? "mb-20 md:mb-28 lg:mb-[120px]" : ""
       }`}
     >

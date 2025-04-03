@@ -87,7 +87,7 @@ function CountriesId() {
                 {
                   data?.cities ? (data.cities.map((item: ItemType, index: number) => (
                     <SwiperSlide key={index}>
-                      <Link key={index} href={`/${locale}/countries/${item.uuid}`} className='cursor-pointer'>
+                      <Link key={index} href={`/${locale}/countries/${id}/${item.uuid}`} className='cursor-pointer'>
                         <li className='text-[#2C4691] text-lg w-[200px]  border-b-2 border-[#D7D7D7]'>{getTitle(item, locale)}</li>
                       </Link>
                     </SwiperSlide>
@@ -109,7 +109,7 @@ function CountriesId() {
                   width={752}
                   height={400}
                   alt='imge'
-                  className='rounded-[20px] h-full w-full object-cover'
+                  className='rounded-lg md:rounded-[20px] h-full w-full object-cover'
                   src={baseUrl + data.country.image}
                 />
               ) : (
@@ -129,7 +129,7 @@ function CountriesId() {
                     width={752}
                     height={400}
                     alt='imge'
-                    className='rounded-[20px] h-full w-full'
+                    className='rounded-lg md:rounded-[20px] h-full w-full'
                     src={baseUrl + item.image}
                   />
                 </div>

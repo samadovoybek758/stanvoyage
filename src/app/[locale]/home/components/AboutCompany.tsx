@@ -15,7 +15,7 @@ function AboutCompany() {
   const locale = useLocale()
   const t = useTranslations("home")
   return (
-    <section className='pb-20 md:pb-32 mt-[-200px] xssm:mt-[10px] md:pt-[100px] relative'>
+    <section className='pb-20 md:pb-32 mt-[-200px] ssm:mt-[10px] md:pt-[100px] relative'>
         <div className='container '>
 
         <div className="absolute inset-0 -z-10">
