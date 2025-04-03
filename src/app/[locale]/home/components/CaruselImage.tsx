@@ -21,7 +21,7 @@ function CaruselImage() {
     
 
   return (
-    <section className='mt-[-180px] ssm:mt-[-300px] sm:mt-[-370px] '>
+    <section className='mt-[-200px] ssm:mt-[-300px] sm:mt-[-370px] '>
       <div className='container '>
 
             <div className=' h-[500px] relative '>

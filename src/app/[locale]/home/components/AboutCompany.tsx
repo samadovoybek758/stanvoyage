@@ -24,7 +24,7 @@ function AboutCompany() {
                 alt="Background Image"
                 layout="fill"
                 objectFit="contain"
-                className="z-0 rounded-lg"
+                className="z-0 "
               />
         </div>
             <div className='flex flex-row gap-0 md:gap-4 lg:gap-10 h-[300px] md:h-[500px]  justify-center items-center relative'> 
@@ -34,7 +34,7 @@ function AboutCompany() {
                 width={205}
                 height={266}
                 alt='About Company'
-                className='top-0 left-0 z-10 rounded-[20px] w-full h-full object-cover'
+                className='top-0 left-0 z-10 rounded-lg md:rounded-[20px] w-full h-full object-cover'
                 src={baseUrl + data?.image}
                 />
               </div>
@@ -55,7 +55,7 @@ function AboutCompany() {
                 width={205}   
                 height={266}
                 alt='About Company'
-                className='z-10 rounded-[20px] w-full h-full object-cover '
+                className='z-10 rounded-lg md:rounded-[20px] w-full h-full object-cover '
                 src={baseUrl + data?.image}
                 />
                 </div>

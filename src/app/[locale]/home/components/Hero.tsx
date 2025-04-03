@@ -39,25 +39,25 @@ const Hero = () => {
         autoplay={{ delay: 3500, disableOnInteraction: false }}
         effect="fade"
         loop={true}
-        className="h-[640px]"
+        className=""
       >
             {
               item ? (
                item.map((item:ItemType,index:number) =>(
                 <SwiperSlide key={index}>
-                  <div  className="flex flex-col items-center pt-[110px] md:pt-[128px] hero-slider h-[640px] relative before:bg-gradient-to-b overflow-hidden from-black/30 to-black before:absolute before:inset-0 before:z-0">
-                <div className="absolute inset-0 -z-10 overflov-hidden">
+                  <div  className="flex flex-col items-center pt-[110px] md:rounded-bl-[50px] md:rounded-br-[50px] rounded-bl-[20px] rounded-br-[20px] md:pt-[128px] hero-slider h-[484px] ssm:h-[786px] relative before:bg-gradient-to-b overflow-hidden from-black/30 to-black before:absolute before:inset-0 before:z-0">
+                <div className="absolute inset-0 -z-10 overflov-hidden ">
                   <Image
                     src={baseUrl + item.image}
                     alt="hero"
                     fill
-                    className="object-cover rounded-b-3xl"
+                    className="object-cover md:rounded-bl-[50px] md:rounded-br-[50px] rounded-bl-[20px] rounded-br-[20px]"
                     priority={true}
                   />
                 </div>
                 <div className="relative z-20 flex flex-col items-center h-full pb-7 px-[15px]">
                   <h1
-                    className={`  max-w-[900px] font-normal text-3xl ssm:text-4xl lg:text-5xl md:leading-[60px] mb-3 text-[#fff] text-center 
+                    className={`  max-w-[900px] font-normal text-[32px] ssm:text-[40px] lg:text-[58px] md:leading-[60px] mb-3 text-[#fff] text-center 
                      line-clamp-4 md:line-clamp-3 unbo`}
                   >
                     {item ? getTitle(item, local): ''}
