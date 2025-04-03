@@ -17,7 +17,11 @@
         "title": "Galerie"
     },
     "about": {
-        "title": "À Propos de l'Entreprise"
+        "title": "À Propos de l'Entreprise",
+        "awards": "Récompenses",
+        "location": "Emplacement",
+        "travellers": "Voyageurs",
+        "members": "Membres de l'équipe"
     },
     "countries": {
         "title": "Pays",
@@ -39,7 +43,7 @@
         "title": "Témoignages et Blogs",
         "testimonial": "Témoignages",
         "blog": "Blogs",
-         "other": "Autres blogs"
+        "other": "Autres blogs"
     },
     "footer": {
         "home": "Accueil",

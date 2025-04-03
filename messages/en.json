@@ -18,7 +18,11 @@
     "title": "Gallery"
   },
   "about": {
-    "title": "About Company"
+    "title": "About Company",
+    "awards": "Awards",
+    "location": "Location",
+    "travellers": "Travelers",
+    "members": "Team Members"
   },
   "countries": {
     "title": "Countries",

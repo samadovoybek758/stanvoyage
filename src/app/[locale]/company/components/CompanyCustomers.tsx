@@ -60,6 +60,7 @@ function CompanyCustomer() {
           spaceBetween={16}
           navigation={{ nextEl: ".next", prevEl: ".prev" }}
           slidesPerView={3}
+          loop = {true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             0: {slidesPerView: 1},

@@ -3,7 +3,8 @@ import NewsItemLoading from '@/components/ui/itemLoader/NewsItemLoading';
 import { useGetBlogQuery } from '@/context/api/BlogApi'
 import { getDescription, getTitle } from '@/hook/getLanguage';
 import DOMPurify from "dompurify";
-
+import Image from 'next/image';
+import bgi from '../../../../../public/Images/stanvoyage/local.png'
 import { useLocale } from 'next-intl';
 import React from 'react'
 
@@ -26,50 +27,25 @@ interface ItemType {
 
 function Locale() {
     const {data: item } = useGetBlogQuery({})
-    console.log("blog", item);
-    
-    interface LocaleType { 
-        uuie : number
-        location: string,
-        title: string,
-        desc: string,
-    }
-
-    const data: LocaleType[] = [
-        {
-            uuie: 1,
-            location: "Choyxona",
-            title: "The Heart of Social Life",
-            desc: "Tea houses, or choyxona, are essential in Uzbek daily life. They serve as places for relaxation, socializing, and discussing important matters over a cup of green tea, often accompanied by bread and sweets."
-        },
-        {
-            uuie: 2,
-            location: "Bazaar",
-            title: "The Heart of Social Life",
-            desc: "Tea houses, or choyxona, are essential in Uzbek daily life. They serve as places for relaxation, socializing, and discussing important matters over a cup of green tea, often accompanied by bread and sweets."
-        },
-        {
-            uuie: 3,
-            location: "Choyxonaa",
-            title: "The Heart of Social Life",
-            desc: "Tea houses, or choyxona, are essential in Uzbek daily life. They serve as places for relaxation, socializing, and discussing important matters over a cup of green tea, often accompanied by bread and sweets."
-        },
-        {
-            uuie: 4,
-            location: "Bazaarr",
-            title: "The Heart of Social Life",
-            desc: "Tea houses, or choyxona, are essential in Uzbek daily life. They serve as places for relaxation, socializing, and discussing important matters over a cup of green tea, often accompanied by bread and sweets."
-        },
-    ]
-
+   
     const locale = useLocale()
   return (
     <section className='mb-20 md:mb-32'>
         <div className='container'>
 
             <div className='flex justify-between gap-4 mb-[30px] sm:mb-4'>
-            <div className='pt-[33px] flex-1 locale pl-[17px] pb-[59px] md:p-10 bg-[#2C4691] rounded-[20px] w-full'>
-                <h1 className='text-white text-[24px] sm:text-[56px] max-w-[180px] md:max-w-[150px] sm:max-w-[312px] leading-[115%]'>Local culture and traditions</h1>
+            <div className='pt-[33px] flex-1 relative pl-[17px] pb-[59px] md:p-10 bg-[#2C4691] rounded-[20px] w-full'>
+                
+        <div className="absolute inset-0">
+          <Image
+            src={bgi}
+            alt="Footer Background"
+            layout="fill"
+            quality={100}
+            priority
+          />
+        </div>
+                <h1 className='text-white text-[24px] sm:text-[56px] max-w-[200px]   sm:max-w-[312px] leading-[115%]'>Local culture and traditions</h1>
             </div>
 
             <div className='max-w-[368px] flex-1  md:block hidden'>
@@ -77,7 +53,7 @@ function Locale() {
                     item?.items ? (
                         item.items.slice(0,1).map((item: ItemType ,index:number) => (
                             <div key={index} className={`pt-5 pl-[14px] h-[200px] md:h-[277px]  pb-8 pr-16 bg-[#F0F0F0] rounded-[20px]`}>
-                                <h2 className='text-[##1C1C1C]  text-[22px] md:text-2xl mb-3'>{item ? getTitle(item, locale) : ''}</h2>
+                                <h2 className={`text-[##1C1C1C]  text-[22px] md:text-2xl mb-3 ${locale === "ru" ? "unbo" : "interNor"}`}>{item ? getTitle(item, locale) : ''}</h2>
                                 <p className='text-[##1C1C1C] text-lg md:text-base ' 
                                  dangerouslySetInnerHTML={{
                                     __html: DOMPurify.sanitize(String(item? getDescription(item, locale) : "")),
@@ -95,7 +71,7 @@ function Locale() {
             <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-[30px] sm:gap-4'>
                 {
                     item?.items ?(
-                        item.items.slice(1,data.length).map((item: ItemType, index:number) => (
+                        item.items.slice(1,4).map((item: ItemType, index:number) => (
                             <div key={index} className={`pt-5 pl-[14px] pb-8 pr-3 md:pr-16 border border-[#D7D7D7] ${index  === 1 ? 'bg-[#F0F0F0]' : 'bg-[#fff]'} rounded-[20px]`}>
                                <h2 className='text-[##1C1C1C]  text-lg sm:text-[22px] md:text-2xl mb-3'>{item ? getTitle(item, locale) : ''}</h2>
                                     <p className='text-[##1C1C1C] text-sm sm:text-lg md:text-base ' 

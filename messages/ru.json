@@ -2,7 +2,7 @@
   "header": {
     "home": "Главная",
     "about-us": "О нас",
-    "countries": "Продукты",
+    "countries": "Страны",
     "gallery": "Галерея",
     "travel": "Путешествовать",
     "blog": "Блоги",
@@ -16,18 +16,22 @@
     "title": "Отзывы и Блоги",
     "testimonial": "Отзыв",
     "blog": "Блоги",
-     "other": "Другие блоги"
+    "other": "Другие блоги"
   },
   "gallery": {
     "title": "Галерея"
   },
   "about": {
     "title": "О компании",
-    "button": "Обзор компании"
+    "button": "Обзор компании",
+    "awards": "Награды",
+    "location": "Местоположение",
+    "travellers": "Путешественники",
+    "members": "Члены команды"
   },
   "countries": {
     "title": "Countries",
-    "all-button": "Avdfsfsdfbsdll",
+    "all-button": "все",
     "location": "Местоположение"
   },
   "customer": {

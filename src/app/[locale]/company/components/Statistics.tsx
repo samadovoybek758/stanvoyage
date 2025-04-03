@@ -5,9 +5,11 @@ import awards  from '../../../../../public/Images/stanvoyage/awards.svg'
 import location  from '../../../../../public/Images/stanvoyage/Location.svg'
 import member  from '../../../../../public/Images/stanvoyage/members.svg'
 import travellers  from '../../../../../public/Images/stanvoyage/travellers.svg'
+import { useTranslations } from 'next-intl'
 
 
 function Statistics() {
+    const t = useTranslations("about")
   return (
     <section className='mb-20'>
         <div className='container '>
@@ -25,7 +27,7 @@ function Statistics() {
                     src={awards}
                     alt='awards'
                     />
-                <p className='md:text-lg text-base'>Awards</p>
+                <p className='md:text-lg text-base'>{t("awards")}</p>
                 </div>
             </div>
             <div className='md:w-[224px] md:h-[144px] w-32 h-[100px] flex flex-col pt-[14px] pl-3 md:pl-6 bg-white rounded-[20px] gap-1 md:gap-4'>
@@ -37,7 +39,7 @@ function Statistics() {
                     src={location}
                     alt='awards'
                     />
-                <p className='md:text-lg text-base'>Location</p>
+                <p className='md:text-lg text-base'>{t("location")}</p>
                 </div>
             </div>
             <div className='md:w-[224px] md:h-[144px] w-32 h-[100px] flex flex-col pt-[14px] pl-3 md:pl-6 bg-white rounded-[20px] gap-1 md:gap-4'>
@@ -49,7 +51,7 @@ function Statistics() {
                     src={travellers}
                     alt='awards'
                     />
-                <p className='md:text-lg text-base'>Travelers</p>
+                <p className='md:text-lg text-base'>{t("travellers")}</p>
                 </div>
             </div>
             <div className='md:w-[224px] md:h-[144px] w-32 h-[100px] flex flex-col pt-[14px] pl-3 md:pl-6 bg-white rounded-[20px] gap-1 md:gap-4 '>
@@ -61,7 +63,7 @@ function Statistics() {
                     src={member}
                     alt='awards'
                     />
-                <p className='md:text-lg text-base'>Team Members</p>
+                <p className='md:text-lg text-base'>{t("members")}</p>
                 </div>
             </div>
           </div>

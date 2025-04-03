@@ -78,14 +78,16 @@ function SubCountry() {
         isLoading ? (
             <ImageLoading/>
         ):(
-            <Image
+            <div className="max-h-[500px] w-full">
+              <Image
             width={560}
             height={400}
             alt="city"
             src={baseUrl + data1.image}
-            className="rounded-[20px] w-full"
+            className="rounded-[20px] w-full h-full oblect-cover"
             quality={100}
             />
+            </div>
         )
        }
         </div>

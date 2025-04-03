@@ -17,7 +17,7 @@ import { getDescription, getSubtitle, getTitle } from '@/hook/getLanguage';
 import DOMPurify from "dompurify";
 import { baseUrl } from '../../../../../public/static/Index';
 import ImageLoading from '@/components/ui/ImageLoading';
- 
+
 
 
 interface TypeService {
@@ -76,8 +76,7 @@ function TravelDays() {
     const swiperRef = useRef<SwiperCore | null>(null);
     const { id } = useParams()
     const { data } = useGetTripByIdQuery(id as string)
-    
-    console.log("dsfs",data);
+
 
     const y = useTranslations('gallery')
     const locale = useLocale()
@@ -85,8 +84,8 @@ function TravelDays() {
         <section className='mt-20 mb-32'>
             <div className='container'>
 
-                <SectionTitle title={data?.trip ? getTitle(data.trip , locale): ''} />
-                
+                <SectionTitle title={data?.trip ? getTitle(data.trip, locale) : ''} />
+
                 <div className='md:h-[400px] mb-10 sm:mb-20 h-[250px] sm:h-[300px]' >
                     {
                         data?.trip?.image ? (
@@ -167,15 +166,18 @@ function TravelDays() {
                         </div>
                     </div>
                     <Swiper
-                        modules={[Autoplay , Navigation]}
-                        autoplay={{ delay: 3000 }}
+                        modules={[Autoplay, Navigation]}
+                        autoplay={{
+                            delay: 2000,
+                           
+                        }}
                         loop={true}
                         navigation={{ nextEl: ".next", prevEl: ".prev" }}
                         spaceBetween={15}
                         breakpoints={{
                             550: { slidesPerView: 1 },
                             892: { slidesPerView: 2 },
-                            700: { slidesPerView: 1.5 },
+                            650: { slidesPerView: 1.5 },
                             600: { slidesPerView: 1.2 },
                         }}
 

@@ -10,6 +10,9 @@ import { getDescription, getTitle } from '@/hook/getLanguage'
 import { useLocale, useTranslations } from 'next-intl'
 import Loading from '@/components/ui/Loading'
 import DOMPurify from "dompurify";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import Link from 'next/link'
 
 
@@ -69,20 +72,32 @@ function CountriesId() {
           )}
 
 
-          <div className='   rounded-[20px] p-3 md:hidden  block'>
-            <span className='text-2xl font-medium'>{t("location")}</span>
+          <div className=' mb-5 p-3 md:hidden overflow-hidden block'>
 
-            <ul className='grid sm:grid-cols-auto grid-cols-2 mt-5 mb-5  justify-between gap-4 w-full'>
-              {
-                data?.cities ? (data.cities.map((item: ItemType, index: number) => (
-                  <Link key={index}  href={`/${locale}/countries/${item.uuid}`} className='cursor-pointer'>
-                    <li className='text-[#2C4691] text-lg  border-b-2 border-[#D7D7D7]'>{getTitle(item, locale)}</li>
-                  </Link>
-                ))) : (
-                  <Loading className='text-[#2C4691] text-lg  border-b-2 border-[#D7D7D7]' />
-                )
-              }
-            </ul>
+            <span className='text-2xl font-medium '>{t("location")}</span>
+            <div className='mt-4 max-w-[200px]'>
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1}
+              loop= {true}
+              autoplay={{ delay: 2000, disableOnInteraction: false }}
+            >
+              <ul className=''>
+                {
+                  data?.cities ? (data.cities.map((item: ItemType, index: number) => (
+                    <SwiperSlide key={index}>
+                      <Link key={index} href={`/${locale}/countries/${item.uuid}`} className='cursor-pointer'>
+                        <li className='text-[#2C4691] text-lg w-[200px]  border-b-2 border-[#D7D7D7]'>{getTitle(item, locale)}</li>
+                      </Link>
+                    </SwiperSlide>
+                  ))) : (
+                    <Loading className='text-[#2C4691] text-lg  border-b-2 border-[#D7D7D7]' />
+                  )
+                }
+              </ul>
+            </Swiper>
+            </div>
           </div>
 
 

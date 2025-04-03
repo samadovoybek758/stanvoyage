@@ -38,6 +38,29 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Unbounded";
+  src: url("/fonts/unbounded/Unbounded-SemiBold.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+.unbo{
+  font-family: "Unbounded";
+  font-weight: 300;
+}
+
+.interMed{
+  font-family: "Inter";
+  font-weight: 500;
+}
+.interNor{
+  font-family: "Inter";
+  font-weight: 400;
+}
+.interBol{
+  font-family: "Inter";
+  font-weight: 700;
+}
 /* .thumb-slide {
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;

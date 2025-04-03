@@ -16,7 +16,11 @@
     "title": "Galerie"
   },
   "about": {
-    "title": "Über das Unternehmen"
+    "title": "Über das Unternehmen",
+    "awards": "Auszeichnungen",
+    "location": "Standort",
+    "travellers": "Reisende",
+    "members": "Teammitglieder"
   },
   "countries": {
     "title": "Länder",
