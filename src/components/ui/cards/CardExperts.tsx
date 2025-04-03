@@ -38,7 +38,7 @@ const CardExperts = ({ item, className = "" }: { item: TravelsCardProps; classNa
                     className="object-contain"
                 />
             </div>
-            <h1 className="text-[#080808] text-lg sm:text-2xl mb-3 font-medium">{getTitle(item, locale)}</h1>
+            <h1 className="text-[#080808] text-lg sm:text-2xl mb-3 font-medium line-clamp-2">{getTitle(item, locale)}</h1>
             <p className="text-[#080808] text-sm sm:text-base line-clamp-3"
             dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(

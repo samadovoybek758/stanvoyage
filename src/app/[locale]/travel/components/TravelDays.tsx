@@ -113,15 +113,13 @@ function TravelDays() {
                             </div>
 
                             <div className='max-w-[573px]'>
-                                <ul className='text-lg font-normal list-disc'>
-                                    <li
-                                        dangerouslySetInnerHTML={{
-                                            __html: DOMPurify.sanitize(
-                                                String(item ? getDescription(item, locale) : "")
-                                            ),
-                                        }}
-                                    />
-                                </ul>
+                                <p className='text-lg font-normal'
+                                    dangerouslySetInnerHTML={{
+                                        __html: DOMPurify.sanitize(
+                                            String(item ? getDescription(item, locale) : "")
+                                        ),
+                                    }}
+                                />
                             </div>
                         </div>
                     ))}
@@ -131,14 +129,31 @@ function TravelDays() {
 
 
 
-                <div className='grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 gap-4'>
-                    {
-                        data?.services && data?.services.map((item: TypeService) => (
-                            <div key={item.uuid}>
-                                <CardExperts item={item} className='pt-[30px] pl-6 pb-5 pr-[27px] ' />
-                            </div>
-                        ))
-                    }
+                <div className=' gap-4'>
+                    <Swiper
+                        modules={[Autoplay]}
+                        spaceBetween={16}
+                        slidesPerView={3}
+                        loop={true}
+                        autoplay={{ delay: 3000, disableOnInteraction: false }}
+                        breakpoints={{
+                            0: { slidesPerView: 1 },
+                            500: { slidesPerView: 1.5 },
+                            700: { slidesPerView: 2 },
+                            850: { slidesPerView: 2.5 },
+                            1024: { slidesPerView: 3 },
+                        }}
+
+                    >
+                        {
+                            data?.services && data?.services.map((item: TypeService, index: number) => (
+                                <SwiperSlide key={index} className="w-full">
+                                    <CardExperts item={item} className={`pt-[30px] pl-6 pb-5  pr-[27px] ${index % 2 == 0 ? "bg-[#F0F0F0]" : 'white'}`} />
+                                </SwiperSlide>
+                            ))
+                        }
+
+                    </Swiper>
                 </div>
 
 
@@ -169,7 +184,7 @@ function TravelDays() {
                         modules={[Autoplay, Navigation]}
                         autoplay={{
                             delay: 2000,
-                           
+
                         }}
                         loop={true}
                         navigation={{ nextEl: ".next", prevEl: ".prev" }}
