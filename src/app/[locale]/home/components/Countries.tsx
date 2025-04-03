@@ -43,7 +43,7 @@ function Countries() {
           <SectionTitle title={t('title')} />
 
           <Link href={`/${locale}/countries`} className="flex items-center gap-[6px]">
-            <span className={`${locale === "ru" ? "unbo": "interNor"} text-lg`}>{t('all-button')}</span>
+            <span className={`interNor text-lg md:text-2xl`}>{t('all-button')}</span>
             <Image
               width={20}
               height={20}

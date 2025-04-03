@@ -45,7 +45,7 @@ const Footer = () => {
 
 
   return (
-    <footer className=" footer px-4  w-full pt-[55px] md:pt-[239px]   relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-b before:from-[#F0F0F0]/0 before:to-[#F0F0F0]/60 before:-z-10" id="footer ">
+    <footer className=" footer px-4  w-full pt-[55px] md:pt-[239px]   relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-b before:from-[#F0F0F0]/0 before:to-[#F0F0F0]/60 before:-z-10" id="footer">
       <div className="max-w-[1190px] mx-auto ">
 
         <div className="absolute inset-0 -z-10 opacity-70 h-full">
