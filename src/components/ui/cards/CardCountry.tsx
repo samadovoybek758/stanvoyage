@@ -3,6 +3,7 @@ import icon from '../../../../public/Images/stanvoyage/all.svg'
 import { getTitle } from "@/hook/getLanguage";
 import { useLocale } from "next-intl";
 import { baseUrl } from "../../../../public/static/Index";
+import Link from "next/link";
 
 interface CardNewsProps {
   uuid: string;
@@ -41,7 +42,7 @@ const CardCountry = ({ item }: { item: CardNewsProps }) => {
         />
     </div>
 
-        <div className="absolute bottom-[14px] left-[14px] flex items-center">
+        <Link  className="absolute bottom-[14px] left-[14px] flex items-center" href={`/${locale}/countries/${item.uuid}`}>
         <div className="py-1 px-[14px] rounded-[32px] bg-white  ">
             <h1 className=" text-lg">{getTitle(item, locale)}</h1>
         </div>
@@ -55,7 +56,7 @@ const CardCountry = ({ item }: { item: CardNewsProps }) => {
           className="w-[5px] h-[10px]"
           />
         </div>
-        </div>
+        </Link>
    
     </div>
   );
