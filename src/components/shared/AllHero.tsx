@@ -38,11 +38,7 @@ const AllHero = ({
       </div>
       <div className="w-full h-full gap-[14px] items-center flex-col flex justify-center relative z-20 px-[15px]">
         <h1
-          className={`font-normal text-white text-2xl text-center md:text-4xl lg:text-[50px] lg:leading-[60px] ${
-            locale === "ru"
-              ? "font-brigends-unbounded"
-              : "font-brigends-expanded"
-          }`}
+          className={`font-normal text-white text-2xl text-center md:text-4xl lg:text-[50px] lg:leading-[60px] unbo`}
         >
           {title}
         </h1>
